@@ -1,51 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Star } from "lucide-react";
-
-// Swap `image` for real photos (e.g. imported assets like your `vatican1`
-// import) once you have them — these are placeholders so the layout can
-// be previewed.
-const REVIEWS = [
-  {
-    author: "Ananya Rao",
-    role: "COO, Fintech Startup",
-    time: "2 months ago",
-    rating: 5,
-    image: "https://picsum.photos/seed/unisetgo-1/400/500",
-    text: "UniSetGo planned our 60-person offsite to Dubai down to the last transfer. Zero hiccups, and finance loved the pricing.",
-  },
-  {
-    author: "Rohit & Priya",
-    role: "Bangalore",
-    time: "4 months ago",
-    rating: 5,
-    image: "https://picsum.photos/seed/unisetgo-2/400/500",
-    text: "The Switzerland honeymoon they built for us felt like a Netflix travel show. Every hotel was a story, every transfer on time.",
-  },
-  {
-    author: "Vikram Sethi",
-    role: "MD, Consulting Firm",
-    time: "6 months ago",
-    rating: 5,
-    image: "https://picsum.photos/seed/unisetgo-3/400/500",
-    text: "Our board summit needed white-glove handling in Doha. They delivered — and stayed on WhatsApp through the whole trip.",
-  },
-  {
-    author: "Meera Iyer",
-    role: "Founder, D2C Brand",
-    time: "3 weeks ago",
-    rating: 5,
-    image: "https://picsum.photos/seed/unisetgo-4/400/500",
-    text: "First time using a travel partner for a work retreat and it was seamless. Clear pricing, fast replies, no surprises on ground.",
-  },
-  {
-    author: "Karan Malhotra",
-    role: "Head of People, SaaS Co",
-    time: "5 months ago",
-    rating: 5,
-    image: "https://picsum.photos/seed/unisetgo-5/400/500",
-    text: "We've done three offsites with UniSetGo now. Each one better organised than the last — they actually listen to feedback.",
-  },
-];
+import { TESTIMONIALS as REVIEWS } from "@/data/testimonials";
 
 const AUTOPLAY_MS = 5000;
 
@@ -141,13 +96,13 @@ export default function TestimonialsCarousel() {
       </div>
 
       <div
-        className="relative mx-auto h-[360px] max-w-3xl sm:h-[300px]"
+        className="relative mx-auto h-[430px] max-w-3xl sm:h-[360px]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
         {positioned.map(({ review, index, className, interactive }) => (
           <article
-            key={review.author}
+            key={index}
             tabIndex={interactive ? 0 : -1}
             aria-hidden={!interactive}
             className={`absolute inset-0 mx-auto flex w-full max-w-2xl transform-gpu overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-elegant)] transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] ${className}`}
@@ -167,24 +122,21 @@ export default function TestimonialsCarousel() {
                     <Star key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
-                <blockquote className="line-clamp-4 text-sm text-foreground/90 sm:text-base">
+                <blockquote className="line-clamp-6 whitespace-pre-line text-sm text-foreground/90 sm:text-base">
                   "{review.text}"
                 </blockquote>
               </div>
 
               <div className="mt-4">
-                {/* <button
+                <button
                   type="button"
                   className="inline-flex w-fit items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary hover:bg-primary hover:text-primary-foreground sm:text-sm"
                 >
                   Read Full Review <ArrowUpRight className="h-3.5 w-3.5" />
-                </button> */}
+                </button>
 
                 <div className="mt-4 border-t border-border pt-3">
                   <p className="font-bold text-foreground">{review.author}</p>
-                  <p className="text-xs text-muted-foreground sm:text-sm">
-                    {review.role} · {review.time}
-                  </p>
                 </div>
               </div>
             </div>
@@ -213,7 +165,7 @@ export default function TestimonialsCarousel() {
       <div className="mt-8 flex justify-center gap-2">
         {REVIEWS.map((review, i) => (
           <button
-            key={review.author}
+            key={i}
             type="button"
             onClick={() => handleManualNav(() => goTo(i))}
             aria-label={`Go to testimonial ${i + 1}`}
