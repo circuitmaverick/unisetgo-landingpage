@@ -19,6 +19,7 @@ import { waLink } from "@/lib/contact";
 import { Button } from "@/components/ui/button";
 import vatican1 from '@/assets/pkg-vatican-1.jpg';
 import TestimonialsCarousel from "@/components/testimonials-carousel";
+import Pillar from "@/components/pillar";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -437,26 +438,6 @@ function Stat({ n, label }: { n: string; label: string }) {
       <p className="mt-1 text-xs uppercase tracking-widest text-white/60">
         {label}
       </p>
-    </div>
-  );
-}
-
-function Pillar({
-  icon: Icon,
-  title,
-  body,
-}: {
-  icon: typeof Compass;
-  title: string;
-  body: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
-      <span className="grid h-11 w-11 place-items-center rounded-xl gradient-accent text-accent-foreground">
-        <Icon className="h-5 w-5" />
-      </span>
-      <h3 className="mt-4 text-lg font-bold text-foreground">{title}</h3>
-      <p className="mt-1 text-sm text-muted-foreground">{body}</p>
     </div>
   );
 }
