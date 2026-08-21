@@ -369,6 +369,158 @@ export const PACKAGES: Package[] = [
     exclusions: exc,
   },
   {
+    slug: "russia-imperial-russian-journey",
+    title: "Russia: An Imperial Journey Through Moscow & St. Petersburg",
+    region: "central-asia",
+    subRegion: "russia",
+    groupTag: "Russia",
+    country: "Russia",
+    durationDays: 9,
+    nights: 8,
+    priceFrom: 89999,
+    heroImage: russia1,
+    gallery: [russia1, russia2, russia3, russia4],
+    tripType: "cultural",
+    summary:
+      "Discover the grandeur, history, and culture of Russia on a 9-day journey through Moscow and St. Petersburg. Explore magnificent palaces, historic squares, world-renowned museums, grand cathedrals, and the architectural treasures that showcase Russia's imperial and modern identity.",
+    overview:
+      "This 8N/9D Russian adventure connects the country's two most iconic cities, Moscow and St. Petersburg. Begin in Moscow with visits to Red Square, the Kremlin, Saint Basil's Cathedral, and the city's historic neighborhoods before travelling to St. Petersburg. Explore the magnificent Hermitage Museum, Palace Square, Peterhof Palace, and the city's elegant canals while experiencing Russian cuisine, culture, and architecture along the way.",
+    highlights: [
+      "Explore the iconic Red Square and Moscow Kremlin",
+      "Visit the colorful Saint Basil's Cathedral",
+      "Experience Moscow's historic streets and vibrant city life",
+      "Discover the world-famous Hermitage Museum",
+      "Explore the magnificent Peterhof Palace and gardens",
+      "Visit Palace Square and St. Petersburg's historic center",
+      "Experience Russian culture, cuisine, architecture, and nightlife",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Moscow",
+        detail:
+          "Arrive in Moscow and transfer to your hotel. After check-in and some time to relax, enjoy an introductory evening around the city center and experience Moscow's illuminated streets before an overnight stay.",
+      },
+      {
+        day: 2,
+        title: "Moscow City & Red Square",
+        detail:
+          "Explore the heart of Moscow with visits to Red Square, Saint Basil's Cathedral, the Kremlin surroundings, GUM department store, and nearby historic landmarks before enjoying an evening at leisure.",
+      },
+      {
+        day: 3,
+        title: "Moscow Kremlin & Cultural Heritage",
+        detail:
+          "Discover the Moscow Kremlin and its historic cathedrals before exploring Arbat Street and other cultural landmarks. Spend the evening experiencing Moscow's famous metro stations or enjoying local cuisine.",
+      },
+      {
+        day: 4,
+        title: "Moscow Leisure & Local Experience",
+        detail:
+          "Enjoy a relaxed day exploring Moscow at your own pace, with opportunities to visit museums, parks, shopping districts, or additional attractions before an evening of leisure in the Russian capital.",
+      },
+      {
+        day: 5,
+        title: "Moscow to St. Petersburg",
+        detail:
+          "Travel from Moscow to St. Petersburg by high-speed train. After checking into your hotel, take an introductory city walk through the historic center and enjoy the atmosphere of Russia's imperial capital.",
+      },
+      {
+        day: 6,
+        title: "St. Petersburg City Tour",
+        detail:
+          "Explore St. Petersburg's iconic landmarks including Palace Square, the Church of the Savior on Spilled Blood, Nevsky Prospect, and the city's historic canals before enjoying an evening at leisure.",
+      },
+      {
+        day: 7,
+        title: "Hermitage Museum & Imperial St. Petersburg",
+        detail:
+          "Visit the magnificent State Hermitage Museum and explore its extraordinary collection of art and historical treasures. Continue through the surrounding Palace Square area and enjoy the elegant architecture of the city center.",
+      },
+      {
+        day: 8,
+        title: "Peterhof Palace & Gardens",
+        detail:
+          "Take an excursion to Peterhof Palace, famous for its grand imperial architecture, elaborate fountains, and extensive gardens. Return to St. Petersburg and spend the evening exploring the city or enjoying a farewell dinner.",
+      },
+      {
+        day: 9,
+        title: "Departure from St. Petersburg",
+        detail:
+          "Enjoy breakfast and some final free time depending on your departure schedule before checking out and transferring to the airport for your onward journey.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+  {
+    slug: "russia-moscow-st-petersburg-escape",
+    title: "Russia: Moscow to St. Petersburg — A Grand European Escape",
+    region: "central-asia",
+    subRegion: "russia",
+    groupTag: "Russia",
+    country: "Russia",
+    durationDays: 6,
+    nights: 5,
+    priceFrom: 64999,
+    heroImage: russia1,
+    gallery: [russia1, russia2, russia3, russia4],
+    tripType: "cultural",
+    summary:
+      "Experience the highlights of Russia on a memorable 6-day journey through Moscow and St. Petersburg. From the legendary Red Square and Kremlin to the grand palaces and waterways of St. Petersburg, discover the country's remarkable history, architecture, art, and culture.",
+    overview:
+      "This 5N/6D Russia package offers a compact introduction to the country's two most celebrated cities. Explore Moscow's historic center, Red Square, Kremlin, and iconic cathedrals before travelling by high-speed train to St. Petersburg. Discover Palace Square, the Hermitage Museum, Nevsky Prospect, and the city's magnificent imperial architecture before concluding your journey.",
+    highlights: [
+      "Visit Moscow's iconic Red Square",
+      "Explore the historic Moscow Kremlin",
+      "Experience Moscow's grand metro stations",
+      "Travel between Moscow and St. Petersburg by high-speed train",
+      "Discover the world-renowned Hermitage Museum",
+      "Explore Palace Square and Nevsky Prospect",
+      "Experience the architectural and cultural heritage of Russia",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Moscow",
+        detail:
+          "Arrive in Moscow and transfer to your hotel for check-in and rest. Later, enjoy an introductory evening around the city center, taking in Moscow's illuminated landmarks and vibrant atmosphere.",
+      },
+      {
+        day: 2,
+        title: "Moscow City Highlights",
+        detail:
+          "Explore Red Square, Saint Basil's Cathedral, the Kremlin surroundings, GUM, and other historic landmarks in central Moscow before spending the evening at leisure.",
+      },
+      {
+        day: 3,
+        title: "Moscow Cultural Experience",
+        detail:
+          "Discover more of Moscow with visits to the Kremlin and its historic cathedrals, followed by a walk along Arbat Street and an opportunity to experience the city's famous metro stations and local cuisine.",
+      },
+      {
+        day: 4,
+        title: "Moscow to St. Petersburg",
+        detail:
+          "Take a high-speed train from Moscow to St. Petersburg. After hotel check-in, explore the historic city center, walk along Nevsky Prospect, and enjoy an evening surrounded by the city's imperial architecture.",
+      },
+      {
+        day: 5,
+        title: "St. Petersburg Heritage Tour",
+        detail:
+          "Explore Palace Square, the Hermitage Museum, the Church of the Savior on Spilled Blood, and other historic landmarks before enjoying free time to explore St. Petersburg's canals, streets, and local dining scene.",
+      },
+      {
+        day: 6,
+        title: "Departure from St. Petersburg",
+        detail:
+          "Enjoy breakfast and final free time depending on your departure schedule before checking out and transferring to the airport for your onward journey.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+  {
     slug: "georgia-caucasus-discovery",
     title: "Georgia: Caucasus Discovery",
     region: "central-asia",
@@ -757,6 +909,164 @@ export const PACKAGES: Package[] = [
     exclusions: exc,
   },
   {
+    slug: "china-ancient-wonders-modern-marvels",
+    title: "China: Ancient Wonders & Modern Marvels",
+    region: "central-asia",
+    subRegion: "china",
+    groupTag: "China",
+    country: "China",
+    durationDays: 6,
+    nights: 5,
+    priceFrom: 74999,
+    heroImage: china1,
+    gallery: [china1, china2, china3, china4],
+    tripType: "cultural",
+    summary:
+      "Discover the fascinating contrast between ancient heritage and modern city life on a 6-day journey through Beijing and Shanghai. Walk along the Great Wall, explore the Forbidden City, admire the historic Temple of Heaven, and experience Shanghai's dazzling skyline and vibrant waterfront.",
+    overview:
+      "This 5N/6D China experience combines the country's historic imperial capital with its dynamic modern metropolis. Begin in Beijing with visits to the Great Wall, Forbidden City, Tiananmen Square, and Temple of Heaven before travelling to Shanghai. Explore the Bund, Yu Garden, and the city's modern skyline while experiencing the unique blend of Chinese tradition and contemporary urban life.",
+    highlights: [
+      "Walk along the legendary Great Wall of China",
+      "Explore the magnificent Forbidden City",
+      "Visit historic Tiananmen Square and Temple of Heaven",
+      "Experience Beijing's traditional hutongs and local culture",
+      "Explore Shanghai's iconic Bund waterfront",
+      "Discover the historic beauty of Yu Garden",
+      "Admire Shanghai's spectacular modern skyline",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Beijing",
+        detail:
+          "Arrive in Beijing and transfer to your hotel for check-in and relaxation. In the evening, enjoy a leisurely introduction to the city and explore the local surroundings while experiencing Beijing's vibrant atmosphere.",
+      },
+      {
+        day: 2,
+        title: "Beijing Imperial Heritage",
+        detail:
+          "Explore Tiananmen Square and the magnificent Forbidden City, discovering the history and architecture of China's imperial era. Continue to Jingshan Park for panoramic views before enjoying an evening at leisure.",
+      },
+      {
+        day: 3,
+        title: "Great Wall of China",
+        detail:
+          "Take a scenic excursion to the Great Wall of China and spend time walking along one of the world's most iconic landmarks. Return to Beijing and relax in the evening or explore the city's traditional hutongs.",
+      },
+      {
+        day: 4,
+        title: "Beijing to Shanghai",
+        detail:
+          "Visit the Temple of Heaven in the morning before travelling to Shanghai by high-speed train. After hotel check-in, enjoy an evening walk along the illuminated Bund and admire the city's spectacular skyline.",
+      },
+      {
+        day: 5,
+        title: "Shanghai City Experience",
+        detail:
+          "Explore Shanghai's historic and modern highlights, including Yu Garden, the Old City, Nanjing Road, and the Bund. Enjoy free time for shopping, dining, and experiencing the energy of China's most cosmopolitan city.",
+      },
+      {
+        day: 6,
+        title: "Departure from Shanghai",
+        detail:
+          "Enjoy breakfast and some final free time depending on your departure schedule before checking out and transferring to Shanghai Airport for your onward journey.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+  {
+    slug: "china-grand-heritage-odyssey",
+    title: "China: The Grand Heritage & Discovery Odyssey",
+    region: "central-asia",
+    subRegion: "china",
+    groupTag: "China",
+    country: "China",
+    durationDays: 10,
+    nights: 9,
+    priceFrom: 124999,
+    heroImage: china1,
+    gallery: [china1, china2, china3, china4],
+    tripType: "cultural",
+    summary:
+      "Embark on an extraordinary 10-day journey through China's most captivating destinations, from the imperial grandeur of Beijing and the ancient warriors of Xi'an to the futuristic skyline of Shanghai. Discover legendary landmarks, historic cities, traditional culture, and breathtaking landscapes along the way.",
+    overview:
+      "This 9N/10D China expedition offers a deeper exploration of the country's history, culture, and modern identity. Begin in Beijing with the Great Wall, Forbidden City, and Temple of Heaven, then travel to Xi'an to discover the famous Terracotta Army and ancient city walls. Continue to Shanghai for historic neighborhoods, gardens, the Bund, and a spectacular modern skyline. The itinerary combines iconic attractions with cultural experiences and comfortable travel between destinations.",
+    highlights: [
+      "Walk along the iconic Great Wall of China",
+      "Explore the Forbidden City and imperial Beijing",
+      "Visit the historic Temple of Heaven",
+      "Discover the world-famous Terracotta Army in Xi'an",
+      "Explore Xi'an's ancient city walls and Muslim Quarter",
+      "Experience Shanghai's Bund and futuristic skyline",
+      "Discover traditional Chinese gardens, markets, and local culture",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Beijing",
+        detail:
+          "Arrive in Beijing and transfer to your hotel for check-in and rest. Spend the evening at leisure, getting your first glimpse of the Chinese capital and exploring the nearby streets and local dining scene.",
+      },
+      {
+        day: 2,
+        title: "Beijing Imperial Capital",
+        detail:
+          "Explore Tiananmen Square and the vast Forbidden City, discovering the palaces, courtyards, and history of China's imperial dynasties. Continue to Jingshan Park for panoramic views before enjoying a relaxed evening.",
+      },
+      {
+        day: 3,
+        title: "Great Wall Adventure",
+        detail:
+          "Travel to the Great Wall of China for a memorable sightseeing and walking experience along its historic fortifications and mountain landscapes. Return to Beijing and spend the evening exploring traditional hutongs or relaxing.",
+      },
+      {
+        day: 4,
+        title: "Temple of Heaven & Beijing Culture",
+        detail:
+          "Visit the Temple of Heaven and explore its impressive architecture and surrounding park before experiencing Beijing's traditional neighborhoods, local markets, and hutongs for a closer look at the city's everyday culture.",
+      },
+      {
+        day: 5,
+        title: "Beijing to Xi'an",
+        detail:
+          "Travel from Beijing to Xi'an by high-speed train. After checking into your hotel, explore the ancient city center and enjoy an evening walk around the beautifully illuminated historic streets.",
+      },
+      {
+        day: 6,
+        title: "Terracotta Army & Ancient Xi'an",
+        detail:
+          "Visit the world-famous Terracotta Army and discover the remarkable history of China's first emperor. Return to Xi'an to explore the ancient city walls and experience the lively atmosphere of the Muslim Quarter.",
+      },
+      {
+        day: 7,
+        title: "Xi'an to Shanghai",
+        detail:
+          "Enjoy some morning leisure time in Xi'an before travelling to Shanghai by high-speed train or domestic flight. After hotel check-in, take an evening walk along the Bund and admire Shanghai's illuminated skyline.",
+      },
+      {
+        day: 8,
+        title: "Shanghai Heritage & Gardens",
+        detail:
+          "Explore Yu Garden and Shanghai's historic Old City before visiting the Bund and Nanjing Road. Enjoy the contrast between traditional architecture and the modern cityscape while experiencing Shanghai's vibrant urban culture.",
+      },
+      {
+        day: 9,
+        title: "Modern Shanghai Experience",
+        detail:
+          "Discover Shanghai's contemporary side with opportunities to visit a city observation deck, explore modern districts, enjoy shopping, or take a relaxing Huangpu River cruise while taking in the city's impressive skyline.",
+      },
+      {
+        day: 10,
+        title: "Departure from Shanghai",
+        detail:
+          "Enjoy breakfast and some final free time for shopping or sightseeing depending on your departure schedule before checking out and transferring to Shanghai Airport for your onward journey.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+  {
     slug: "japan-golden-route",
     title: "Japan: Golden Route",
     region: "central-asia",
@@ -826,6 +1136,182 @@ export const PACKAGES: Package[] = [
         day: 8,
         title: "Departure",
         detail: "Transfer to Kansai airport for your flight home.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+  {
+    slug: "japan-land-of-rising-adventures",
+    title: "Japan: The Land of Rising Adventures",
+    region: "central-asia",
+    subRegion: "japan",
+    groupTag: "Japan",
+    country: "Japan",
+    durationDays: 7,
+    nights: 6,
+    priceFrom: 109999,
+    heroImage: japan1,
+    gallery: [japan1, japan2, japan3, japan4],
+    tripType: "cultural",
+    summary:
+      "Discover Japan's captivating blend of ancient traditions and futuristic city life on a 7-day journey through Tokyo, Mount Fuji, Kyoto, and Osaka. Explore historic temples, vibrant neighborhoods, scenic landscapes, and iconic landmarks while experiencing the unique culture and hospitality of Japan.",
+    overview:
+      "This 6N/7D Japan experience combines the energy of Tokyo with the cultural heritage of Kyoto and the vibrant atmosphere of Osaka. Explore Tokyo's iconic districts and temples, take in spectacular views around Mount Fuji, discover Kyoto's traditional shrines and historic streets, and finish your journey with Osaka's famous food and nightlife scene.",
+    highlights: [
+      "Explore Tokyo's iconic neighborhoods and landmarks",
+      "Visit the historic Senso-ji Temple in Asakusa",
+      "Experience scenic views of Mount Fuji",
+      "Discover Kyoto's temples, shrines, and traditional streets",
+      "Walk through the famous Arashiyama Bamboo Grove",
+      "Experience Osaka's vibrant Dotonbori district",
+      "Enjoy authentic Japanese cuisine and cultural experiences",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Tokyo",
+        detail:
+          "Arrive in Tokyo and transfer to your hotel for check-in and rest. Spend the evening exploring the nearby streets and experiencing Tokyo's vibrant atmosphere, cuisine, and illuminated cityscape.",
+      },
+      {
+        day: 2,
+        title: "Tokyo City Exploration",
+        detail:
+          "Explore Tokyo's highlights with visits to Senso-ji Temple in Asakusa, Nakamise Street, Meiji Shrine, and the bustling districts of Shibuya and Harajuku. End the day with the famous Shibuya Crossing and an evening in the city.",
+      },
+      {
+        day: 3,
+        title: "Mount Fuji Excursion",
+        detail:
+          "Take a scenic day trip towards Mount Fuji, visiting the Fuji Five Lakes region or Hakone depending on seasonal conditions. Enjoy panoramic mountain views, scenic landscapes, and traditional Japanese surroundings before returning to Tokyo.",
+      },
+      {
+        day: 4,
+        title: "Tokyo to Kyoto",
+        detail:
+          "Travel to Kyoto by high-speed Shinkansen train. After checking into your hotel, explore the historic Gion district and traditional streets while experiencing Kyoto's unique atmosphere and cultural heritage.",
+      },
+      {
+        day: 5,
+        title: "Kyoto Heritage Tour",
+        detail:
+          "Discover Kyoto's iconic landmarks including Fushimi Inari Shrine, Kiyomizu-dera Temple, and the historic Higashiyama district. Explore traditional streets, local shops, and Japanese cultural experiences before enjoying a relaxed evening.",
+      },
+      {
+        day: 6,
+        title: "Kyoto to Osaka",
+        detail:
+          "Visit the scenic Arashiyama Bamboo Grove and surrounding attractions before travelling to Osaka. Spend the evening exploring Dotonbori, sampling famous Osaka street food, and experiencing the city's lively nightlife.",
+      },
+      {
+        day: 7,
+        title: "Departure from Osaka",
+        detail:
+          "Enjoy breakfast and some final free time for shopping or sightseeing depending on your departure schedule before checking out and transferring to Osaka Airport for your onward journey.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+  {
+    slug: "japan-grand-cultural-expedition",
+    title: "Japan: The Grand Cultural & Scenic Expedition",
+    region: "central-asia",
+    subRegion: "japan",
+    groupTag: "Japan",
+    country: "Japan",
+    durationDays: 12,
+    nights: 11,
+    priceFrom: 179999,
+    heroImage: japan1,
+    gallery: [japan1, japan2, japan3, japan4],
+    tripType: "cultural",
+    summary:
+      "Embark on an immersive 12-day journey through Japan's iconic cities, sacred temples, mountain landscapes, and traditional towns. From the neon streets of Tokyo and the slopes of Mount Fuji to the cultural treasures of Kyoto, the food capital of Osaka, and the historic beauty of Nara and Hiroshima, experience the many faces of Japan.",
+    overview:
+      "This 11N/12D Japan expedition offers a deeper exploration of the country's culture, history, nature, and modern lifestyle. Begin in Tokyo before travelling through the Mount Fuji region and onward to Kyoto. Discover Nara's ancient temples and friendly deer, experience Osaka's food and entertainment districts, and visit Hiroshima and Miyajima for a powerful journey through Japan's history. The itinerary balances major attractions with cultural experiences, scenic excursions, and leisure time.",
+    highlights: [
+      "Explore Tokyo's modern districts and historic landmarks",
+      "Experience the scenic beauty of Mount Fuji and Hakone",
+      "Discover Kyoto's ancient temples, shrines, and traditional neighborhoods",
+      "Walk through the iconic Arashiyama Bamboo Grove",
+      "Visit Nara's historic temples and famous deer park",
+      "Experience Osaka's vibrant food and entertainment scene",
+      "Explore Hiroshima and the sacred island of Miyajima",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Tokyo",
+        detail:
+          "Arrive in Tokyo and transfer to your hotel for check-in and rest. Spend the evening at leisure, exploring the surrounding neighborhood and getting your first taste of Japanese food and city life.",
+      },
+      {
+        day: 2,
+        title: "Tokyo Heritage & Culture",
+        detail:
+          "Explore Asakusa and Senso-ji Temple before visiting Meiji Shrine and the traditional streets of Harajuku. Spend the evening exploring Shibuya and experiencing the famous Shibuya Crossing.",
+      },
+      {
+        day: 3,
+        title: "Modern Tokyo Experience",
+        detail:
+          "Discover Tokyo's modern side with visits to districts such as Shinjuku, Ginza, and Akihabara. Enjoy panoramic city views, shopping, local cuisine, and free time to experience Tokyo at your own pace.",
+      },
+      {
+        day: 4,
+        title: "Mount Fuji & Hakone",
+        detail:
+          "Travel towards the Mount Fuji and Hakone region for spectacular mountain and lake scenery. Enjoy scenic viewpoints and, depending on weather and seasonal conditions, experience a traditional onsen or lake cruise before an overnight stay in the area.",
+      },
+      {
+        day: 5,
+        title: "Mount Fuji Region to Kyoto",
+        detail:
+          "Continue your journey towards Kyoto, travelling by high-speed train. After checking into your hotel, explore Gion and the historic Higashiyama streets while experiencing Kyoto's traditional atmosphere.",
+      },
+      {
+        day: 6,
+        title: "Kyoto's Cultural Treasures",
+        detail:
+          "Visit Fushimi Inari Shrine, Kiyomizu-dera Temple, and the historic Higashiyama district. Explore traditional shops, tea houses, and local streets while experiencing the cultural heritage of Japan's former imperial capital.",
+      },
+      {
+        day: 7,
+        title: "Arashiyama & Kyoto",
+        detail:
+          "Explore the Arashiyama Bamboo Grove, Tenryu-ji Temple, and the scenic riverside area before enjoying free time in Kyoto. Spend the evening exploring local cuisine and traditional neighborhoods.",
+      },
+      {
+        day: 8,
+        title: "Kyoto to Nara & Osaka",
+        detail:
+          "Travel to Nara for a day of cultural exploration, including Todai-ji Temple and Nara Park with its famous deer. Continue to Osaka and spend the evening exploring Dotonbori and sampling the city's renowned street food.",
+      },
+      {
+        day: 9,
+        title: "Osaka City Experience",
+        detail:
+          "Explore Osaka Castle and the city's vibrant neighborhoods before visiting areas such as Shinsekai and Kuromon Market. Enjoy free time for shopping, food experiences, and Osaka's lively nightlife.",
+      },
+      {
+        day: 10,
+        title: "Osaka to Hiroshima",
+        detail:
+          "Travel to Hiroshima by high-speed train and explore the Peace Memorial Park and Atomic Bomb Dome. Reflect on the city's history before enjoying the evening and local cuisine.",
+      },
+      {
+        day: 11,
+        title: "Miyajima & Return to Osaka",
+        detail:
+          "Take a scenic excursion to Miyajima Island and visit the iconic Itsukushima Shrine and waterfront torii gate. Explore the island's traditional streets and local cuisine before returning to Osaka for your final overnight stay.",
+      },
+      {
+        day: 12,
+        title: "Departure from Osaka",
+        detail:
+          "Enjoy breakfast and some final free time for shopping or sightseeing depending on your departure schedule before checking out and transferring to Osaka Airport for your onward journey.",
       },
     ],
     inclusions: inc,
@@ -1006,6 +1492,140 @@ export const PACKAGES: Package[] = [
         day: 6,
         title: "Departure",
         detail: "Beach morning, then transfer to Phuket airport.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+  {
+    slug: "thailand-bangkok-pattaya-tropical-escape",
+    title: "Thailand: Bangkok & Pattaya — Temples, Islands & City Lights",
+    region: "southeast-asia",
+    subRegion: "thailand",
+    groupTag: "Thailand",
+    country: "Thailand",
+    durationDays: 6,
+    nights: 5,
+    priceFrom: 44999,
+    heroImage: thailand1,
+    gallery: [thailand1, thailand2, thailand3, thailand4],
+    tripType: "beach",
+    summary:
+      "Experience the vibrant energy of Thailand through the bustling streets of Bangkok and the tropical shores of Pattaya. Explore magnificent temples, lively markets, iconic city landmarks, pristine islands, and exciting nightlife on this perfect blend of culture, adventure, and relaxation.",
+    overview:
+      "This 5N/6D Thailand getaway combines Bangkok's rich cultural heritage with Pattaya's tropical beachside atmosphere. Begin in Bangkok with visits to the Grand Palace, Wat Pho, and vibrant local markets before travelling to Pattaya for island adventures, beaches, viewpoints, and lively entertainment. The package offers a balanced mix of sightseeing, shopping, local cuisine, relaxation, and coastal experiences.",
+    highlights: [
+      "Explore Bangkok's Grand Palace and historic temples",
+      "Visit Wat Pho and the iconic Temple of the Emerald Buddha",
+      "Experience Bangkok's vibrant markets and shopping districts",
+      "Discover Pattaya's beautiful beaches and coastal scenery",
+      "Enjoy a Coral Island island-hopping experience",
+      "Visit the Sanctuary of Truth and Pattaya viewpoints",
+      "Experience authentic Thai cuisine and vibrant nightlife",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Bangkok",
+        detail:
+          "Arrive in Bangkok and transfer to your hotel for check-in and relaxation. Spend the evening exploring the surrounding streets, sampling Thai cuisine, or experiencing Bangkok's vibrant nightlife.",
+      },
+      {
+        day: 2,
+        title: "Bangkok Cultural & City Tour",
+        detail:
+          "Explore Bangkok's cultural heart with visits to the Grand Palace, Temple of the Emerald Buddha, Wat Pho, and Wat Arun. Continue through the city's historic neighborhoods and enjoy an evening at leisure.",
+      },
+      {
+        day: 3,
+        title: "Bangkok Markets & Pattaya",
+        detail:
+          "Enjoy a relaxed morning with time for shopping or exploring a local market before travelling to Pattaya. After hotel check-in, spend the evening at leisure along Pattaya Beach and explore the city's lively entertainment districts.",
+      },
+      {
+        day: 4,
+        title: "Coral Island Adventure",
+        detail:
+          "Take a boat excursion to Coral Island for a day of tropical beaches, swimming, snorkeling, and optional water sports. Return to Pattaya in the afternoon and enjoy a relaxed evening by the coast.",
+      },
+      {
+        day: 5,
+        title: "Pattaya Exploration",
+        detail:
+          "Explore Pattaya's highlights with visits to the Sanctuary of Truth and scenic viewpoints before enjoying free time for shopping, beaches, local markets, or optional activities and nightlife.",
+      },
+      {
+        day: 6,
+        title: "Departure from Bangkok",
+        detail:
+          "Enjoy breakfast and check out from your hotel before transferring back to Bangkok Airport for your onward journey, bringing your Thailand adventure to an end.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+  {
+    slug: "thailand-phuket-island-escape",
+    title: "Thailand: Phuket — Paradise of Islands & Azure Seas",
+    region: "southeast-asia",
+    subRegion: "thailand",
+    groupTag: "Thailand",
+    country: "Thailand",
+    durationDays: 6,
+    nights: 5,
+    priceFrom: 49999,
+    heroImage: thailand1,
+    gallery: [thailand1, thailand2, thailand3, thailand4],
+    tripType: "beach",
+    summary:
+      "Escape to the tropical paradise of Phuket for six unforgettable days of turquoise waters, pristine beaches, island adventures, vibrant nightlife, and breathtaking sunsets. Discover the beauty of Thailand's Andaman coast while enjoying the perfect balance of relaxation and adventure.",
+    overview:
+      "This 5N/6D Phuket getaway is designed for travelers seeking a tropical escape filled with beaches, islands, culture, and adventure. Explore Phuket's Old Town and iconic viewpoints before heading out to the stunning Phi Phi Islands and surrounding waters. With plenty of leisure time for beaches, water activities, shopping, and nightlife, this package captures the best of Phuket at a relaxed pace.",
+    highlights: [
+      "Relax on Phuket's beautiful tropical beaches",
+      "Explore the colorful streets and heritage of Old Phuket Town",
+      "Experience the spectacular Phi Phi Islands",
+      "Enjoy snorkeling and water activities in crystal-clear waters",
+      "Visit the iconic Big Buddha and scenic viewpoints",
+      "Experience stunning Andaman Sea sunsets",
+      "Discover Phuket's vibrant dining, shopping, and nightlife scene",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Phuket",
+        detail:
+          "Arrive at Phuket International Airport and transfer to your hotel. Relax after your journey and spend the evening exploring the nearby beach, restaurants, and local surroundings.",
+      },
+      {
+        day: 2,
+        title: "Phuket City & Cultural Exploration",
+        detail:
+          "Explore Phuket's cultural side with visits to Old Phuket Town, Wat Chalong, the Big Buddha, and scenic viewpoints overlooking the island. End the day with a beautiful sunset and an evening at leisure.",
+      },
+      {
+        day: 3,
+        title: "Phi Phi Islands Adventure",
+        detail:
+          "Set out on a full-day island excursion to the famous Phi Phi Islands, enjoying stunning beaches, turquoise waters, snorkeling opportunities, and spectacular coastal scenery before returning to Phuket.",
+      },
+      {
+        day: 4,
+        title: "Beach & Island Leisure",
+        detail:
+          "Enjoy a relaxed day by the sea with time for swimming, sunbathing, optional water sports, or a visit to nearby beaches. Spend the evening exploring Phuket's restaurants, markets, and entertainment scene.",
+      },
+      {
+        day: 5,
+        title: "Phuket Leisure & Sunset Experience",
+        detail:
+          "Spend the day at your own pace with opportunities for shopping, spa treatments, beach activities, or optional island excursions. End the trip with a memorable sunset and a farewell dinner by the sea.",
+      },
+      {
+        day: 6,
+        title: "Departure from Phuket",
+        detail:
+          "Enjoy breakfast and some final free time before checking out and transferring to Phuket International Airport for your onward journey, marking the end of your tropical Thailand escape.",
       },
     ],
     inclusions: inc,
@@ -3988,54 +4608,135 @@ export const PACKAGES: Package[] = [
     overview:
       "This 5N/6D Ladakh package begins in Leh with time for acclimatization before taking you into the spectacular Himalayan terrain. Explore the historic monasteries and vibrant markets of Leh, cross the iconic Khardung La, experience the unique landscapes of Nubra Valley, and spend a memorable day beside the crystal-clear waters of Pangong Lake. The itinerary balances sightseeing, adventure, cultural experiences, and sufficient rest for high-altitude travel.",
     highlights: [
-      "Khardung La high mountain pass crossing",
-      "Bactrian camel ride on Hunder dunes",
-      "Sunrise over Pangong Tso",
-      "Thiksey and Hemis monastery visits",
-      "Shanti Stupa sunset over Leh",
-      "Magnetic Hill and Sangam confluence",
+      "Explore Leh's historic monasteries and local markets",
+      "Acclimatization experience in Leh",
+      "Scenic drive through Khardung La",
+      "Explore the stunning Nubra Valley",
+      "Visit the iconic Diskit Monastery and giant Buddha statue",
+      "Experience the breathtaking Pangong Lake",
+      "Scenic Himalayan roads and mountain landscapes",
     ],
     itinerary: [
       {
         day: 1,
-        title: "Arrive Leh",
+        title: "Arrival in Leh",
         detail:
-          "Airport pickup, rest and acclimatisation with an easy evening at Shanti Stupa.",
+          "Arrive at Leh Airport and transfer to your hotel. Spend the day resting and acclimatizing to the high altitude, with an optional evening stroll around Leh Market if you feel comfortable.",
       },
       {
         day: 2,
-        title: "Leh monasteries",
+        title: "Leh Local Exploration",
         detail:
-          "Thiksey morning prayers, Hemis, Shey Palace and Leh market browsing.",
+          "xplore Leh's highlights including Shanti Stupa, Leh Palace, Shey Palace, and Thiksey Monastery, followed by some free time to explore the vibrant local market and experience the atmosphere of Leh.",
       },
       {
         day: 3,
-        title: "Sham valley",
+        title: "Leh to Nubra valley",
         detail:
-          "Magnetic Hill, Gurudwara Pathar Sahib, Indus-Zanskar Sangam and Alchi.",
+          "Begin your journey to Nubra Valley via the spectacular Khardung La Pass. Visit Diskit Monastery and its impressive Maitreya Buddha statue before exploring the scenic landscapes of Hunder, with an optional double-humped Bactrian camel ride.",
       },
       {
         day: 4,
-        title: "Leh to Nubra",
+        title: "Nubra Valley to Pangong Lake",
         detail:
-          "Drive over Khardung La to Diskit; monastery visit and camel ride at Hunder dunes.",
+          "Depart Nubra and travel through the dramatic Himalayan terrain towards Pangong Lake. Spend the afternoon exploring the lakeshore, capturing photographs, and enjoying the spectacular sunset before an overnight stay near the lake.",
       },
       {
         day: 5,
-        title: "Nubra to Pangong",
+        title: "Pangong Lake to Leh",
         detail:
-          "Scenic drive via Shyok to Pangong Tso; lakeside camp and clear night sky.",
+          "Start the day with the beautiful sunrise over Pangong Lake before driving back to Leh via the scenic Chang La Pass. Arrive in Leh and spend the evening at leisure, exploring the town or relaxing at the hotel.",
       },
       {
         day: 6,
-        title: "Pangong to Leh",
+        title: "Departure from Leh",
         detail:
-          "Sunrise at the lake, return via Chang La with tea stops and Thiksey viewpoint.",
+          "Enjoy breakfast at the hotel before checking out and transferring to Leh Airport for your onward journey, bringing your unforgettable Ladakh adventure to an end.",
+      },
+    ],
+    inclusions: incDomestic,
+    exclusions: exc,
+  },
+  {
+    slug: "leh-ladakh-grand-himalayan-expedition",
+    title: "Leh Ladakh: The Grand Himalayan Expedition",
+    region: "domestic",
+    subRegion: "leh-ladakh",
+    groupTag: "Ladakh",
+    country: "India",
+    durationDays: 9,
+    nights: 8,
+    priceFrom: 36999,
+    heroImage: ladakh1,
+    gallery: [ladakh1, ladakh2, ladakh3, ladakh4],
+    tripType: "mountain",
+    summary:
+      "Discover the best of Ladakh on an immersive 9-day Himalayan adventure covering Leh, Sham Valley, Nubra Valley, Turtuk, Pangong Lake, and the region's iconic mountain passes. From ancient monasteries and remote villages to dramatic valleys and high-altitude lakes, this extended journey offers a deeper experience of Ladakh's natural and cultural wonders.",
+    overview:
+      "This 8N/9D Ladakh expedition is designed for travelers who want to explore beyond the region's standard highlights while maintaining a comfortable pace. Begin with acclimatization and local exploration in Leh before venturing through the scenic Sham Valley and crossing the legendary Khardung La Pass into Nubra Valley. Continue to the remote village of Turtuk, experience the spectacular Pangong Lake, cross Chang La, and return to Leh for a relaxed final day of exploration and shopping. The itinerary combines breathtaking landscapes, cultural experiences, adventure, and sufficient rest for high-altitude travel.",
+    highlights: [
+      "Explore Leh Palace, Shanti Stupa and historic monasteries",
+      "Discover the scenic Sham Valley and Magnetic Hill",
+      "Cross the legendary Khardung La mountain pass",
+      "Explore Nubra Valley and the dunes of Hunder",
+      "Visit the remote and culturally unique village of Turtuk",
+      "Experience the spectacular Pangong Lake",
+      "Cross Chang La and explore the dramatic Himalayan landscapes",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Leh",
+        detail:
+          "Arrive at Leh Airport and transfer to your hotel. Spend the day resting and acclimatizing to the high altitude, with the evening free to relax and settle into the Himalayan surroundings.",
+      },
+      {
+        day: 2,
+        title: "Leh Acclimatization & Local Exploration",
+        detail:
+          "Begin exploring Leh at a relaxed pace with visits to Shanti Stupa, Leh Palace, and the local market, while allowing sufficient time for acclimatization and rest.",
+      },
+      {
+        day: 3,
+        title: "Sham Valley Excursion",
+        detail:
+          "Take a scenic excursion through Sham Valley, visiting Magnetic Hill, Gurudwara Pathar Sahib, the Indus-Zanskar Sangam viewpoint, and the historic Alchi Monastery before returning to Leh.",
+      },
+      {
+        day: 4,
+        title: "Leh to Nubra Valley",
+        detail:
+          "Travel to Nubra Valley across the legendary Khardung La Pass. Visit Diskit Monastery and its giant Buddha statue before exploring the picturesque village of Hunder and enjoying an optional Bactrian camel ride.",
+      },
+      {
+        day: 5,
+        title: "Nubra Valley to Turtuk",
+        detail:
+          "Journey towards the remote border village of Turtuk, known for its unique Balti culture and traditional settlements. Explore the village, experience its distinctive local character, and return to Nubra for an overnight stay.",
+      },
+      {
+        day: 6,
+        title: "Nubra to Pangong Lake",
+        detail:
+          "Depart Nubra and drive through the spectacular Himalayan landscape towards Pangong Lake. Spend the day exploring the lake, enjoying photography and scenic views, and witnessing the changing colors of the lake around sunset.",
       },
       {
         day: 7,
-        title: "Departure",
-        detail: "Transfer to Leh airport for your onward flight.",
+        title: "Pangong Lake to Leh",
+        detail:
+          "Enjoy the sunrise over Pangong Lake before beginning the journey back to Leh via Chang La Pass. Take in the dramatic mountain scenery along the way and spend the evening relaxing or exploring Leh.",
+      },
+      {
+        day: 8,
+        title: "Leh Leisure & Cultural Experience",
+        detail:
+          "Enjoy a relaxed day in Leh with time to revisit local attractions, explore the markets, shop for souvenirs, sample local cuisine, and capture the final photographs of your Ladakh journey.",
+      },
+      {
+        day: 9,
+        title: "Departure from Leh",
+        detail:
+          "After breakfast, check out from the hotel and transfer to Leh Airport for your onward journey, marking the end of your grand Himalayan expedition.",
       },
     ],
     inclusions: incDomestic,
@@ -4099,6 +4800,158 @@ export const PACKAGES: Package[] = [
         day: 6,
         title: "Departure",
         detail: "Breakfast and transfer to Srinagar airport.",
+      },
+    ],
+    inclusions: incDomestic,
+    exclusions: exc,
+  },
+  {
+    slug: "kashmir-paradise-beyond-the-mountains",
+    title: "Kashmir: Paradise Beyond the Mountains",
+    region: "domestic",
+    subRegion: "kashmir",
+    groupTag: "Kashmir",
+    country: "India",
+    durationDays: 7,
+    nights: 6,
+    priceFrom: 27999,
+    heroImage: kashmir1,
+    gallery: [kashmir1, kashmir2, kashmir3, kashmir4],
+    tripType: "mountain",
+    summary:
+      "Experience the timeless beauty of Kashmir on a 7-day journey through Srinagar, Gulmarg, Pahalgam, and Sonamarg. Cruise along the serene Dal Lake, wander through Mughal gardens, discover snow-capped mountain landscapes, and experience the warmth of Kashmiri culture and hospitality.",
+    overview:
+      "This 6N/7D Kashmir getaway combines scenic landscapes, peaceful lakes, mountain adventures, and cultural experiences. Begin in Srinagar with a relaxing Shikara ride and visits to the city's famous gardens and landmarks. Continue to the alpine meadows of Gulmarg, the picturesque valleys of Pahalgam, and the dramatic mountain scenery of Sonamarg before returning to Srinagar for your departure.",
+    highlights: [
+      "Relaxing Shikara ride on Dal Lake",
+      "Explore Srinagar's famous Mughal gardens",
+      "Scenic excursion to Gulmarg",
+      "Experience the beautiful valleys of Pahalgam",
+      "Visit the spectacular Sonamarg landscapes",
+      "Explore local Kashmiri markets and handicrafts",
+      "Enjoy breathtaking Himalayan scenery throughout the journey",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Srinagar",
+        detail:
+          "Arrive at Srinagar Airport and transfer to your hotel or houseboat. Spend the evening enjoying a peaceful Shikara ride on Dal Lake and take in the beautiful surroundings before relaxing for the night.",
+      },
+      {
+        day: 2,
+        title: "Srinagar Local Sightseeing",
+        detail:
+          "Explore Srinagar's cultural and historical attractions, including the Mughal Gardens, Nishat Bagh, Shalimar Bagh, Chashme Shahi, and Hazratbal Shrine. Spend the evening exploring local markets and experiencing Kashmiri cuisine.",
+      },
+      {
+        day: 3,
+        title: "Srinagar to Gulmarg",
+        detail:
+          "Travel to the picturesque hill station of Gulmarg, surrounded by lush meadows and snow-capped peaks. Enjoy the scenic surroundings and, depending on the season and availability, take the famous Gondola ride or participate in optional mountain activities before returning to Srinagar.",
+      },
+      {
+        day: 4,
+        title: "Srinagar to Pahalgam",
+        detail:
+          "Drive through the scenic Kashmiri countryside towards Pahalgam. Explore the Lidder Valley, enjoy the peaceful riverside scenery, and visit nearby attractions such as Betaab Valley and Aru Valley before settling in for the night.",
+      },
+      {
+        day: 5,
+        title: "Pahalgam to Srinagar",
+        detail:
+          "Enjoy a relaxed morning in Pahalgam before returning to Srinagar. Spend the afternoon at leisure, with opportunities for shopping, exploring local markets, or relaxing beside Dal Lake.",
+      },
+      {
+        day: 6,
+        title: "Sonamarg Excursion",
+        detail:
+          "Take a day trip to Sonamarg, known as the Meadow of Gold, and enjoy its spectacular mountain scenery, alpine landscapes, and glacial surroundings. Return to Srinagar in the evening for your final overnight stay.",
+      },
+      {
+        day: 7,
+        title: "Departure from Srinagar",
+        detail:
+          "Enjoy breakfast and check out from your accommodation before transferring to Srinagar Airport for your onward journey, bringing your memorable Kashmir holiday to an end.",
+      },
+    ],
+    inclusions: incDomestic,
+    exclusions: exc,
+  },
+  {
+    slug: "kashmir-grand-valley-escape",
+    title: "Kashmir: The Grand Valley Escape",
+    region: "domestic",
+    subRegion: "kashmir",
+    groupTag: "Kashmir",
+    country: "India",
+    durationDays: 8,
+    nights: 7,
+    priceFrom: 32999,
+    heroImage: kashmir1,
+    gallery: [kashmir1, kashmir2, kashmir3, kashmir4],
+    tripType: "mountain",
+    summary:
+      "Embark on an unforgettable 8-day journey through the enchanting landscapes of Kashmir, exploring Srinagar, Gulmarg, Pahalgam, Sonamarg, and the peaceful beauty of its surrounding valleys. With scenic drives, serene lakes, lush meadows, mountain views, and immersive cultural experiences, this extended itinerary offers a more relaxed exploration of the Kashmir Valley.",
+    overview:
+      "This 7N/8D Kashmir experience is designed for travelers looking to discover the region at a comfortable pace. Begin in Srinagar with its iconic Dal Lake and Mughal gardens, then venture into the snow-capped landscapes of Gulmarg, the lush valleys of Pahalgam, and the dramatic scenery of Sonamarg. Additional leisure time in Srinagar allows you to explore local markets, experience Kashmiri cuisine, shop for traditional handicrafts, and enjoy the city's unique culture.",
+    highlights: [
+      "Experience a traditional Shikara ride on Dal Lake",
+      "Explore Srinagar's iconic Mughal Gardens",
+      "Ride the Gulmarg Gondola and enjoy panoramic mountain views",
+      "Discover Pahalgam, Betaab Valley and Aru Valley",
+      "Explore the breathtaking landscapes of Sonamarg",
+      "Enjoy scenic Himalayan drives through Kashmir",
+      "Experience Kashmiri cuisine, culture and local markets",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Srinagar",
+        detail:
+          "Arrive at Srinagar Airport and transfer to your hotel or traditional houseboat. Spend the evening relaxing beside Dal Lake and enjoy a peaceful Shikara ride while watching the sunset over the surrounding mountains.",
+      },
+      {
+        day: 2,
+        title: "Srinagar Heritage & Garden Tour",
+        detail:
+          "Explore Srinagar's famous Mughal Gardens, including Nishat Bagh, Shalimar Bagh, and Chashme Shahi, along with Hazratbal Shrine and other local landmarks. End the day with free time to explore Srinagar's markets and sample authentic Kashmiri cuisine.",
+      },
+      {
+        day: 3,
+        title: "Srinagar to Gulmarg",
+        detail:
+          "Travel to Gulmarg through scenic mountain roads and lush countryside. Explore the famous meadows, enjoy panoramic views of the surrounding peaks, and take the optional Gondola ride for spectacular Himalayan vistas before an overnight stay in Gulmarg.",
+      },
+      {
+        day: 4,
+        title: "Gulmarg Exploration",
+        detail:
+          "Spend a full day enjoying Gulmarg and its surroundings. Depending on the season, participate in activities such as Gondola rides, skiing, snow activities, hiking, or leisurely walks through the meadows before returning to your accommodation.",
+      },
+      {
+        day: 5,
+        title: "Gulmarg to Pahalgam",
+        detail:
+          "Depart for Pahalgam and enjoy a scenic drive through the Kashmir Valley. Explore the beautiful Lidder Valley, visit Betaab Valley and Aru Valley, and spend the evening surrounded by Pahalgam's peaceful mountain scenery.",
+      },
+      {
+        day: 6,
+        title: "Pahalgam to Srinagar",
+        detail:
+          "Enjoy a relaxed morning in Pahalgam before returning to Srinagar. Spend the afternoon at leisure with time for shopping, photography, local food experiences, or relaxing along Dal Lake.",
+      },
+      {
+        day: 7,
+        title: "Sonamarg Excursion",
+        detail:
+          "Take a scenic excursion to Sonamarg, the Meadow of Gold, and explore its spectacular alpine landscapes and mountain surroundings. Enjoy the scenic journey before returning to Srinagar for your final evening.",
+      },
+      {
+        day: 8,
+        title: "Departure from Srinagar",
+        detail:
+          "After breakfast, check out from your accommodation and transfer to Srinagar Airport for your onward journey, bringing your Kashmir adventure to a memorable close.",
       },
     ],
     inclusions: incDomestic,
