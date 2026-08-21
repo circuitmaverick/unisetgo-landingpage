@@ -3971,6 +3971,77 @@ export const PACKAGES: Package[] = [
     exclusions: exc,
   },
   {
+    slug: "leh-ladakh-himalayan-odyssey",
+    title: "Leh Ladakh: Himalayan Odyssey — From Monasteries to Mountains",
+    region: "domestic",
+    subRegion: "leh-ladakh",
+    groupTag: "Ladakh",
+    country: "India",
+    durationDays: 6,
+    nights: 5,
+    priceFrom: 24999,
+    heroImage: ladakh1,
+    gallery: [ladakh1, ladakh2, ladakh3, ladakh4],
+    tripType: "mountain",
+    summary:
+      "Experience the breathtaking landscapes of Ladakh on a 6-day journey covering Leh, Nubra Valley, Khardung La, and Pangong Lake. From high-altitude mountain passes and serene lakes to monasteries and traditional villages, this package offers a perfect introduction to the rugged beauty and culture of Ladakh.",
+    overview:
+      "This 5N/6D Ladakh package begins in Leh with time for acclimatization before taking you into the spectacular Himalayan terrain. Explore the historic monasteries and vibrant markets of Leh, cross the iconic Khardung La, experience the unique landscapes of Nubra Valley, and spend a memorable day beside the crystal-clear waters of Pangong Lake. The itinerary balances sightseeing, adventure, cultural experiences, and sufficient rest for high-altitude travel.",
+    highlights: [
+      "Khardung La high mountain pass crossing",
+      "Bactrian camel ride on Hunder dunes",
+      "Sunrise over Pangong Tso",
+      "Thiksey and Hemis monastery visits",
+      "Shanti Stupa sunset over Leh",
+      "Magnetic Hill and Sangam confluence",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrive Leh",
+        detail:
+          "Airport pickup, rest and acclimatisation with an easy evening at Shanti Stupa.",
+      },
+      {
+        day: 2,
+        title: "Leh monasteries",
+        detail:
+          "Thiksey morning prayers, Hemis, Shey Palace and Leh market browsing.",
+      },
+      {
+        day: 3,
+        title: "Sham valley",
+        detail:
+          "Magnetic Hill, Gurudwara Pathar Sahib, Indus-Zanskar Sangam and Alchi.",
+      },
+      {
+        day: 4,
+        title: "Leh to Nubra",
+        detail:
+          "Drive over Khardung La to Diskit; monastery visit and camel ride at Hunder dunes.",
+      },
+      {
+        day: 5,
+        title: "Nubra to Pangong",
+        detail:
+          "Scenic drive via Shyok to Pangong Tso; lakeside camp and clear night sky.",
+      },
+      {
+        day: 6,
+        title: "Pangong to Leh",
+        detail:
+          "Sunrise at the lake, return via Chang La with tea stops and Thiksey viewpoint.",
+      },
+      {
+        day: 7,
+        title: "Departure",
+        detail: "Transfer to Leh airport for your onward flight.",
+      },
+    ],
+    inclusions: incDomestic,
+    exclusions: exc,
+  },
+  {
     slug: "kashmir-valley-classic",
     title: "Kashmir: Srinagar, Gulmarg & Pahalgam",
     region: "domestic",
