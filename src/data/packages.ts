@@ -250,7 +250,13 @@ import uk9 from "@/assets/pkg-uttarakhand-9.jpg";
 import uk10 from "@/assets/pkg-uttarakhand-10.jpg";
 
 export type TripType =
-  "city" | "beach" | "mountain" | "cultural" | "wildlife" | "adventure";
+  | "city"
+  | "beach"
+  | "mountain"
+  | "cultural"
+  | "wildlife"
+  | "adventure"
+  | "pilgrimage";
 
 export type Package = {
   slug: string;
@@ -6169,6 +6175,213 @@ export const PACKAGES: Package[] = [
     inclusions: incDomestic,
     exclusions: exc,
   },
+  {
+    slug: "char-dhaam-divine-himalayan-yatra",
+    title: "Char Dhaam: Divine Himalayan Yatra — A Journey of Faith & Devotion",
+    region: "domestic",
+    subRegion: "char-dhaam",
+    groupTag: "Char Dhaam",
+    country: "India",
+    durationDays: 10,
+    nights: 9,
+    priceFrom: 32999,
+    heroImage: uk1,
+    gallery: [uk2, uk2, uk2, uk2],
+    tripType: "pilgrimage",
+    summary:
+      "Embark on a spiritually enriching journey through the sacred Char Dham of Uttarakhand, visiting Yamunotri, Gangotri, Kedarnath, and Badrinath amid the majestic Himalayas.",
+    overview:
+      "This 9N/10D Char Dham Yatra is designed as a focused pilgrimage through the four sacred shrines of Uttarakhand. Beginning from Haridwar, the journey follows the traditional circuit through Yamunotri, Gangotri, Kedarnath, and Badrinath, combining temple visits with breathtaking Himalayan landscapes and time for spiritual reflection.",
+    highlights: [
+      "Seek blessings at Yamunotri Dham",
+      "Visit the sacred Gangotri Temple",
+      "Undertake the pilgrimage to Kedarnath",
+      "Visit the revered Badrinath Temple",
+      "Experience the spiritual atmosphere of the Himalayas",
+      "Explore sacred rivers, valleys, and mountain landscapes",
+      "Experience traditional Himalayan pilgrimage towns",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Haridwar",
+        detail:
+          "Arrive in Haridwar, check into your hotel, and spend the evening attending the sacred Ganga Aarti at Har Ki Pauri before preparing for the Char Dham Yatra.",
+      },
+      {
+        day: 2,
+        title: "Haridwar to Barkot",
+        detail:
+          "Begin the Himalayan journey towards Barkot through scenic mountain roads and valleys. Check into your accommodation and rest in preparation for the Yamunotri pilgrimage.",
+      },
+      {
+        day: 3,
+        title: "Yamunotri Dham Yatra",
+        detail:
+          "Travel towards Janki Chatti and undertake the pilgrimage to Yamunotri, visiting the sacred temple and surrounding Himalayan landscapes before returning to Barkot.",
+      },
+      {
+        day: 4,
+        title: "Barkot to Uttarkashi",
+        detail:
+          "Travel towards Uttarkashi through the scenic Garhwal Himalayas. Visit local temples and spiritual landmarks before relaxing for the evening.",
+      },
+      {
+        day: 5,
+        title: "Gangotri Dham",
+        detail:
+          "Travel to Gangotri through spectacular mountain scenery and visit the sacred Gangotri Temple on the banks of the Bhagirathi River before returning to Uttarkashi.",
+      },
+      {
+        day: 6,
+        title: "Uttarkashi to Guptkashi",
+        detail:
+          "Continue towards Guptkashi through dramatic Himalayan valleys and mountain roads. Check into your accommodation and prepare for the Kedarnath pilgrimage.",
+      },
+      {
+        day: 7,
+        title: "Kedarnath Dham",
+        detail:
+          "Begin the journey towards Kedarnath and undertake the pilgrimage to the sacred Kedarnath Temple, spending the night in the pilgrimage region according to the selected travel arrangement.",
+      },
+      {
+        day: 8,
+        title: "Kedarnath to Joshimath",
+        detail:
+          "Complete the return journey from Kedarnath and continue towards Joshimath through the Himalayan valleys, enjoying scenic landscapes along the way.",
+      },
+      {
+        day: 9,
+        title: "Badrinath Dham",
+        detail:
+          "Travel to Badrinath and visit the revered Badrinath Temple, followed by visits to nearby spiritual landmarks before returning to your accommodation.",
+      },
+      {
+        day: 10,
+        title: "Badrinath to Haridwar & Departure",
+        detail:
+          "Begin the return journey towards Haridwar, completing the Char Dham pilgrimage before continuing to your onward destination.",
+      },
+    ],
+    inclusions: incDomestic,
+    exclusions: exc,
+  },
+  {
+    slug: "char-dhaam-grand-spiritual-pilgrimage",
+    title:
+      "Char Dhaam: Grand Spiritual Pilgrimage — The Complete Himalayan Yatra",
+    region: "domestic",
+    subRegion: "char-dhaam",
+    groupTag: "Char Dhaam",
+    country: "India",
+    durationDays: 14,
+    nights: 13,
+    priceFrom: 44999,
+    heroImage: uk5,
+    gallery: [uk5, uk5, uk5, uk5],
+    tripType: "pilgrimage",
+    summary:
+      "Experience the complete spiritual journey through Uttarakhand's sacred Char Dham with a relaxed 14-day pilgrimage covering Yamunotri, Gangotri, Kedarnath, and Badrinath alongside sacred temples, Himalayan villages, and breathtaking mountain landscapes.",
+    overview:
+      "This 13N/14D Char Dham Yatra provides a more comfortable and immersive pilgrimage experience, allowing additional time for rest, acclimatization, local temple visits, and the challenging Himalayan sections of the journey. Starting from Haridwar, the route covers Yamunotri, Gangotri, Kedarnath, and Badrinath while incorporating additional spiritual and scenic experiences throughout the Garhwal Himalayas.",
+    highlights: [
+      "Complete the sacred Char Dham pilgrimage",
+      "Visit Yamunotri and the source region of the Yamuna",
+      "Seek blessings at Gangotri Temple",
+      "Experience the sacred Kedarnath pilgrimage",
+      "Visit the revered Badrinath Temple",
+      "Explore Rishikesh and Haridwar's spiritual heritage",
+      "Enjoy a more relaxed Himalayan pilgrimage itinerary",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Haridwar",
+        detail:
+          "Arrive in Haridwar and check into your hotel before visiting Har Ki Pauri and attending the evening Ganga Aarti as the spiritual beginning of your pilgrimage.",
+      },
+      {
+        day: 2,
+        title: "Haridwar & Rishikesh",
+        detail:
+          "Explore Haridwar and Rishikesh, visiting important temples, ghats, and spiritual landmarks before returning to Haridwar and preparing for the Himalayan journey.",
+      },
+      {
+        day: 3,
+        title: "Haridwar to Barkot",
+        detail:
+          "Begin the journey into the Garhwal Himalayas and travel towards Barkot through scenic mountain roads and valleys. Rest at the hotel in preparation for Yamunotri.",
+      },
+      {
+        day: 4,
+        title: "Yamunotri Dham",
+        detail:
+          "Travel towards Janki Chatti and undertake the pilgrimage to Yamunotri, visiting the sacred temple and surrounding Himalayan landscapes before returning to Barkot.",
+      },
+      {
+        day: 5,
+        title: "Barkot to Uttarkashi",
+        detail:
+          "Travel to Uttarkashi through scenic mountain landscapes, visiting local temples and spiritual landmarks before enjoying a relaxed evening in the Himalayan town.",
+      },
+      {
+        day: 6,
+        title: "Gangotri Dham",
+        detail:
+          "Travel to Gangotri through dramatic Himalayan scenery and visit the sacred Gangotri Temple beside the Bhagirathi River before returning to Uttarkashi.",
+      },
+      {
+        day: 7,
+        title: "Uttarkashi to Guptkashi",
+        detail:
+          "Continue through the Garhwal Himalayas towards Guptkashi, enjoying mountain valleys, rivers, and villages along the route before resting for the Kedarnath journey.",
+      },
+      {
+        day: 8,
+        title: "Guptkashi to Kedarnath",
+        detail:
+          "Begin the journey towards Kedarnath and undertake the pilgrimage to the sacred Kedarnath Temple, using the selected trekking, helicopter, or other permitted travel arrangement.",
+      },
+      {
+        day: 9,
+        title: "Kedarnath Darshan & Return",
+        detail:
+          "Spend the morning completing darshan and exploring the sacred surroundings of Kedarnath before beginning the return journey towards the lower Himalayan region.",
+      },
+      {
+        day: 10,
+        title: "Kedarnath Region to Joshimath",
+        detail:
+          "Continue towards Joshimath through spectacular Himalayan valleys, taking time to rest and enjoy the mountain scenery along the route.",
+      },
+      {
+        day: 11,
+        title: "Joshimath & Badrinath",
+        detail:
+          "Travel towards Badrinath and visit the revered Badrinath Temple, followed by nearby spiritual landmarks and a peaceful evening in the pilgrimage town.",
+      },
+      {
+        day: 12,
+        title: "Badrinath Spiritual Exploration",
+        detail:
+          "Spend additional time around Badrinath for darshan and visits to nearby sacred sites before beginning the return journey through the Himalayan valleys.",
+      },
+      {
+        day: 13,
+        title: "Return towards Haridwar",
+        detail:
+          "Travel through the Garhwal Himalayas towards Haridwar, enjoying the changing landscapes and reflecting on the completed pilgrimage before an overnight stay.",
+      },
+      {
+        day: 14,
+        title: "Departure from Haridwar",
+        detail:
+          "Enjoy breakfast and final leisure time before completing the Char Dham journey and departing from Haridwar for your onward destination.",
+      },
+    ],
+    inclusions: incDomestic,
+    exclusions: exc,
+  },
 ];
 
 export const TRIP_TYPES: { value: TripType; label: string }[] = [
@@ -6178,6 +6391,7 @@ export const TRIP_TYPES: { value: TripType; label: string }[] = [
   { value: "cultural", label: "Cultural" },
   { value: "wildlife", label: "Wildlife" },
   { value: "adventure", label: "Adventure" },
+  { value: "pilgrimage", label: "Pilgrimage" },
 ];
 
 export function packagesByRegion(region: RegionSlug): Package[] {

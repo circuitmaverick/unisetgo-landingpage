@@ -136,14 +136,14 @@ function LandingPage() {
                 </span>
               </div>
             </div>
-            <div className="absolute -bottom-6 -left-8 rotate-[-4deg] rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md">
+            {/* <div className="absolute -bottom-6 -left-8 rotate-[-4deg] rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md">
               <p className="text-[0.6rem] uppercase tracking-widest text-white/60">
                 From
               </p>
               <p className="text-lg font-black">
                 {formatINR(featured[0].priceFrom)}
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
