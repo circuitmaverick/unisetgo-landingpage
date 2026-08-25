@@ -37,7 +37,7 @@ function FlightsPage() {
         eyebrow="Flight bookings"
         title="Fly smart,"
         accent="fly informed"
-        description="First, business or economy — we surface the best fare, alert you on drops, and handle re-routes when things go sideways."
+        description="First, business or economy — we facilitate good deals and handle re-routes when things go sideways."
       >
         <WhatsAppCTA href={waLink("Hi UniSetGo, I'd like to book flights.")} label="Enquire on WhatsApp" />
       </PageHero>

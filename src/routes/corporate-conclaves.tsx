@@ -1,5 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Briefcase, CalendarCheck, Handshake, MapPin, Presentation, Users } from "lucide-react";
+import {
+  Briefcase,
+  CalendarCheck,
+  Handshake,
+  MapPin,
+  Presentation,
+  Users,
+} from "lucide-react";
 import { PageHero, WhatsAppCTA } from "@/components/page-hero";
 import { waLink } from "@/lib/contact";
 
@@ -13,7 +20,11 @@ export const Route = createFileRoute("/corporate-conclaves")({
           "End-to-end MICE, offsites and corporate conclaves — venues, logistics, travel, production and hospitality across India and abroad.",
       },
       { property: "og:title", content: "Corporate Conclaves — UniSetGo" },
-      { property: "og:description", content: "Meetings, incentives, conferences and offsites, engineered end to end." },
+      {
+        property: "og:description",
+        content:
+          "Meetings, incentives, conferences and offsites, engineered end to end.",
+      },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "/corporate-conclaves" }],
@@ -21,7 +32,9 @@ export const Route = createFileRoute("/corporate-conclaves")({
   component: CorporateConclavesPage,
 });
 
-const ENQUIRY = waLink("Hi UniSetGo, I'd like to plan a corporate conclave / offsite.");
+const ENQUIRY = waLink(
+  "Hi UniSetGo, I'd like to plan a corporate conclave / offsite.",
+);
 
 function CorporateConclavesPage() {
   return (
@@ -30,7 +43,7 @@ function CorporateConclavesPage() {
         eyebrow="Corporate & MICE"
         title="Conclaves your teams"
         accent="actually remember"
-        description="From 30-person leadership offsites to 3,000-delegate annual conclaves — we handle venue, travel, production, hospitality and every last name-badge."
+        description="From small groups to large groups, leadership offsites to annual conclaves — we handle venue, travel, hospitality and even that last point in your list."
       >
         <div className="flex flex-wrap gap-3">
           <WhatsAppCTA href={ENQUIRY} label="Enquire on WhatsApp" />
@@ -52,13 +65,14 @@ function CorporateConclavesPage() {
               One partner for the whole conclave.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              UniSetGo runs the moving parts — flights, hotels, ground fleet, F&amp;B, AV, stage
-              production, gifting, spouse programmes and offsite days. Your HR and admin teams get one
-              WhatsApp thread and one invoice; your delegates get a conclave that runs on rails.
+              UniSetGo runs the moving parts — flights, hotels, ground fleet,
+              F&amp;B, AV, banners, gifting, spouse programmes and offsite days.
+              Your HR and admin teams get one WhatsApp thread; your delegates
+              get a conclave that runs on rails.
             </p>
             <p className="mt-3 text-muted-foreground">
-              We've delivered conclaves in Dubai, Bali, Bangkok, Colombo and every metro in India —
-              from IT company R&amp;R weekends to BFSI leadership summits and pharma launch events.
+              We are supported by experienced teams who can help designing your
+              next conclave with multiple options in India or abroad
             </p>
           </div>
           <img
@@ -72,7 +86,9 @@ function CorporateConclavesPage() {
 
       <section className="bg-secondary/40">
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
-          <h2 className="text-2xl font-black text-foreground sm:text-3xl">Full-stack event scope</h2>
+          <h2 className="text-2xl font-black text-foreground sm:text-3xl">
+            Full-stack event scope
+          </h2>
           <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <FeatureCard
               icon={<MapPin className="h-5 w-5" />}
@@ -92,7 +108,7 @@ function CorporateConclavesPage() {
             <FeatureCard
               icon={<Users className="h-5 w-5" />}
               title="Delegate management"
-              text="Registration portals, RFID badges, real-time check-in dashboards and communication."
+              text="Reception desk, registration facilitation, check-in dashboards and event communication."
             />
             <FeatureCard
               icon={<Handshake className="h-5 w-5" />}
@@ -102,7 +118,7 @@ function CorporateConclavesPage() {
             <FeatureCard
               icon={<CalendarCheck className="h-5 w-5" />}
               title="Post-event reporting"
-              text="Delegate feedback, spends, photos, videos and a delivery report your CFO will thank you for."
+              text="Delegate feedback, expenses, photos, videos and more."
             />
           </div>
         </div>
@@ -117,16 +133,23 @@ function CorporateConclavesPage() {
             loading="lazy"
           />
           <div>
-            <h2 className="text-2xl font-black text-foreground sm:text-3xl">A typical delivery timeline</h2>
+            <h2 className="text-2xl font-black text-foreground sm:text-3xl">
+              A typical delivery timeline
+            </h2>
             <ol className="mt-6 space-y-4">
               {TIMELINE.map((t, i) => (
-                <li key={t.step} className="flex gap-4 rounded-2xl border border-border bg-card p-5">
+                <li
+                  key={t.step}
+                  className="flex gap-4 rounded-2xl border border-border bg-card p-5"
+                >
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-sm font-black text-primary-foreground">
                     {i + 1}
                   </span>
                   <div>
                     <p className="font-bold text-foreground">{t.step}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{t.detail}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {t.detail}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -141,17 +164,47 @@ function CorporateConclavesPage() {
 }
 
 const TIMELINE = [
-  { step: "Brief & shortlist", detail: "In 48 hours we return 3–5 destination + venue combinations matched to your brief." },
-  { step: "Costing & site inspection", detail: "Detailed BOQ, sample menus, and optional site inspection with our team." },
-  { step: "Confirmation & mobilisation", detail: "Contracts, delegate portal live, travel booked, production locked-in." },
-  { step: "On-ground delivery", detail: "Dedicated event director + crew on site for the full duration of the conclave." },
-  { step: "Wrap & reporting", detail: "Post-event report, media assets, and reconciled final invoice within 10 working days." },
+  {
+    step: "Brief & shortlist",
+    detail:
+      "In 48 hours we try to return with options of destinations/venue combinations to match your brief.",
+  },
+  {
+    step: "Costing & site inspection",
+    detail:
+      "We can help with a BOQ, sample menus, and optional site inspection just in case you need it.",
+  },
+  {
+    step: "Confirmation & mobilisation",
+    detail:
+      "Post your confirmation, we mobilize efforts to help deliver things working backwards.",
+  },
+  {
+    step: "On-ground delivery",
+    detail:
+      "Dedicated team to support all during the conduct.",
+  },
+  {
+    step: "Wrap & reporting",
+    detail:
+      "Post-event report, media assets, and reconciled final invoice, etc. within 10 working days.",
+  },
 ];
 
-function FeatureCard({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+function FeatureCard({
+  icon,
+  title,
+  text,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+}) {
   return (
     <div className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
-      <div className="grid h-10 w-10 place-items-center rounded-full bg-secondary text-primary">{icon}</div>
+      <div className="grid h-10 w-10 place-items-center rounded-full bg-secondary text-primary">
+        {icon}
+      </div>
       <h3 className="mt-4 text-base font-bold text-foreground">{title}</h3>
       <p className="mt-2 text-sm text-muted-foreground">{text}</p>
     </div>
@@ -162,9 +215,12 @@ function CTASection() {
   return (
     <section className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-4xl px-5 py-14 text-center sm:px-8">
-        <h2 className="text-3xl font-black sm:text-4xl">Have a conclave on the calendar?</h2>
+        <h2 className="text-3xl font-black sm:text-4xl">
+          Have a conclave on the calendar?
+        </h2>
         <p className="mx-auto mt-3 max-w-2xl text-white/80">
-          Send us the dates, headcount and vibe. We'll come back with a shortlist inside 48 hours.
+          Send us the dates, headcount and vibe. We'll come back with a
+          shortlist inside 48 hours.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <WhatsAppCTA href={ENQUIRY} label="Enquire on WhatsApp" />
