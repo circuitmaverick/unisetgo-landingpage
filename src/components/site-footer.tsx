@@ -127,11 +127,34 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-primary/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-6 text-xs text-primary/60 font-medium sm:flex-row sm:px-8">
-          <span>
-            © {new Date().getFullYear()} UniSetGo. All rights reserved.
-          </span>
-          <span>Made with ❤️ by Akash</span>
+        <div className="mx-auto max-w-7xl px-5 py-6 sm:px-8">
+          <nav
+            aria-label="Policies"
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-bold text-primary/70"
+          >
+            <Link to="/privacy-policy" className="hover:text-accent">
+              Privacy Policy
+            </Link>
+            <span className="text-primary/20">•</span>
+            <Link to="/terms-and-conditions" className="hover:text-accent">
+              Terms &amp; Conditions
+            </Link>
+            <span className="text-primary/20">•</span>
+            <Link to="/cancellation-policy" className="hover:text-accent">
+              Cancellation Policy
+            </Link>
+            <span className="text-primary/20">•</span>
+            <Link to="/refund-policy" className="hover:text-accent">
+              Refund Policy
+            </Link>
+          </nav>
+
+          <div className="mt-4 flex flex-col items-center justify-between gap-2 text-xs text-primary/60 font-medium sm:flex-row">
+            <span>
+              © {new Date().getFullYear()} UniSetGo. All rights reserved.
+            </span>
+            <span>Made with ❤️ by Akash</span>
+          </div>
         </div>
       </div>
     </footer>
