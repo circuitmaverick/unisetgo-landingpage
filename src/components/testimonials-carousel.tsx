@@ -105,7 +105,7 @@ export default function TestimonialsCarousel() {
             key={index}
             tabIndex={interactive ? 0 : -1}
             aria-hidden={!interactive}
-            className={`absolute inset-0 mx-auto flex w-full max-w-2xl transform-gpu overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-elegant)] transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] ${className}`}
+            className={`absolute inset-0 mx-auto flex w-full max-w-2xl transform-gpu overflow-hidden rounded-3xl border border-transparent bg-navy/70 backdrop-blur-lg shadow-[var(--shadow-elegant)] transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] ${className}`}
           >
             <div className="hidden w-2/5 shrink-0 sm:block">
               <img
@@ -122,7 +122,7 @@ export default function TestimonialsCarousel() {
                     <Star key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
-                <blockquote className="line-clamp-6 whitespace-pre-line text-sm text-foreground/90 sm:text-base">
+                <blockquote className="line-clamp-6 whitespace-pre-line text-sm text-white sm:text-base">
                   "{review.text}"
                 </blockquote>
               </div>
@@ -130,13 +130,13 @@ export default function TestimonialsCarousel() {
               <div className="mt-4">
                 <button
                   type="button"
-                  className="inline-flex w-fit items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary hover:bg-primary hover:text-primary-foreground sm:text-sm"
+                  className="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent px-3.5 py-1.5 text-xs font-semibold bg-accent text-white transition hover:border-primary hover:bg-primary hover:text-primary-foreground sm:text-sm"
                 >
                   Read Full Review <ArrowUpRight className="h-3.5 w-3.5" />
                 </button>
 
                 <div className="mt-4 border-t border-border pt-3">
-                  <p className="font-bold text-foreground">{review.author}</p>
+                  <p className="font-bold text-white">{review.author}</p>
                 </div>
               </div>
             </div>

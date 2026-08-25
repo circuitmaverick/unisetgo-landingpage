@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BatchReunionsRouteImport } from './routes/batch-reunions'
+import { Route as CancellationPolicyRouteImport } from './routes/cancellation-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CorporateConclavesRouteImport } from './routes/corporate-conclaves'
 import { Route as CruisesRouteImport } from './routes/cruises'
@@ -21,8 +22,11 @@ import { Route as GolfTourismRouteImport } from './routes/golf-tourism'
 import { Route as HoneymoonRouteImport } from './routes/honeymoon'
 import { Route as HotelsRouteImport } from './routes/hotels'
 import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
 import { Route as SeniorCitizensRouteImport } from './routes/senior-citizens'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as VisaRouteImport } from './routes/visa'
 import { Route as PackagesIndexRouteImport } from './routes/packages.index'
 import { Route as PackagesRegionRouteImport } from './routes/packages.$region'
@@ -42,6 +46,11 @@ const AboutRoute = AboutRouteImport.update({
 const BatchReunionsRoute = BatchReunionsRouteImport.update({
   id: '/batch-reunions',
   path: '/batch-reunions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CancellationPolicyRoute = CancellationPolicyRouteImport.update({
+  id: '/cancellation-policy',
+  path: '/cancellation-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -89,6 +98,16 @@ const PackagesRoute = PackagesRouteImport.update({
   path: '/packages',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundPolicyRoute = RefundPolicyRouteImport.update({
+  id: '/refund-policy',
+  path: '/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SeniorCitizensRoute = SeniorCitizensRouteImport.update({
   id: '/senior-citizens',
   path: '/senior-citizens',
@@ -97,6 +116,11 @@ const SeniorCitizensRoute = SeniorCitizensRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VisaRoute = VisaRouteImport.update({
@@ -129,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/batch-reunions': typeof BatchReunionsRoute
+  '/cancellation-policy': typeof CancellationPolicyRoute
   '/contact': typeof ContactRoute
   '/corporate-conclaves': typeof CorporateConclavesRoute
   '/cruises': typeof CruisesRoute
@@ -138,8 +163,11 @@ export interface FileRoutesByFullPath {
   '/honeymoon': typeof HoneymoonRoute
   '/hotels': typeof HotelsRoute
   '/packages': typeof PackagesRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/senior-citizens': typeof SeniorCitizensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/visa': typeof VisaRoute
   '/packages/$region': typeof PackagesRegionRouteWithChildren
   '/packages/': typeof PackagesIndexRoute
@@ -150,6 +178,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/batch-reunions': typeof BatchReunionsRoute
+  '/cancellation-policy': typeof CancellationPolicyRoute
   '/contact': typeof ContactRoute
   '/corporate-conclaves': typeof CorporateConclavesRoute
   '/cruises': typeof CruisesRoute
@@ -158,8 +187,11 @@ export interface FileRoutesByTo {
   '/golf-tourism': typeof GolfTourismRoute
   '/honeymoon': typeof HoneymoonRoute
   '/hotels': typeof HotelsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/senior-citizens': typeof SeniorCitizensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/visa': typeof VisaRoute
   '/packages': typeof PackagesIndexRoute
   '/packages/$region/$slug': typeof PackagesRegionSlugRoute
@@ -170,6 +202,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/batch-reunions': typeof BatchReunionsRoute
+  '/cancellation-policy': typeof CancellationPolicyRoute
   '/contact': typeof ContactRoute
   '/corporate-conclaves': typeof CorporateConclavesRoute
   '/cruises': typeof CruisesRoute
@@ -179,8 +212,11 @@ export interface FileRoutesById {
   '/honeymoon': typeof HoneymoonRoute
   '/hotels': typeof HotelsRoute
   '/packages': typeof PackagesRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/senior-citizens': typeof SeniorCitizensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/visa': typeof VisaRoute
   '/packages/$region': typeof PackagesRegionRouteWithChildren
   '/packages/': typeof PackagesIndexRoute
@@ -193,6 +229,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/batch-reunions'
+    | '/cancellation-policy'
     | '/contact'
     | '/corporate-conclaves'
     | '/cruises'
@@ -202,8 +239,11 @@ export interface FileRouteTypes {
     | '/honeymoon'
     | '/hotels'
     | '/packages'
+    | '/privacy-policy'
+    | '/refund-policy'
     | '/senior-citizens'
     | '/sitemap.xml'
+    | '/terms-and-conditions'
     | '/visa'
     | '/packages/$region'
     | '/packages/'
@@ -214,6 +254,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/batch-reunions'
+    | '/cancellation-policy'
     | '/contact'
     | '/corporate-conclaves'
     | '/cruises'
@@ -222,8 +263,11 @@ export interface FileRouteTypes {
     | '/golf-tourism'
     | '/honeymoon'
     | '/hotels'
+    | '/privacy-policy'
+    | '/refund-policy'
     | '/senior-citizens'
     | '/sitemap.xml'
+    | '/terms-and-conditions'
     | '/visa'
     | '/packages'
     | '/packages/$region/$slug'
@@ -233,6 +277,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/batch-reunions'
+    | '/cancellation-policy'
     | '/contact'
     | '/corporate-conclaves'
     | '/cruises'
@@ -242,8 +287,11 @@ export interface FileRouteTypes {
     | '/honeymoon'
     | '/hotels'
     | '/packages'
+    | '/privacy-policy'
+    | '/refund-policy'
     | '/senior-citizens'
     | '/sitemap.xml'
+    | '/terms-and-conditions'
     | '/visa'
     | '/packages/$region'
     | '/packages/'
@@ -255,6 +303,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BatchReunionsRoute: typeof BatchReunionsRoute
+  CancellationPolicyRoute: typeof CancellationPolicyRoute
   ContactRoute: typeof ContactRoute
   CorporateConclavesRoute: typeof CorporateConclavesRoute
   CruisesRoute: typeof CruisesRoute
@@ -264,8 +313,11 @@ export interface RootRouteChildren {
   HoneymoonRoute: typeof HoneymoonRoute
   HotelsRoute: typeof HotelsRoute
   PackagesRoute: typeof PackagesRouteWithChildren
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RefundPolicyRoute: typeof RefundPolicyRoute
   SeniorCitizensRoute: typeof SeniorCitizensRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   VisaRoute: typeof VisaRoute
 }
 
@@ -290,6 +342,13 @@ declare module '@tanstack/react-router' {
       path: '/batch-reunions'
       fullPath: '/batch-reunions'
       preLoaderRoute: typeof BatchReunionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cancellation-policy': {
+      id: '/cancellation-policy'
+      path: '/cancellation-policy'
+      fullPath: '/cancellation-policy'
+      preLoaderRoute: typeof CancellationPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -355,6 +414,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PackagesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund-policy': {
+      id: '/refund-policy'
+      path: '/refund-policy'
+      fullPath: '/refund-policy'
+      preLoaderRoute: typeof RefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/senior-citizens': {
       id: '/senior-citizens'
       path: '/senior-citizens'
@@ -367,6 +440,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/visa': {
@@ -439,6 +519,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BatchReunionsRoute: BatchReunionsRoute,
+  CancellationPolicyRoute: CancellationPolicyRoute,
   ContactRoute: ContactRoute,
   CorporateConclavesRoute: CorporateConclavesRoute,
   CruisesRoute: CruisesRoute,
@@ -448,8 +529,11 @@ const rootRouteChildren: RootRouteChildren = {
   HoneymoonRoute: HoneymoonRoute,
   HotelsRoute: HotelsRoute,
   PackagesRoute: PackagesRouteWithChildren,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RefundPolicyRoute: RefundPolicyRoute,
   SeniorCitizensRoute: SeniorCitizensRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
   VisaRoute: VisaRoute,
 }
 export const routeTree = rootRouteImport

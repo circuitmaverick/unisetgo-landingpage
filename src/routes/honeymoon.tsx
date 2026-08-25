@@ -27,7 +27,7 @@ function HoneymoonPage() {
   return (
     <div>
       <PageHero
-        eyebrow="For newlyweds"
+        eyebrow="Curated selections for newlyweds"
         title="Honeymoons in"
         accent="the details"
         description="Rose-petal turndowns, sunset dinners, private transfers and photo-perfect stays — curated for the two of you, in the world's most romantic corners."

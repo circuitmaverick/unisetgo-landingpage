@@ -44,8 +44,8 @@ export function SiteFooter() {
           /> */}
 
           <p className="max-w-sm text-sm text-primary/80 font-medium">
-            A corporate travel studio crafting bespoke journeys for teams,
-            founders and families — engineered end to end so you can travel like
+            A travel studio crafting bespoke journeys for groups,
+            corporates, senior citizens, honeymoon couples and families — engineered end to end so you can travel like
             a guest, not a planner.
           </p>
           <div className="flex gap-3 pt-2">
@@ -261,7 +261,7 @@ function NewsletterForm() {
             type="submit"
             className="w-full rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-95 "
           >
-            Subscribe
+            Claim now!
           </button>
         </form>
       </div>
