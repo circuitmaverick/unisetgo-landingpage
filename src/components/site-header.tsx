@@ -16,6 +16,7 @@ import { waLink } from "@/lib/contact";
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
+  { to: "/corporate-conclaves", label: "Corporate Conclaves" },
   { to: "/packages", label: "Packages" },
   { to: "/cruises", label: "Cruises" },
   { to: "/contact", label: "Contact" },
@@ -89,6 +90,15 @@ export function SiteHeader() {
             activeProps={{ className: "text-primary bg-secondary" }}
           >
             Packages
+          </Link>
+
+          {/* Corporate Conclave */}
+          <Link
+            to="/corporate-conclaves"
+            className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition hover:text-primary hover:bg-secondary"
+            activeProps={{ className: "text-primary bg-secondary" }}
+          >
+            Corporate Conclaves
           </Link>
 
           {/* Special Tours Dropdown */}
