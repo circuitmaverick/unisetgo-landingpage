@@ -105,7 +105,7 @@ export const REGIONS: Region[] = [
       { slug: "sikkim", name: "Sikkim" },
       { slug: "darjeeling", name: "Darjeeling" },
       { slug: "arunachal", name: "Arunachal Pradesh" },
-      { slug: "char-dham", name: "Char Dhaam" },
+      { slug: "char-dhaam", name: "Char Dhaam" },
     ],
   },
 ];
