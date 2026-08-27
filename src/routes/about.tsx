@@ -49,16 +49,16 @@ function AboutPage() {
       <section className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-5xl px-5 py-20 sm:px-8">
           <span className="bar-mark text-xs font-bold uppercase tracking-[0.22em] text-white/90">
-            Our studio
+            Our specialization
           </span>
           <h1 className="mt-4 text-balance text-4xl font-black leading-[1.05] sm:text-6xl">
             We design <em className="not-italic text-accent">travel</em> the way
-            a great architect designs a home — around you.
+            an architect designs a custom home — around your needs.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/80">
-            UniSetGo is a corporate travel studio built by seasoned trip
-            designers. We plan journeys for founders, teams and families —
-            flights and stays are just the start.
+            A travel studio crafting bespoke journeys for groups,
+            corporates, senior citizens, honeymoon couples and families — engineered end to end so you can travel like
+            a guest, not a planner.
           </p>
         </div>
       </section>
@@ -121,17 +121,22 @@ function AboutPage() {
           <Service
             icon={HandCoins}
             title="Best Value"
-            body="We offer the best value for money in the touring packages. Choose your budget, we will provide the quality experience."
+            body="We offer the best value for money in curating packages. Choose your budget, we will provide the quality experience."
           />
           <Service
             icon={Wrench}
             title="Customization"
-            body="Curated getaways for couples, families and friends. Choose from ready itineraries or bring your own dream."
+            body="Bring your own dream and we help in making it real."
+          />
+          <Service
+            icon={Wand2}
+            title="Bespoke Itineraries"
+            body="Travel plans that are uniquely designed for lasting memories."
           />
           <Service
             icon={MapPinned}
             title="Passionate about Travel"
-            body="We are as passionate about travel as you are! You will be provided with the most wonderful and passionate travel experience."
+            body="We are as passionate about travel as you are! You will be provided a wonderful and passionate travel experience with a difference."
           />
           <Service
             icon={PhoneCall}
@@ -141,12 +146,7 @@ function AboutPage() {
           <Service
             icon={ListChecks}
             title="Wide Variety of Choices"
-            body="We offer a wide range of destinations and types of tour packages to choose from. Go through our catalog and choose what suits your needs."
-          />
-          <Service
-            icon={Wand2}
-            title="Bespoke Itineraries"
-            body="A blank sheet, your budget, your calendar. We design a route no one else will get."
+            body="We offer a wide range of destinations and types of tour packages to choose from. Go through our offerings and choose what suits your needs."
           />
         </div>
       </section>
@@ -389,7 +389,7 @@ import { MapPin, Backpack, Smile } from "lucide-react";
 
 const STATS = [
   { icon: MapPin, value: "124+", label: "Destinations" },
-  { icon: Backpack, value: "35+", label: "Tour Types" },
+  { icon: Backpack, value: "300+", label: "Tour Types" },
   { icon: Smile, value: "99%", label: "Happy Customers" },
 ];
 
