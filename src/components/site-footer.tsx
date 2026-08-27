@@ -19,6 +19,14 @@ const NAME_REGEX = /^[a-zA-Z\s'-]{2,50}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const PHONE_REGEX = /^[\+]?[0-9\s\-\(\)]{10,20}$/;
 
+const domesticSubRegions =
+  REGIONS.find((r) => r.kind === "domestic")?.subRegions ?? [];
+
+const domesticColumns = [
+  domesticSubRegions.slice(0, Math.ceil(domesticSubRegions.length / 2)),
+  domesticSubRegions.slice(Math.ceil(domesticSubRegions.length / 2)),
+];
+
 export function SiteFooter() {
   return (
     <footer className="mt-24 bg-secondary text-primary">
@@ -27,8 +35,8 @@ export function SiteFooter() {
           <NewsletterForm />
         </div>
       </div>
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-4">
-        <div className="md:col-span-2 space-y-5">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="sm:col-span-2 lg:col-span-2 space-y-5">
           {/* <BrandLogo /> */}
           <img
             src={bigLogo}
@@ -36,12 +44,6 @@ export function SiteFooter() {
             width={150}
             className="mb-2 -translate-x-3"
           />
-          {/* <img
-            src={"@/assets/branding/logo_big.png"}
-            alt="UniSetGo"
-            width={250}
-            className="mb-2"
-          /> */}
 
           <p className="max-w-sm text-sm text-primary/80 font-medium">
             A travel studio crafting bespoke journeys for groups,
@@ -81,10 +83,10 @@ export function SiteFooter() {
 
         <div>
           <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-accent">
-            Destinations
+            International
           </h4>
           <ul className="space-y-2 text-sm text-primary/80 font-medium">
-            {REGIONS.slice(0, 6).map((r) => (
+            {REGIONS.filter((r) => r.kind === "international").map((r) => (
               <li key={r.slug}>
                 <Link
                   to="/packages/$region"
@@ -96,6 +98,31 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="lg:col-span-2">
+          <div className="grid grid-cols-2 gap-x-6">
+            {domesticColumns.map((col, i) => (
+              <div key={i}>
+                <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-accent">
+                  Domestic
+                </h4>
+                <ul className="space-y-2 text-sm text-primary/80 font-medium">
+                  {col.map((sub) => (
+                    <li key={sub.slug}>
+                      <Link
+                        to="/packages/$region"
+                        params={{ region: "domestic" }}
+                        className="hover:text-accent"
+                      >
+                        {sub.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div>
