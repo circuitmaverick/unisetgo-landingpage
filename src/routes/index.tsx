@@ -291,7 +291,7 @@ function LandingPage() {
             />
             <Pillar
               icon={Headset}
-              title="24/7 On-trip Support"
+              title="On-trip Support"
               body="A real person on the other end, in your timezone."
             />
             <Pillar

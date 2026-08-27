@@ -46,9 +46,9 @@ export function SiteFooter() {
           />
 
           <p className="max-w-sm text-sm text-primary/80 font-medium">
-            A travel studio crafting bespoke journeys for groups,
-            corporates, senior citizens, honeymoon couples and families — engineered end to end so you can travel like
-            a guest, not a planner.
+            A travel studio crafting bespoke journeys for groups, corporates,
+            senior citizens, honeymoon couples and families — engineered end to
+            end so you can travel like a guest, not a planner.
           </p>
           <div className="flex gap-3 pt-2">
             <a
@@ -137,6 +137,18 @@ export function SiteFooter() {
             <li className="flex items-start gap-2">
               <Mail className="h-4 w-4 mt-0.5 shrink-0" />{" "}
               <a href={mailLink("Hello from your website")}>{CONTACT.email}</a>
+            </li>
+            <li className="flex items-start gap-2">
+              <Mail className="h-4 w-4 mt-0.5 shrink-0" />{" "}
+              <a
+                href={mailLink(
+                  "Booking enquiry from your website",
+                  "",
+                  CONTACT.bookingsEmail,
+                )}
+              >
+                {CONTACT.bookingsEmail}
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="h-4 w-4 mt-0.5 shrink-0" />{" "}

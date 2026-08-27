@@ -76,7 +76,7 @@ function ContactPage() {
           </a>
         </div>
 
-        <div className="mt-14 grid gap-6 rounded-3xl border border-border bg-card p-8 sm:grid-cols-3">
+        <div className="mt-14 grid gap-6 rounded-3xl border border-border bg-card p-8 sm:grid-cols-2 lg:grid-cols-4">
           <Info
             icon={Phone}
             label="Phone"
@@ -85,9 +85,15 @@ function ContactPage() {
           />
           <Info
             icon={Mail}
-            label="Email"
+            label="General enquiries"
             value={CONTACT.email}
             href={`mailto:${CONTACT.email}`}
+          />
+          <Info
+            icon={Mail}
+            label="Bookings"
+            value={CONTACT.bookingsEmail}
+            href={`mailto:${CONTACT.bookingsEmail}`}
           />
           <Info icon={MapPin} label="Office" value={CONTACT.address} />
         </div>
