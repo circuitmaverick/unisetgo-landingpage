@@ -2,6 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Anchor, Ship, Waves } from "lucide-react";
 import { PageHero, WhatsAppCTA } from "@/components/page-hero";
 import { waLink } from "@/lib/contact";
+import cordelia from "@/assets/cruises/cruise-cordelia.jpg";
+import gentingdream from "@/assets/cruises/cruise-gentingdream.jpg";
+import royalcaribbean from "@/assets/cruises/cruise-royalcaribbean.jpg";
+import ncl from "@/assets/cruises/cruise-ncl.jpeg";
+import msc from "@/assets/cruises/cruise-msc.jpg";
+import costa from "@/assets/cruises/cruise-costa.jpg";
+import disney from "@/assets/cruises/cruise-disney.jpg";
+
 
 export const Route = createFileRoute("/cruises")({
   head: () => ({
@@ -13,7 +21,11 @@ export const Route = createFileRoute("/cruises")({
           "Book curated cruise holidays with Cordelia, Genting, Royal Caribbean, NCL, MSC, Costa and Disney Cruise Lines through UniSetGo.",
       },
       { property: "og:title", content: "Cruise Lines — UniSetGo" },
-      { property: "og:description", content: "Curated cruise holidays with the world's best-loved cruise lines." },
+      {
+        property: "og:description",
+        content:
+          "Curated cruise holidays with the world's best-loved cruise lines.",
+      },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "/cruises" }],
@@ -37,7 +49,7 @@ const CRUISES: CruiseLine[] = [
     blurb:
       "Sail from Mumbai and Chennai to Goa, Lakshadweep and Sri Lanka aboard India's flagship cruise experience — desi flavours, world-class entertainment.",
     regions: ["Mumbai · Goa · Lakshadweep · Sri Lanka"],
-    image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1200&q=80",
+    image: cordelia,
     badge: "Made in India",
   },
   {
@@ -46,7 +58,7 @@ const CRUISES: CruiseLine[] = [
     blurb:
       "Sail Singapore, Malaysia, Thailand and beyond aboard Genting's Dream and World-class ships — spa villas, waterparks and Michelin-starred dining.",
     regions: ["Singapore · Malaysia · Thailand"],
-    image: "https://images.unsplash.com/photo-1580541631950-7282082b53fe?w=1200&q=80",
+    image: gentingdream,
   },
   {
     name: "Royal Caribbean",
@@ -54,7 +66,7 @@ const CRUISES: CruiseLine[] = [
     blurb:
       "From Icon of the Seas to Wonder of the Seas — surf simulators, ice skating, zip lines and Broadway shows at sea. Caribbean, Mediterranean, Asia and Alaska.",
     regions: ["Caribbean · Mediterranean · Alaska"],
-    image: "https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=1200&q=80",
+    image: royalcaribbean,
     badge: "Global",
   },
   {
@@ -63,7 +75,7 @@ const CRUISES: CruiseLine[] = [
     blurb:
       "Cruise your way — no fixed dining times, no formal nights. NCL's freestyle format is perfect for first-time cruisers and families who want flexibility.",
     regions: ["Caribbean · Europe · Hawaii"],
-    image: "https://images.unsplash.com/photo-1566375638485-4d29e5b76d67?w=1200&q=80",
+    image: ncl,
   },
   {
     name: "MSC Cruises",
@@ -71,7 +83,7 @@ const CRUISES: CruiseLine[] = [
     blurb:
       "Italian-designed ships with a distinctly European sensibility — Mediterranean summers, Caribbean winters, and the exclusive MSC Yacht Club suites.",
     regions: ["Mediterranean · Caribbean · Northern Europe"],
-    image: "https://images.unsplash.com/photo-1607435097405-db48f377bff6?w=1200&q=80",
+    image: msc,
   },
   {
     name: "Costa Cruises",
@@ -79,7 +91,7 @@ const CRUISES: CruiseLine[] = [
     blurb:
       "Italy's most-loved cruise brand — pasta made fresh, aperitivo on deck, and unhurried port stops across the Mediterranean and the Emirates.",
     regions: ["Mediterranean · UAE · Northern Europe"],
-    image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1200&q=80",
+    image: costa,
   },
   {
     name: "Disney Cruise Line",
@@ -87,7 +99,7 @@ const CRUISES: CruiseLine[] = [
     blurb:
       "Character breakfasts, Broadway-scale shows, adults-only lounges and Disney's own private island — the gold standard for family cruising.",
     regions: ["Caribbean · Bahamas · Europe"],
-    image: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=1200&q=80",
+    image: disney,
     badge: "Family favourite",
   },
 ];
