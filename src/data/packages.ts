@@ -256,6 +256,14 @@ import goa5 from "@/assets/pkg-goa-5.png";
 import goa6 from "@/assets/pkg-goa-6.png";
 import goa7 from "@/assets/pkg-goa-7.png";
 import goa8 from "@/assets/pkg-goa-8.png";
+import bhutan1 from "@/assets/packages/bhutan/1.png";
+import bhutan2 from "@/assets/packages/bhutan/2.png";
+import bhutan3 from "@/assets/packages/bhutan/3.png";
+import bhutan4 from "@/assets/packages/bhutan/4.png";
+import nepal1 from "@/assets/packages/nepal/1.png";
+import nepal2 from "@/assets/packages/nepal/2.png";
+import nepal3 from "@/assets/packages/nepal/3.png";
+import nepal4 from "@/assets/packages/nepal/4.png";
 
 export type TripType =
   | "city"
@@ -9012,6 +9020,165 @@ export const PACKAGES: Package[] = [
   //   inclusions: incDomestic,
   //   exclusions: exc,
   // },
+  {
+    slug: "bhutan-himalayan-kingdom-journey",
+    title: "Bhutan: Himalayan Kingdom — Monasteries, Valleys & Mountain Serenity",
+    region: "saarc",
+    subRegion: "bhutan",
+    groupTag: "Bhutan",
+    country: "Bhutan",
+    durationDays: 7,
+    nights: 6,
+    priceFrom: 42999,
+    heroImage: bhutan1,
+    gallery: [bhutan1, bhutan2, bhutan3, bhutan4],
+    tripType: "mountain",
+    summary:
+      "Journey through the peaceful Himalayan kingdom of Bhutan on a 7-day experience covering Paro, Thimphu, Punakha, and the scenic mountain valleys. Discover ancient monasteries, dramatic landscapes, traditional Bhutanese architecture, vibrant markets, and the iconic Tiger's Nest Monastery.",
+    overview:
+      "This 6N/7D Bhutan journey combines the country's most celebrated cultural and natural attractions at a relaxed pace. Begin in Paro with its traditional architecture and historic landmarks, continue to Thimphu for Bhutanese culture and city life, and travel through the spectacular Dochula Pass to the fertile Punakha Valley. The journey concludes with the unforgettable hike to Taktsang Monastery, offering a balanced mix of Himalayan scenery, spirituality, culture, and adventure.",
+    highlights: [
+      "Explore the charming Paro Valley and traditional Bhutanese architecture",
+      "Hike to the iconic Tiger's Nest Monastery",
+      "Discover Bhutanese culture and landmarks in Thimphu",
+      "Scenic drive through the spectacular Dochula Pass",
+      "Explore Punakha Dzong and the beautiful Punakha Valley",
+      "Visit ancient monasteries and traditional villages",
+      "Experience Bhutan's peaceful Himalayan landscapes and local cuisine",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Paro & Transfer to Thimphu",
+        detail:
+          "Arrive at Paro International Airport and enjoy a scenic drive through the Himalayan valleys to Thimphu. Check into your hotel and spend the evening exploring the town's relaxed streets, local cafés, and traditional Bhutanese atmosphere.",
+      },
+      {
+        day: 2,
+        title: "Thimphu Cultural Discovery",
+        detail:
+          "Explore Thimphu's major attractions including Buddha Dordenma, Memorial Chorten, Tashichho Dzong, the National Folk Heritage Museum, and local handicraft markets before enjoying an evening at leisure in the capital.",
+      },
+      {
+        day: 3,
+        title: "Thimphu to Punakha via Dochula",
+        detail:
+          "Travel towards Punakha through the scenic Dochula Pass, stopping to admire the Himalayan panorama and the famous 108 Druk Wangyal Chortens. Continue through mountain roads and valleys before arriving in Punakha for an evening of relaxation.",
+      },
+      {
+        day: 4,
+        title: "Punakha Valley Exploration",
+        detail:
+          "Visit the magnificent Punakha Dzong at the meeting point of the Mo Chhu and Pho Chhu rivers, followed by a visit to Chimi Lhakhang and nearby traditional villages. Spend the evening enjoying the peaceful scenery of the Punakha Valley.",
+      },
+      {
+        day: 5,
+        title: "Punakha to Paro",
+        detail:
+          "Drive back towards Paro through Bhutan's scenic mountain landscapes, with stops at viewpoints and local settlements along the way. Arrive in Paro and explore the traditional town center, local shops, and surrounding valley.",
+      },
+      {
+        day: 6,
+        title: "Tiger's Nest Monastery Adventure",
+        detail:
+          "Take the memorable hike through pine forests to Taktsang Monastery, popularly known as Tiger's Nest, perched dramatically on a cliff above the Paro Valley. Return to Paro and spend the evening relaxing after the hike.",
+      },
+      {
+        day: 7,
+        title: "Departure from Bhutan",
+        detail:
+          "Enjoy breakfast and some final leisure time in Paro before transferring to Paro International Airport for your onward journey, bringing your Himalayan kingdom experience to an end.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+
+  {
+    slug: "nepal-himalayan-grand-tour",
+    title: "Nepal: Himalayan Grand Tour — Temples, Lakes, Jungles & Mountain Views",
+    region: "saarc",
+    subRegion: "nepal",
+    groupTag: "Nepal",
+    country: "Nepal",
+    durationDays: 9,
+    nights: 8,
+    priceFrom: 39999,
+    heroImage: nepal1,
+    gallery: [nepal1, nepal2, nepal3, nepal4],
+    tripType: "mountain",
+    summary:
+      "Discover the diverse landscapes and cultural heritage of Nepal on a 9-day journey through Kathmandu, Pokhara, Chitwan, and Nagarkot. Experience ancient temples, Himalayan viewpoints, serene lakes, traditional towns, wildlife, and breathtaking mountain scenery.",
+    overview:
+      "This 8N/9D Nepal itinerary brings together the country's most rewarding experiences without trying to cover too much ground. Explore the UNESCO-listed heritage sites and vibrant streets of Kathmandu, journey to Pokhara for spectacular Annapurna and Machhapuchhre views, experience the forests and wildlife of Chitwan National Park, and finish among the Himalayan foothills of Nagarkot. The package combines culture, nature, adventure, relaxation, and scenic mountain experiences.",
+    highlights: [
+      "Explore Kathmandu's historic temples and UNESCO heritage sites",
+      "Visit Pashupatinath Temple, Boudhanath and Swayambhunath",
+      "Enjoy spectacular Himalayan views from Pokhara and Sarangkot",
+      "Experience boating on the serene Phewa Lake",
+      "Discover the caves, waterfalls, and viewpoints of Pokhara",
+      "Experience wildlife and jungle activities in Chitwan National Park",
+      "Watch a Himalayan sunrise and sunset from Nagarkot",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Kathmandu",
+        detail:
+          "Arrive in Kathmandu and transfer to your hotel. Relax after your journey before taking an evening walk through the lively Thamel area and experiencing your first taste of Nepalese food and culture.",
+      },
+      {
+        day: 2,
+        title: "Kathmandu Heritage Trail",
+        detail:
+          "Explore Kathmandu's cultural landmarks including Pashupatinath Temple, Boudhanath Stupa, and Swayambhunath, followed by a visit to Kathmandu Durbar Square and the historic streets surrounding the old city.",
+      },
+      {
+        day: 3,
+        title: "Kathmandu to Pokhara",
+        detail:
+          "Travel through Nepal's scenic countryside towards Pokhara, enjoying views of rivers, hills, and traditional settlements along the journey. Arrive in Pokhara and spend the evening beside Phewa Lake and around Lakeside.",
+      },
+      {
+        day: 4,
+        title: "Pokhara & Sarangkot Sunrise",
+        detail:
+          "Start early with a sunrise excursion to Sarangkot for panoramic views of the Annapurna range and Machhapuchhre. Later explore Davis Falls, Gupteshwor Cave, the World Peace Pagoda, and enjoy a relaxing boat ride on Phewa Lake.",
+      },
+      {
+        day: 5,
+        title: "Pokhara to Chitwan",
+        detail:
+          "Travel from the Himalayan foothills towards the subtropical Terai plains and Chitwan National Park. Check into your jungle resort and enjoy an evening village walk or cultural Tharu experience.",
+      },
+      {
+        day: 6,
+        title: "Chitwan Jungle Experience",
+        detail:
+          "Spend the day exploring Chitwan National Park through jungle activities such as a safari, nature walk, birdwatching, and canoe experience, with opportunities to spot rhinos, deer, crocodiles, and other wildlife.",
+      },
+      {
+        day: 7,
+        title: "Chitwan to Nagarkot",
+        detail:
+          "Depart Chitwan and travel back towards the Kathmandu Valley before continuing to the hill station of Nagarkot. Relax at the resort and enjoy panoramic Himalayan scenery as the sun sets over the surrounding hills.",
+      },
+      {
+        day: 8,
+        title: "Nagarkot Sunrise & Bhaktapur",
+        detail:
+          "Wake early for a spectacular Himalayan sunrise before visiting the historic city of Bhaktapur, exploring its ancient squares, temples, courtyards, and traditional architecture. Return to Kathmandu for your final evening.",
+      },
+      {
+        day: 9,
+        title: "Departure from Nepal",
+        detail:
+          "Enjoy breakfast and some final leisure time before transferring to Tribhuvan International Airport for your onward journey, concluding your Nepal Himalayan adventure.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
 ];
 
 export const TRIP_TYPES: { value: TripType; label: string }[] = [
