@@ -113,3 +113,70 @@ Region: Domestic
 - Char Dhaam
 
 Now, let's move forward one by one regions. You need to create all the required details, content, itenaries, images for the respective packages. Keep in mind, the images should be bright looking.
+
+
+## Table `regions`
+
+Stores regions of the
+
+### Columns
+
+| Name | Type | Constraints |
+|------|------|-------------|
+| `slug` | `text` | Primary |
+| `name` | `text` |  |
+| `kind` | `package-kind` |  |
+| `tag` | `text` |  |
+| `image` | `text` |  |
+
+## Table `sub_regions`
+
+Sub regions that group certain packages or destinations under certain factors
+
+### Columns
+
+| Name | Type | Constraints |
+|------|------|-------------|
+| `region_slug` | `text` | Primary |
+| `sub_region_slug` | `text` | Primary |
+| `name` | `text` |  |
+
+## Table `packages`
+
+### Columns
+
+| Name | Type | Constraints |
+|------|------|-------------|
+| `slug` | `text` | Primary |
+| `title` | `text` |  |
+| `region` | `text` |  |
+| `sub_region` | `text` |  |
+| `group_tag` | `text` |  |
+| `country` | `text` |  |
+| `days` | `int2` |  |
+| `nights` | `int2` |  |
+| `price_from` | `float8` |  |
+| `hero_image` | `text` |  |
+| `gallery` | `_text` |  |
+| `trip_type` | `text` |  |
+| `summary` | `text` |  |
+| `overview` | `text` |  |
+| `highlights` | `_text` |  |
+| `itinerary` | `_json` |  |
+| `inclusions` | `_text` |  |
+| `exclusions` | `_text` |  |
+
+## Table `trip_type`
+
+### Columns
+
+| Name | Type | Constraints |
+|------|------|-------------|
+| `trip_type` | `text` | Primary |
+
+## Custom Types / Enums
+
+### `package-kind`
+
+`international` | `domestic`
+

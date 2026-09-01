@@ -36,7 +36,7 @@ export const Route = createFileRoute("/packages/$region/$slug")({
         ],
       };
     }
-    const title = `${pkg.title} — ${pkg.durationDays}D / ${pkg.nights}N — UniSetGo`;
+    const title = `${pkg.title} — ${pkg.days}D / ${pkg.nights}N — UniSetGo`;
     const url = `/packages/${params.region}/${params.slug}`;
     return {
       meta: [
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/packages/$region/$slug")({
         { name: "description", content: pkg.summary },
         {
           name: "keywords",
-          content: `${pkg.title}, ${pkg.country} tour, ${pkg.country} travel package, ${pkg.durationDays} day ${pkg.country}, UniSetGo`,
+          content: `${pkg.title}, ${pkg.country} tour, ${pkg.country} travel package, ${pkg.days} day ${pkg.country}, UniSetGo`,
         },
         { property: "og:title", content: title },
         { property: "og:description", content: pkg.summary },
@@ -97,8 +97,8 @@ function PackageDetail() {
     pkg: Package;
     region: Region;
   };
-  const bookMsg = `Hi UniSetGo, I'd like to proceed with booking the "${pkg.title}" (${pkg.durationDays}D/${pkg.nights}N, from ${formatINR(pkg.priceFrom)}). Please share the next steps.`;
-  const customMsg = `Hi UniSetGo, I'd like to customise the "${pkg.title}" package (${pkg.durationDays}D/${pkg.nights}N). Could we adjust the dates/cities/stays?`;
+  const bookMsg = `Hi UniSetGo, I'd like to proceed with booking the "${pkg.title}" (${pkg.days}D/${pkg.nights}N, from ${formatINR(pkg.priceFrom)}). Please share the next steps.`;
+  const customMsg = `Hi UniSetGo, I'd like to customise the "${pkg.title}" package (${pkg.days}D/${pkg.nights}N). Could we adjust the dates/cities/stays?`;
   const tripTypeLabel =
     TRIP_TYPES.find((t) => t.value === pkg.tripType)?.label ?? pkg.tripType;
 
@@ -131,7 +131,7 @@ function PackageDetail() {
                 {tripTypeLabel}
               </span>
               <span className="rounded-full bg-accent/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-accent">
-                {pkg.durationDays}D / {pkg.nights}N
+                {pkg.days}D / {pkg.nights}N
               </span>
             </div>
             <h1 className="mt-3 text-3xl font-black text-foreground sm:text-5xl">
@@ -145,7 +145,7 @@ function PackageDetail() {
               <Meta
                 icon={Clock}
                 label="Duration"
-                value={`${pkg.durationDays}D / ${pkg.nights}N`}
+                value={`${pkg.days}D / ${pkg.nights}N`}
               />
               <Meta icon={MapPin} label="Country" value={pkg.country} />
               <div>
