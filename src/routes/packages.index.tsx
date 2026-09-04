@@ -46,10 +46,10 @@ function AllPackages() {
     return PACKAGES.filter((p) => {
       if (region !== "all" && p.region !== region) return false;
       if (tripType !== "all" && p.tripType !== tripType) return false;
-      if (duration === "short" && p.durationDays > 5) return false;
-      if (duration === "medium" && (p.durationDays < 6 || p.durationDays > 7))
+      if (duration === "short" && p.days > 5) return false;
+      if (duration === "medium" && (p.days < 6 || p.days > 7))
         return false;
-      if (duration === "long" && p.durationDays < 8) return false;
+      if (duration === "long" && p.days < 8) return false;
       if (needle) {
         const hay =
           `${p.title} ${p.country} ${p.summary} ${p.overview} ${p.highlights.join(" ")}`.toLowerCase();
@@ -267,7 +267,7 @@ export function PackageCard({ pkg }: { pkg: Package }) {
           {region?.name}
         </span>
         <span className="absolute right-4 top-4 rounded-full bg-accent px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-accent-foreground">
-          {pkg.durationDays}D / {pkg.nights}N
+          {pkg.days}D / {pkg.nights}N
         </span>
       </div>
       <div className="flex flex-1 flex-col p-6">
