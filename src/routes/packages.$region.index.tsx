@@ -1,18 +1,21 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { useState } from "react";
-import { regionBySlug, type RegionSlug } from "@/data/regions";
-import { packagesByRegion } from "@/data/packages";
+import { getPackages, getRegionBySlug } from "@/lib/packages-db";
 import { PackageCard } from "./packages.index";
 
 export const Route = createFileRoute("/packages/$region/")({
+  loader: async ({ params }) => {
+    const region = await getRegionBySlug(params.region);
+    if (!region) throw notFound();
+    const allPackages = await getPackages();
+    const packages = allPackages.filter((p) => p.region === region.slug);
+    return { region, packages };
+  },
   component: RegionIndex,
 });
 
 function RegionIndex() {
-  const { region: regionSlug } = Route.useParams();
-  const region = regionBySlug(regionSlug);
-  if (!region) throw notFound();
-  const packages = packagesByRegion(region.slug as RegionSlug);
+  const { region, packages } = Route.useLoaderData();
   const [subFilter, setSubFilter] = useState<string | null>(null);
 
   const filtered = subFilter
@@ -36,7 +39,7 @@ function RegionIndex() {
         </p>
       </div>
 
-      {region.subRegions && (
+      {region.subRegions.length > 0 && (
         <div className="mb-8 flex flex-wrap gap-2">
           <SubChip
             label="All"

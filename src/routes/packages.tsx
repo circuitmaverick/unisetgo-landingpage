@@ -4,9 +4,13 @@ import {
   Outlet,
   useMatchRoute,
 } from "@tanstack/react-router";
-import { REGIONS } from "@/data/regions";
+import { getRegions } from "@/lib/packages-db";
 
 export const Route = createFileRoute("/packages")({
+  loader: async () => {
+    const regions = await getRegions();
+    return { regions };
+  },
   head: () => ({
     meta: [
       { title: "Travel Packages — UniSetGo" },
@@ -26,6 +30,7 @@ export const Route = createFileRoute("/packages")({
 });
 
 function PackagesLayout() {
+  const { regions } = Route.useLoaderData();
   const matchRoute = useMatchRoute();
   return (
     <div>
@@ -53,7 +58,7 @@ function PackagesLayout() {
                 label="All"
                 active={!!matchRoute({ to: "/packages", fuzzy: false })}
               />
-              {REGIONS.map((r) => (
+              {regions.map((r) => (
                 <TabLink
                   key={r.slug}
                   to="/packages/$region"

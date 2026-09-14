@@ -1,9 +1,12 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { packageBySlug, formatINR, TRIP_TYPES } from "@/data/packages";
-import type { Package } from "@/data/packages";
-import { regionBySlug } from "@/data/regions";
-import type { Region } from "@/data/regions";
+import { formatINR, TRIP_TYPES } from "@/data/packages";
+import {
+  getPackageDetail,
+  getRegionBySlug,
+  type PackageDetail,
+  type RegionWithSubRegions,
+} from "@/lib/packages-db";
 import {
   CheckCircle2,
   XCircle,
@@ -17,13 +20,15 @@ import {
   Wand2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CachedImage } from "@/components/cached-image";
 import { waLink, mailLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/packages/$region/$slug")({
-  loader: ({ params }) => {
-    const pkg = packageBySlug(params.region, params.slug);
+  loader: async ({ params }) => {
+    const pkg = await getPackageDetail(params.region, params.slug);
     if (!pkg) throw notFound();
-    const region = regionBySlug(params.region)!;
+    const region = await getRegionBySlug(params.region);
+    if (!region) throw notFound();
     return { pkg, region };
   },
   head: ({ params, loaderData }) => {
@@ -94,8 +99,8 @@ export const Route = createFileRoute("/packages/$region/$slug")({
 
 function PackageDetail() {
   const { pkg, region } = Route.useLoaderData() as {
-    pkg: Package;
-    region: Region;
+    pkg: PackageDetail;
+    region: RegionWithSubRegions;
   };
   const bookMsg = `Hi UniSetGo, I'd like to proceed with booking the "${pkg.title}" (${pkg.days}D/${pkg.nights}N, from ${formatINR(pkg.priceFrom)}). Please share the next steps.`;
   const customMsg = `Hi UniSetGo, I'd like to customise the "${pkg.title}" package (${pkg.days}D/${pkg.nights}N). Could we adjust the dates/cities/stays?`;
@@ -107,7 +112,7 @@ function PackageDetail() {
       {/* Hero */}
       <section className="relative">
         <div className="relative aspect-[16/9] max-h-[70vh] w-full overflow-hidden bg-primary sm:aspect-[16/7]">
-          <img
+          <CachedImage
             src={pkg.heroImage}
             alt={pkg.title}
             width={1600}
@@ -328,7 +333,7 @@ function Gallery({ images, title }: { images: string[]; title: string }) {
     <div className="mt-4">
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl bg-secondary shadow-[var(--shadow-card)]">
         {images.map((src, i) => (
-          <img
+          <CachedImage
             key={src + i}
             src={src}
             alt={`${title} — image ${i + 1}`}
@@ -387,7 +392,7 @@ function Gallery({ images, title }: { images: string[]; title: string }) {
                   : "border-transparent opacity-70 hover:opacity-100"
               }`}
             >
-              <img
+              <CachedImage
                 src={src}
                 alt=""
                 loading="lazy"
