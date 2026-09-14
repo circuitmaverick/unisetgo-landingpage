@@ -24,6 +24,7 @@ import { Route as HotelsRouteImport } from './routes/hotels'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
+import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as SeniorCitizensRouteImport } from './routes/senior-citizens'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
@@ -108,6 +109,11 @@ const RefundPolicyRoute = RefundPolicyRouteImport.update({
   path: '/refund-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SeniorCitizensRoute = SeniorCitizensRouteImport.update({
   id: '/senior-citizens',
   path: '/senior-citizens',
@@ -165,6 +171,7 @@ export interface FileRoutesByFullPath {
   '/packages': typeof PackagesRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-policy': typeof RefundPolicyRoute
+  '/reviews': typeof ReviewsRoute
   '/senior-citizens': typeof SeniorCitizensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -189,6 +196,7 @@ export interface FileRoutesByTo {
   '/hotels': typeof HotelsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-policy': typeof RefundPolicyRoute
+  '/reviews': typeof ReviewsRoute
   '/senior-citizens': typeof SeniorCitizensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -214,6 +222,7 @@ export interface FileRoutesById {
   '/packages': typeof PackagesRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-policy': typeof RefundPolicyRoute
+  '/reviews': typeof ReviewsRoute
   '/senior-citizens': typeof SeniorCitizensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -241,6 +250,7 @@ export interface FileRouteTypes {
     | '/packages'
     | '/privacy-policy'
     | '/refund-policy'
+    | '/reviews'
     | '/senior-citizens'
     | '/sitemap.xml'
     | '/terms-and-conditions'
@@ -265,6 +275,7 @@ export interface FileRouteTypes {
     | '/hotels'
     | '/privacy-policy'
     | '/refund-policy'
+    | '/reviews'
     | '/senior-citizens'
     | '/sitemap.xml'
     | '/terms-and-conditions'
@@ -289,6 +300,7 @@ export interface FileRouteTypes {
     | '/packages'
     | '/privacy-policy'
     | '/refund-policy'
+    | '/reviews'
     | '/senior-citizens'
     | '/sitemap.xml'
     | '/terms-and-conditions'
@@ -315,6 +327,7 @@ export interface RootRouteChildren {
   PackagesRoute: typeof PackagesRouteWithChildren
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
+  ReviewsRoute: typeof ReviewsRoute
   SeniorCitizensRoute: typeof SeniorCitizensRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
@@ -428,6 +441,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RefundPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/senior-citizens': {
       id: '/senior-citizens'
       path: '/senior-citizens'
@@ -531,6 +551,7 @@ const rootRouteChildren: RootRouteChildren = {
   PackagesRoute: PackagesRouteWithChildren,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RefundPolicyRoute: RefundPolicyRoute,
+  ReviewsRoute: ReviewsRoute,
   SeniorCitizensRoute: SeniorCitizensRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,

@@ -248,6 +248,22 @@ import uk7 from "@/assets/pkg-uttarakhand-7.jpg";
 import uk8 from "@/assets/pkg-uttarakhand-8.jpg";
 import uk9 from "@/assets/pkg-uttarakhand-9.jpg";
 import uk10 from "@/assets/pkg-uttarakhand-10.jpg";
+import goa1 from "@/assets/pkg-goa-1.png";
+import goa2 from "@/assets/pkg-goa-2.png";
+import goa3 from "@/assets/pkg-goa-3.png";
+import goa4 from "@/assets/pkg-goa-4.png";
+import goa5 from "@/assets/pkg-goa-5.png";
+import goa6 from "@/assets/pkg-goa-6.png";
+import goa7 from "@/assets/pkg-goa-7.png";
+import goa8 from "@/assets/pkg-goa-8.png";
+import bhutan1 from "@/assets/packages/bhutan/1.png";
+import bhutan2 from "@/assets/packages/bhutan/2.png";
+import bhutan3 from "@/assets/packages/bhutan/3.png";
+import bhutan4 from "@/assets/packages/bhutan/4.png";
+import nepal1 from "@/assets/packages/nepal/1.png";
+import nepal2 from "@/assets/packages/nepal/2.png";
+import nepal3 from "@/assets/packages/nepal/3.png";
+import nepal4 from "@/assets/packages/nepal/4.png";
 
 export type TripType =
   | "city"
@@ -256,7 +272,10 @@ export type TripType =
   | "cultural"
   | "wildlife"
   | "adventure"
-  | "pilgrimage";
+  | "pilgrimage"
+  | "corporate"
+  | "honeymoon"
+  | "golf-trip";
 
 export type Package = {
   slug: string;
@@ -265,7 +284,7 @@ export type Package = {
   subRegion?: string;
   groupTag?: string;
   country: string;
-  durationDays: number;
+  days: number;
   nights: number;
   priceFrom: number; // INR
   heroImage: string;
@@ -311,7 +330,7 @@ export const PACKAGES: Package[] = [
     region: "central-asia",
     subRegion: "russia",
     country: "Russia",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 149999,
     heroImage: russia1,
@@ -381,7 +400,7 @@ export const PACKAGES: Package[] = [
     subRegion: "russia",
     groupTag: "Russia",
     country: "Russia",
-    durationDays: 9,
+    days: 9,
     nights: 8,
     priceFrom: 89999,
     heroImage: russia1,
@@ -466,7 +485,7 @@ export const PACKAGES: Package[] = [
     subRegion: "russia",
     groupTag: "Russia",
     country: "Russia",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 64999,
     heroImage: russia1,
@@ -533,7 +552,7 @@ export const PACKAGES: Package[] = [
     subRegion: "cis",
     groupTag: "CIS Countries",
     country: "Georgia",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 89999,
     heroImage: georgia1,
@@ -597,7 +616,7 @@ export const PACKAGES: Package[] = [
     subRegion: "cis",
     groupTag: "CIS Countries",
     country: "Azerbaijan",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 79999,
     heroImage: azerbaijan1,
@@ -656,7 +675,7 @@ export const PACKAGES: Package[] = [
     subRegion: "cis",
     groupTag: "CIS Countries",
     country: "Uzbekistan",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 99999,
     heroImage: uzbekistan1,
@@ -726,7 +745,7 @@ export const PACKAGES: Package[] = [
     subRegion: "cis",
     groupTag: "CIS Countries",
     country: "Kazakhstan",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 94999,
     heroImage: kazakhstan1,
@@ -789,7 +808,7 @@ export const PACKAGES: Package[] = [
     subRegion: "cis",
     groupTag: "CIS Countries",
     country: "Armenia",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 84999,
     heroImage: armenia1,
@@ -846,7 +865,7 @@ export const PACKAGES: Package[] = [
     region: "central-asia",
     subRegion: "china",
     country: "China",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 159999,
     heroImage: china1,
@@ -921,7 +940,7 @@ export const PACKAGES: Package[] = [
     subRegion: "china",
     groupTag: "China",
     country: "China",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 74999,
     heroImage: china1,
@@ -988,7 +1007,7 @@ export const PACKAGES: Package[] = [
     subRegion: "china",
     groupTag: "China",
     country: "China",
-    durationDays: 10,
+    days: 10,
     nights: 9,
     priceFrom: 124999,
     heroImage: china1,
@@ -1078,7 +1097,7 @@ export const PACKAGES: Package[] = [
     region: "central-asia",
     subRegion: "japan",
     country: "Japan",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 189999,
     heroImage: japan1,
@@ -1154,7 +1173,7 @@ export const PACKAGES: Package[] = [
     subRegion: "japan",
     groupTag: "Japan",
     country: "Japan",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 109999,
     heroImage: japan1,
@@ -1227,7 +1246,7 @@ export const PACKAGES: Package[] = [
     subRegion: "japan",
     groupTag: "Japan",
     country: "Japan",
-    durationDays: 12,
+    days: 12,
     nights: 11,
     priceFrom: 179999,
     heroImage: japan1,
@@ -1328,7 +1347,7 @@ export const PACKAGES: Package[] = [
     title: "Singapore: City of Lights",
     region: "southeast-asia",
     country: "Singapore",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 84999,
     heroImage: singapore1,
@@ -1385,7 +1404,7 @@ export const PACKAGES: Package[] = [
     title: "Malaysia: KL, Genting & Langkawi",
     region: "southeast-asia",
     country: "Malaysia",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 79999,
     heroImage: malaysia1,
@@ -1447,7 +1466,7 @@ export const PACKAGES: Package[] = [
     title: "Thailand: Bangkok & Phuket",
     region: "southeast-asia",
     country: "Thailand",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 69999,
     heroImage: thailand1,
@@ -1510,7 +1529,7 @@ export const PACKAGES: Package[] = [
     subRegion: "thailand",
     groupTag: "Thailand",
     country: "Thailand",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 44999,
     heroImage: thailand1,
@@ -1577,7 +1596,7 @@ export const PACKAGES: Package[] = [
     subRegion: "thailand",
     groupTag: "Thailand",
     country: "Thailand",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 49999,
     heroImage: thailand1,
@@ -1642,7 +1661,7 @@ export const PACKAGES: Package[] = [
     title: "Vietnam: Hanoi, Ha Long & Hoi An",
     region: "southeast-asia",
     country: "Vietnam",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 89999,
     heroImage: vietnam1,
@@ -1710,7 +1729,7 @@ export const PACKAGES: Package[] = [
     title: "Cambodia: Angkor Heritage",
     region: "southeast-asia",
     country: "Cambodia",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 74999,
     heroImage: cambodia1,
@@ -1766,7 +1785,7 @@ export const PACKAGES: Package[] = [
     title: "Philippines: Palawan & Boracay",
     region: "southeast-asia",
     country: "Philippines",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 119999,
     heroImage: philippines1,
@@ -1834,7 +1853,7 @@ export const PACKAGES: Package[] = [
     title: "Bali: Island of the Gods",
     region: "southeast-asia",
     country: "Indonesia",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 79999,
     heroImage: bali1,
@@ -1896,7 +1915,7 @@ export const PACKAGES: Package[] = [
     title: "Maldives: Lagoon Luxury",
     region: "southeast-asia",
     country: "Maldives",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 139999,
     heroImage: maldives1,
@@ -1953,7 +1972,7 @@ export const PACKAGES: Package[] = [
     title: "Hong Kong: Harbour Highlights",
     region: "southeast-asia",
     country: "Hong Kong",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 94999,
     heroImage: hongkong1,
@@ -2009,7 +2028,7 @@ export const PACKAGES: Package[] = [
     title: "Sri Lanka: Pearl of the Indian Ocean",
     region: "southeast-asia",
     country: "Sri Lanka",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 74999,
     heroImage: srilanka1,
@@ -2078,7 +2097,7 @@ export const PACKAGES: Package[] = [
     region: "europe",
     groupTag: "United Kingdom",
     country: "United Kingdom",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 164999,
     heroImage: london1,
@@ -2142,7 +2161,7 @@ export const PACKAGES: Package[] = [
     region: "europe",
     groupTag: "United Kingdom",
     country: "United Kingdom",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 179999,
     heroImage: scotland1,
@@ -2212,7 +2231,7 @@ export const PACKAGES: Package[] = [
     region: "europe",
     groupTag: "United Kingdom",
     country: "United Kingdom",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 154999,
     heroImage: wales1,
@@ -2275,7 +2294,7 @@ export const PACKAGES: Package[] = [
     region: "europe",
     groupTag: "United Kingdom",
     country: "United Kingdom",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 144999,
     heroImage: nireland1,
@@ -2330,7 +2349,7 @@ export const PACKAGES: Package[] = [
     title: "Germany: Castles & Cities",
     region: "europe",
     country: "Germany",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 169999,
     heroImage: germany1,
@@ -2397,7 +2416,7 @@ export const PACKAGES: Package[] = [
     title: "France: Paris & the Riviera",
     region: "europe",
     country: "France",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 189999,
     heroImage: france1,
@@ -2465,7 +2484,7 @@ export const PACKAGES: Package[] = [
     title: "Italy: Rome, Florence & Venice",
     region: "europe",
     country: "Italy",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 179999,
     heroImage: italy1,
@@ -2535,7 +2554,7 @@ export const PACKAGES: Package[] = [
     title: "Vatican City: Pilgrim & Art Trail",
     region: "europe",
     country: "Vatican City",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 139999,
     heroImage: vatican1,
@@ -2591,7 +2610,7 @@ export const PACKAGES: Package[] = [
     title: "Switzerland: Alpine Classic",
     region: "europe",
     country: "Switzerland",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 214999,
     heroImage: switzerland1,
@@ -2657,7 +2676,7 @@ export const PACKAGES: Package[] = [
     title: "Malta: Mediterranean Island Break",
     region: "europe",
     country: "Malta",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 134999,
     heroImage: malta1,
@@ -2718,7 +2737,7 @@ export const PACKAGES: Package[] = [
     title: "Spain: Barcelona & Andalusia",
     region: "europe",
     country: "Spain",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 174999,
     heroImage: spain1,
@@ -2791,7 +2810,7 @@ export const PACKAGES: Package[] = [
     title: "Austria: Imperial Cities & Alpine Lakes",
     region: "europe",
     country: "Austria",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 164999,
     heroImage: austria1,
@@ -2858,7 +2877,7 @@ export const PACKAGES: Package[] = [
     title: "Greece: Athens & the Islands",
     region: "europe",
     country: "Greece",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 169999,
     heroImage: greece1,
@@ -2929,7 +2948,7 @@ export const PACKAGES: Package[] = [
     title: "Portugal: Lisbon, Porto & Algarve",
     region: "europe",
     country: "Portugal",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 159999,
     heroImage: portugal1,
@@ -2996,7 +3015,7 @@ export const PACKAGES: Package[] = [
     title: "Dubai: City & Desert Classic",
     region: "middle-east",
     country: "United Arab Emirates",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 84999,
     heroImage: dubai1,
@@ -3059,7 +3078,7 @@ export const PACKAGES: Package[] = [
     title: "Abu Dhabi: Capital Escape",
     region: "middle-east",
     country: "United Arab Emirates",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 79999,
     heroImage: abudhabi1,
@@ -3114,7 +3133,7 @@ export const PACKAGES: Package[] = [
     title: "Turkey: Istanbul & Cappadocia",
     region: "middle-east",
     country: "Turkey",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 134999,
     heroImage: turkey1,
@@ -3188,7 +3207,7 @@ export const PACKAGES: Package[] = [
     title: "Jordan: Petra & Wadi Rum",
     region: "middle-east",
     country: "Jordan",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 154999,
     heroImage: jordan1,
@@ -3255,7 +3274,7 @@ export const PACKAGES: Package[] = [
     title: "Qatar: Doha Discovery",
     region: "middle-east",
     country: "Qatar",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 89999,
     heroImage: qatar1,
@@ -3311,7 +3330,7 @@ export const PACKAGES: Package[] = [
     title: "Saudi Arabia: AlUla & Riyadh",
     region: "middle-east",
     country: "Saudi Arabia",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 189999,
     heroImage: saudi1,
@@ -3386,7 +3405,7 @@ export const PACKAGES: Package[] = [
     title: "Egypt: Pyramids & Nile Cruise",
     region: "africa",
     country: "Egypt",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 134999,
     heroImage: egypt1,
@@ -3461,7 +3480,7 @@ export const PACKAGES: Package[] = [
     title: "Morocco: Imperial Cities & Sahara",
     region: "africa",
     country: "Morocco",
-    durationDays: 9,
+    days: 9,
     nights: 8,
     priceFrom: 154999,
     heroImage: morocco2,
@@ -3539,7 +3558,7 @@ export const PACKAGES: Package[] = [
     title: "Kenya: Masai Mara Safari",
     region: "africa",
     country: "Kenya",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 189999,
     heroImage: kenya1,
@@ -3607,7 +3626,7 @@ export const PACKAGES: Package[] = [
     title: "Tanzania: Serengeti & Zanzibar",
     region: "africa",
     country: "Tanzania",
-    durationDays: 9,
+    days: 9,
     nights: 8,
     priceFrom: 224999,
     heroImage: tanzania1,
@@ -3683,7 +3702,7 @@ export const PACKAGES: Package[] = [
     title: "Seychelles: Island Escape",
     region: "africa",
     country: "Seychelles",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 174999,
     heroImage: seychelles1,
@@ -3743,7 +3762,7 @@ export const PACKAGES: Package[] = [
     title: "South Africa: Cape Town & Kruger",
     region: "africa",
     country: "South Africa",
-    durationDays: 9,
+    days: 9,
     nights: 8,
     priceFrom: 199999,
     heroImage: southafrica1,
@@ -3821,7 +3840,7 @@ export const PACKAGES: Package[] = [
     title: "Australia: Sydney, Reef & Great Ocean Road",
     region: "australia-nz",
     country: "Australia",
-    durationDays: 10,
+    days: 10,
     nights: 9,
     priceFrom: 249999,
     heroImage: australia1,
@@ -3907,7 +3926,7 @@ export const PACKAGES: Package[] = [
     title: "New Zealand: Queenstown, Fiords & Rotorua",
     region: "australia-nz",
     country: "New Zealand",
-    durationDays: 9,
+    days: 9,
     nights: 8,
     priceFrom: 229999,
     heroImage: newzealand2,
@@ -3987,7 +4006,7 @@ export const PACKAGES: Package[] = [
     title: "Niagara Falls: Mist, Rainbows & Wine Country",
     region: "america",
     country: "Canada / USA",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 129999,
     heroImage: niagara1,
@@ -4045,7 +4064,7 @@ export const PACKAGES: Package[] = [
     title: "Boston: Freedom Trail & Harbour City",
     region: "america",
     country: "United States",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 139999,
     heroImage: boston1,
@@ -4103,7 +4122,7 @@ export const PACKAGES: Package[] = [
     title: "Grand Canyon & the Southwest",
     region: "america",
     country: "United States",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 169999,
     heroImage: grandcanyon1,
@@ -4167,7 +4186,7 @@ export const PACKAGES: Package[] = [
     title: "New York City: Skyline, Liberty & Broadway",
     region: "america",
     country: "United States",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 179999,
     heroImage: nyc1,
@@ -4230,7 +4249,7 @@ export const PACKAGES: Package[] = [
     title: "Washington D.C.: Monuments & Museums",
     region: "america",
     country: "United States",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 149999,
     heroImage: washington1,
@@ -4286,7 +4305,7 @@ export const PACKAGES: Package[] = [
     title: "Los Angeles: Hollywood, Studios & the Coast",
     region: "america",
     country: "United States",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 169999,
     heroImage: la1,
@@ -4348,7 +4367,7 @@ export const PACKAGES: Package[] = [
     title: "Chicago: Architecture & Lakefront",
     region: "america",
     country: "United States",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 149999,
     heroImage: chicago1,
@@ -4405,7 +4424,7 @@ export const PACKAGES: Package[] = [
     title: "San Francisco: Golden Gate & Wine Country",
     region: "america",
     country: "United States",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 174999,
     heroImage: sanfrancisco1,
@@ -4468,7 +4487,7 @@ export const PACKAGES: Package[] = [
     title: "Miami: South Beach, Everglades & the Keys",
     region: "america",
     country: "United States",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 164999,
     heroImage: miami1,
@@ -4532,7 +4551,7 @@ export const PACKAGES: Package[] = [
     subRegion: "leh-ladakh",
     groupTag: "Ladakh",
     country: "India",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 54999,
     heroImage: ladakh1,
@@ -4603,7 +4622,7 @@ export const PACKAGES: Package[] = [
     subRegion: "leh-ladakh",
     groupTag: "Ladakh",
     country: "India",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 24999,
     heroImage: ladakh1,
@@ -4670,7 +4689,7 @@ export const PACKAGES: Package[] = [
     subRegion: "leh-ladakh",
     groupTag: "Ladakh",
     country: "India",
-    durationDays: 9,
+    days: 9,
     nights: 8,
     priceFrom: 36999,
     heroImage: ladakh1,
@@ -4755,7 +4774,7 @@ export const PACKAGES: Package[] = [
     subRegion: "kashmir",
     groupTag: "Kashmir",
     country: "India",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 38999,
     heroImage: kashmir1,
@@ -4818,7 +4837,7 @@ export const PACKAGES: Package[] = [
     subRegion: "kashmir",
     groupTag: "Kashmir",
     country: "India",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 27999,
     heroImage: kashmir1,
@@ -4891,7 +4910,7 @@ export const PACKAGES: Package[] = [
     subRegion: "kashmir",
     groupTag: "Kashmir",
     country: "India",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 32999,
     heroImage: kashmir1,
@@ -4970,7 +4989,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 26999,
     heroImage: hp1,
@@ -5039,7 +5058,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 27999,
     heroImage: hp3,
@@ -5102,7 +5121,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 8,
+    days: 8,
     nights: 7,
     priceFrom: 42999,
     heroImage: hp5,
@@ -5175,7 +5194,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 19999,
     heroImage: hp6,
@@ -5233,7 +5252,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 29999,
     heroImage: hp7,
@@ -5293,7 +5312,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 22999,
     heroImage: hp8,
@@ -5351,7 +5370,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 24999,
     heroImage: hp2,
@@ -5407,7 +5426,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 4,
+    days: 4,
     nights: 3,
     priceFrom: 17999,
     heroImage: hp10,
@@ -5459,7 +5478,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 4,
+    days: 4,
     nights: 3,
     priceFrom: 19999,
     heroImage: hp9,
@@ -5511,7 +5530,7 @@ export const PACKAGES: Package[] = [
     subRegion: "himachal",
     groupTag: "Himachal Pradesh",
     country: "India",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 23999,
     heroImage: hp6,
@@ -5567,7 +5586,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 24999,
     heroImage: uk1,
@@ -5627,7 +5646,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 4,
+    days: 4,
     nights: 3,
     priceFrom: 15999,
     heroImage: uk3,
@@ -5680,7 +5699,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 28999,
     heroImage: uk5,
@@ -5736,7 +5755,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 33999,
     heroImage: uk6,
@@ -5803,7 +5822,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 4,
+    days: 4,
     nights: 3,
     priceFrom: 21999,
     heroImage: uk7,
@@ -5855,7 +5874,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 11,
+    days: 11,
     nights: 10,
     priceFrom: 64999,
     heroImage: uk9,
@@ -5941,7 +5960,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 5,
+    days: 5,
     nights: 4,
     priceFrom: 22999,
     heroImage: uk10,
@@ -5999,7 +6018,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 6,
+    days: 6,
     nights: 5,
     priceFrom: 26999,
     heroImage: uk8,
@@ -6061,7 +6080,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 4,
+    days: 4,
     nights: 3,
     priceFrom: 18999,
     heroImage: uk7,
@@ -6115,7 +6134,7 @@ export const PACKAGES: Package[] = [
     subRegion: "uttarakhand",
     groupTag: "Uttarakhand",
     country: "India",
-    durationDays: 7,
+    days: 7,
     nights: 6,
     priceFrom: 34999,
     heroImage: uk10,
@@ -6182,7 +6201,7 @@ export const PACKAGES: Package[] = [
     subRegion: "char-dhaam",
     groupTag: "Char Dhaam",
     country: "India",
-    durationDays: 10,
+    days: 10,
     nights: 9,
     priceFrom: 32999,
     heroImage: uk1,
@@ -6274,7 +6293,7 @@ export const PACKAGES: Package[] = [
     subRegion: "char-dhaam",
     groupTag: "Char Dhaam",
     country: "India",
-    durationDays: 14,
+    days: 14,
     nights: 13,
     priceFrom: 44999,
     heroImage: uk5,
@@ -6380,6 +6399,2787 @@ export const PACKAGES: Package[] = [
       },
     ],
     inclusions: incDomestic,
+    exclusions: exc,
+  },
+  {
+    slug: "goa-coastal-bliss-escape",
+    title: "Goa: Coastal Bliss — Beaches, Sunsets & Good Vibes",
+    region: "domestic",
+    subRegion: "goa",
+    groupTag: "Goa",
+    country: "India",
+    days: 4,
+    nights: 3,
+    priceFrom: 12999,
+    heroImage: goa1,
+    gallery: [goa1, goa2, goa3, goa4],
+    tripType: "beach",
+    summary:
+      "Escape to Goa for a refreshing 4-day getaway filled with golden beaches, Portuguese heritage, vibrant markets, coastal sunsets, and unforgettable evenings. Perfect for travelers looking for a quick tropical break with a relaxed pace.",
+    overview:
+      "This 3N/4D Goa package offers a compact introduction to the state's most popular experiences. Explore the historic churches and colorful streets of Old Goa, relax along North Goa's famous beaches, discover local markets, and enjoy Goa's legendary sunset and nightlife atmosphere.",
+    highlights: [
+      "Relax at Goa's famous golden beaches",
+      "Explore the heritage of Old Goa",
+      "Visit Basilica of Bom Jesus and Se Cathedral",
+      "Experience vibrant local markets",
+      "Enjoy spectacular coastal sunsets",
+      "Explore North Goa's lively nightlife",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Goa",
+        detail:
+          "Arrive in Goa and transfer to your hotel for check-in and relaxation. Spend the evening at a nearby beach enjoying the sunset before exploring local restaurants and Goa's relaxed nightlife.",
+      },
+      {
+        day: 2,
+        title: "North Goa Beach Experience",
+        detail:
+          "Explore North Goa with visits to Calangute, Baga, Anjuna, and Vagator beaches, followed by time at local markets and scenic viewpoints. End the day with sunset by the Arabian Sea and an evening at leisure.",
+      },
+      {
+        day: 3,
+        title: "Old Goa & South Goa",
+        detail:
+          "Discover Goa's Portuguese heritage with visits to the Basilica of Bom Jesus, Se Cathedral, and Panjim before exploring the quieter beaches of South Goa and enjoying a peaceful coastal evening.",
+      },
+      {
+        day: 4,
+        title: "Departure from Goa",
+        detail:
+          "Enjoy breakfast and some final leisure time before checking out and transferring to Goa Airport or railway station for your onward journey.",
+      },
+    ],
+    inclusions: incDomestic,
+    exclusions: exc,
+  },
+  {
+    slug: "goa-sun-sand-culture-journey",
+    title: "Goa: Sun, Sand & Culture — The Complete Coastal Getaway",
+    region: "domestic",
+    subRegion: "goa",
+    groupTag: "Goa",
+    country: "India",
+    days: 6,
+    nights: 5,
+    priceFrom: 19999,
+    heroImage: goa5,
+    gallery: [goa5, goa6, goa1, goa4],
+    tripType: "beach",
+    summary:
+      "Experience the many sides of Goa on a 6-day escape combining pristine beaches, Portuguese heritage, colorful markets, scenic cruises, local cuisine, and vibrant nightlife.",
+    overview:
+      "This 5N/6D Goa journey gives travelers enough time to explore both North and South Goa without rushing. Discover historic churches and Panjim, enjoy beach-hopping along the coast, experience local markets and riverfront areas, and keep plenty of time for relaxation and nightlife.",
+    highlights: [
+      "Beach-hop across North and South Goa",
+      "Explore historic Old Goa and Panjim",
+      "Visit iconic Portuguese-era churches",
+      "Experience Anjuna and local flea markets",
+      "Enjoy a scenic Mandovi River cruise",
+      "Discover Goa's famous nightlife and cuisine",
+      "Relax at peaceful South Goa beaches",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival & Beach Evening",
+        detail:
+          "Arrive in Goa and transfer to your hotel. Relax at the beach during sunset before enjoying a welcome evening with Goan cuisine and local entertainment.",
+      },
+      {
+        day: 2,
+        title: "North Goa Beaches",
+        detail:
+          "Explore Calangute, Baga, Anjuna, and Vagator beaches while discovering coastal viewpoints and local cafés. Spend the evening exploring Goa's lively nightlife.",
+      },
+      {
+        day: 3,
+        title: "Old Goa & Panjim",
+        detail:
+          "Visit the Basilica of Bom Jesus, Se Cathedral, and other heritage landmarks before exploring Panjim's colorful Latin Quarter, riverside promenade, and local markets.",
+      },
+      {
+        day: 4,
+        title: "South Goa Escape",
+        detail:
+          "Travel through South Goa and discover quieter beaches such as Colva, Benaulim, and Palolem. Enjoy a relaxed day by the sea and experience the peaceful side of Goa.",
+      },
+      {
+        day: 5,
+        title: "Markets & River Cruise",
+        detail:
+          "Enjoy free time for shopping and leisure before experiencing a scenic Mandovi River cruise around sunset, followed by a final evening of Goan food and entertainment.",
+      },
+      {
+        day: 6,
+        title: "Departure from Goa",
+        detail:
+          "Enjoy breakfast and final leisure time before checking out and transferring to the airport or railway station for your onward journey.",
+      },
+    ],
+    inclusions: incDomestic,
+    exclusions: exc,
+  },
+  {
+    slug: "goa-grand-coastal-discovery",
+    title: "Goa: The Grand Coastal Discovery — Beyond the Beaches",
+    region: "domestic",
+    subRegion: "goa",
+    groupTag: "Goa",
+    country: "India",
+    days: 7,
+    nights: 6,
+    priceFrom: 24999,
+    heroImage: goa8,
+    gallery: [goa8, goa6, goa7, goa5],
+    tripType: "beach",
+    summary:
+      "Discover Goa beyond its famous beaches on a relaxed 7-day journey through coastal villages, Portuguese heritage, hidden beaches, local markets, river landscapes, and vibrant nightlife.",
+    overview:
+      "This 6N/7D Goa experience is designed for travelers who want to explore the destination at a slower pace. Alongside Goa's iconic beaches, the itinerary includes Old Goa, Panjim, South Goa, local markets, scenic river experiences, traditional neighborhoods, and generous leisure time.",
+    highlights: [
+      "Explore both North and South Goa",
+      "Discover Portuguese heritage and historic Old Goa",
+      "Visit hidden and quieter coastal beaches",
+      "Explore Panjim and Fontainhas",
+      "Experience local markets and Goan cuisine",
+      "Enjoy a Mandovi River sunset cruise",
+      "Experience Goa's vibrant nightlife",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Goa",
+        detail:
+          "Arrive in Goa, transfer to your hotel, and spend the evening relaxing at a nearby beach while enjoying your first Goan sunset and a leisurely dinner.",
+      },
+      {
+        day: 2,
+        title: "North Goa Beach Trail",
+        detail:
+          "Explore Calangute, Baga, Anjuna, and Vagator while discovering beach cafés, viewpoints, and local shops before enjoying a lively evening in North Goa.",
+      },
+      {
+        day: 3,
+        title: "Heritage Goa",
+        detail:
+          "Explore Old Goa's historic churches and monuments before visiting Panjim, the colorful Fontainhas quarter, and the Mandovi riverside.",
+      },
+      {
+        day: 4,
+        title: "South Goa Beaches",
+        detail:
+          "Travel south to explore Colva, Benaulim, Varca, and Palolem, enjoying a relaxed day surrounded by quieter beaches and beautiful coastal scenery.",
+      },
+      {
+        day: 5,
+        title: "Goan Culture & Local Life",
+        detail:
+          "Experience Goa's local culture through village landscapes, markets, traditional food, and leisure time at a scenic beach before enjoying an evening at your own pace.",
+      },
+      {
+        day: 6,
+        title: "Leisure & Sunset Cruise",
+        detail:
+          "Keep the day flexible for shopping, water activities, spa experiences, or beach relaxation before enjoying a memorable Mandovi River sunset cruise.",
+      },
+      {
+        day: 7,
+        title: "Departure from Goa",
+        detail:
+          "Enjoy breakfast and final free time before checking out and transferring to Goa Airport or railway station for your onward journey.",
+      },
+    ],
+    inclusions: incDomestic,
+    exclusions: exc,
+  },
+  // {
+  //   slug: "gujarat-ahmedabad-statue-of-unity",
+  //   title: "Gujarat: Heritage & Grandeur — Ahmedabad to the Statue of Unity",
+  //   region: "domestic",
+  //   subRegion: "gujarat",
+  //   groupTag: "Gujarat",
+  //   country: "India",
+  //   days: 5,
+  //   nights: 4,
+  //   priceFrom: 15999,
+  //   heroImage: uk1,
+  //   gallery: [uk1, uk2, uk3, uk4],
+  //   tripType: "cultural",
+  //   summary:
+  //     "Discover Gujarat through Ahmedabad's rich heritage, traditional markets, historic architecture, and the magnificent Statue of Unity surrounded by the landscapes of Kevadia.",
+  //   overview:
+  //     "This 4N/5D Gujarat package focuses on the cultural and architectural highlights of Ahmedabad and the spectacular Statue of Unity at Kevadia. The journey combines heritage, modern landmarks, museums, local cuisine, and scenic experiences.",
+  //   highlights: [
+  //     "Explore Ahmedabad's historic heritage quarter",
+  //     "Visit Sabarmati Ashram",
+  //     "Discover Adalaj Stepwell",
+  //     "Experience the magnificent Statue of Unity",
+  //     "Explore the attractions of Kevadia",
+  //     "Enjoy authentic Gujarati cuisine",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Ahmedabad",
+  //       detail:
+  //         "Arrive in Ahmedabad and transfer to your hotel before exploring Sabarmati Ashram, the old city, and local markets while experiencing the city's rich cultural heritage.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Ahmedabad Heritage Tour",
+  //       detail:
+  //         "Explore Ahmedabad's historic architecture, Adalaj Stepwell, museums, traditional pols, and famous local markets before enjoying an evening of Gujarati cuisine.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Ahmedabad to Kevadia",
+  //       detail:
+  //         "Travel to Kevadia and visit the spectacular Statue of Unity complex, followed by time to explore the surrounding attractions and enjoy the evening light and landscape.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Kevadia Exploration",
+  //       detail:
+  //         "Spend the day exploring Kevadia's gardens, viewpoints, valley attractions, and riverfront surroundings before returning to the hotel for a relaxed evening.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Departure from Gujarat",
+  //       detail:
+  //         "Enjoy breakfast before travelling back towards Ahmedabad for your onward journey or departure from the nearest airport or railway station.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "gujarat-kutch-rann-escape",
+  //   title: "Gujarat: Into the White Rann — Kutch, Crafts & Desert Skies",
+  //   region: "domestic",
+  //   subRegion: "gujarat",
+  //   groupTag: "Gujarat",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 19999,
+  //   heroImage: uk1,
+  //   gallery: [uk1, uk2, uk3, uk4],
+  //   tripType: "cultural",
+  //   summary:
+  //     "Experience the surreal white salt desert of Kutch, colorful handicrafts, traditional villages, desert sunsets, and the vibrant cultural heritage of Gujarat.",
+  //   overview:
+  //     "This 5N/6D Kutch-focused journey explores Bhuj, the Great Rann, traditional craft villages, and the unique landscapes of western Gujarat. The itinerary is ideal for travelers interested in photography, culture, handicrafts, and desert landscapes.",
+  //   highlights: [
+  //     "Experience the Great Rann of Kutch",
+  //     "Watch a spectacular sunset over the white desert",
+  //     "Explore Bhuj's heritage",
+  //     "Discover traditional Kutch handicrafts",
+  //     "Visit artisan villages",
+  //     "Experience local Gujarati culture",
+  //     "Enjoy desert landscapes and stargazing",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Bhuj",
+  //       detail:
+  //         "Arrive in Bhuj and check into your hotel before exploring local heritage sites and markets while getting introduced to the culture of Kutch.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Bhuj Heritage",
+  //       detail:
+  //         "Explore Bhuj's palaces, museums, historic neighborhoods, and local handicraft traditions before enjoying a relaxed evening.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Bhuj to Rann of Kutch",
+  //       detail:
+  //         "Travel towards the Great Rann through traditional villages and artisan settlements before reaching your desert accommodation and enjoying sunset over the salt flats.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Rann & Kutch Villages",
+  //       detail:
+  //         "Explore the white desert at sunrise before visiting nearby villages known for embroidery, weaving, pottery, and traditional crafts, returning to the Rann for sunset.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Kutch Cultural Experience",
+  //       detail:
+  //         "Spend the day discovering more of Kutch's unique landscapes and cultural traditions, with time for photography, shopping, and local experiences.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure from Bhuj",
+  //       detail:
+  //         "Enjoy breakfast and travel back towards Bhuj Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "gujarat-saurashtra-temple-coast",
+  //   title: "Gujarat: Sacred Shores — Dwarka, Somnath & the Saurashtra Coast",
+  //   region: "domestic",
+  //   subRegion: "gujarat",
+  //   groupTag: "Gujarat",
+  //   country: "India",
+  //   days: 7,
+  //   nights: 6,
+  //   priceFrom: 22999,
+  //   heroImage: uk1,
+  //   gallery: [uk1, uk2, uk3, uk4],
+  //   tripType: "pilgrimage",
+  //   summary:
+  //     "Journey through the sacred and scenic Saurashtra region, visiting Dwarka, Somnath, coastal temples, historic towns, and the Arabian Sea.",
+  //   overview:
+  //     "This 6N/7D spiritual and coastal journey focuses on Gujarat's famous pilgrimage destinations. Explore Dwarkadhish Temple, Somnath Temple, coastal landscapes, sacred sites, and the cultural heritage of Saurashtra.",
+  //   highlights: [
+  //     "Visit the sacred Dwarkadhish Temple",
+  //     "Explore Somnath Temple",
+  //     "Experience Gujarat's Arabian Sea coastline",
+  //     "Visit coastal pilgrimage sites",
+  //     "Explore historic Saurashtra towns",
+  //     "Experience traditional Gujarati culture",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Rajkot",
+  //       detail:
+  //         "Arrive in Rajkot and transfer to your hotel before exploring the city's cultural landmarks and local markets.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Rajkot to Dwarka",
+  //       detail:
+  //         "Travel towards Dwarka and check into your hotel before visiting Dwarkadhish Temple and enjoying the spiritual atmosphere of the coastal pilgrimage city.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Dwarka Exploration",
+  //       detail:
+  //         "Explore Dwarka's temples, sacred sites, coastal landmarks, and nearby attractions before enjoying a peaceful evening by the Arabian Sea.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Dwarka to Somnath",
+  //       detail:
+  //         "Travel towards Somnath through the coastal landscapes of Saurashtra, stopping at important cultural and spiritual sites before visiting Somnath Temple.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Somnath & Coastal Gujarat",
+  //       detail:
+  //         "Explore Somnath and nearby coastal attractions while enjoying the spiritual and scenic atmosphere before continuing towards the Gir region.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Gir Experience",
+  //       detail:
+  //         "Enjoy a wildlife or nature experience around Gir before travelling back towards Rajkot and exploring the region's local culture.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Rajkot Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // MAHARASHTRA
+  // // ============================================================
+
+  // {
+  //   slug: "maharashtra-mumbai-lonavala-escape",
+  //   title: "Maharashtra: City Lights to Misty Hills — Mumbai & Lonavala",
+  //   region: "domestic",
+  //   subRegion: "maharashtra",
+  //   groupTag: "Maharashtra",
+  //   country: "India",
+  //   days: 5,
+  //   nights: 4,
+  //   priceFrom: 17999,
+  //   heroImage: uk1,
+  //   gallery: [
+  //     uk1,
+  //     uk2,
+  //     uk3,
+  //     uk4,
+  //   ],
+  //   tripType: "leisure",
+  //   summary:
+  //     "Combine the energy of Mumbai with the peaceful hills of Lonavala on a refreshing Maharashtra getaway.",
+  //   overview:
+  //     "This 4N/5D package combines Mumbai's iconic landmarks, heritage, food, and nightlife with the misty valleys, waterfalls, and viewpoints of Lonavala.",
+  //   highlights: [
+  //     "Explore Gateway of India",
+  //     "Experience Marine Drive",
+  //     "Discover South Mumbai heritage",
+  //     "Visit Lonavala's scenic viewpoints",
+  //     "Explore hill landscapes and waterfalls",
+  //     "Enjoy Mumbai's famous cuisine",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Mumbai",
+  //       detail:
+  //         "Arrive in Mumbai and explore Colaba, the Gateway of India, and Marine Drive before enjoying an evening in the city.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Mumbai Heritage",
+  //       detail:
+  //         "Discover Mumbai's historic landmarks, markets, museums, and heritage architecture before enjoying the city's vibrant food and nightlife.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Mumbai to Lonavala",
+  //       detail:
+  //         "Travel to Lonavala and explore scenic viewpoints, valleys, and waterfalls while enjoying the cooler mountain atmosphere.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Lonavala Exploration",
+  //       detail:
+  //         "Explore Lonavala and nearby Khandala through scenic viewpoints, historic forts, caves, and lush landscapes before enjoying a relaxed evening.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before returning towards Mumbai for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "maharashtra-ajanta-ellora-heritage",
+  //   title: "Maharashtra: Rock-Cut Wonders — Ajanta, Ellora & Deccan Heritage",
+  //   region: "domestic",
+  //   subRegion: "maharashtra",
+  //   groupTag: "Maharashtra",
+  //   country: "India",
+  //   days: 5,
+  //   nights: 4,
+  //   priceFrom: 16999,
+  //   heroImage: uk1,
+  //   gallery: [
+  //     uk1,
+  //     uk2,
+  //     uk3,
+  //     uk4,
+  //   ],
+  //   tripType: "heritage",
+  //   summary:
+  //     "Step into India's ancient past through the magnificent rock-cut caves, temples, forts, and historic landmarks of Aurangabad and the Deccan.",
+  //   overview:
+  //     "This 4N/5D heritage-focused itinerary is dedicated to Ajanta, Ellora, and the historic city of Aurangabad. It is ideal for travelers interested in ancient architecture, Buddhist art, Hindu temples, and Deccan history.",
+  //   highlights: [
+  //     "Explore the UNESCO-listed Ajanta Caves",
+  //     "Discover the magnificent Ellora Caves",
+  //     "See the Kailasa Temple",
+  //     "Explore Aurangabad's historic landmarks",
+  //     "Visit Bibi Ka Maqbara",
+  //     "Experience Deccan culture and cuisine",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Aurangabad",
+  //       detail:
+  //         "Arrive in Aurangabad and check into your hotel before exploring Bibi Ka Maqbara and nearby historic landmarks.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Ellora Caves",
+  //       detail:
+  //         "Spend the day exploring the extraordinary Ellora Caves, including the monumental Kailasa Temple and surrounding rock-cut architecture.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Ajanta Caves",
+  //       detail:
+  //         "Travel to the Ajanta Caves and discover their ancient Buddhist paintings, sculptures, monasteries, and remarkable rock-cut architecture before returning to Aurangabad.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Aurangabad Heritage",
+  //       detail:
+  //         "Explore additional historic landmarks, local markets, traditional crafts, and regional cuisine while enjoying a relaxed final day in the city.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Aurangabad Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "maharashtra-konkan-coastal-escape",
+  //   title: "Maharashtra: Konkan Coastal Escape — Beaches, Forts & Coastal Villages",
+  //   region: "domestic",
+  //   subRegion: "maharashtra",
+  //   groupTag: "Maharashtra",
+  //   country: "India",
+  //   days: 7,
+  //   nights: 6,
+  //   priceFrom: 22999,
+  //   heroImage: uk1,
+  //   gallery: [
+  //     uk1,
+  //     uk2,
+  //     uk3,
+  //     uk4,
+  //   ],
+  //   tripType: "beach",
+  //   summary:
+  //     "Discover Maharashtra's beautiful Konkan coast through secluded beaches, historic sea forts, traditional villages, seafood, and spectacular coastal landscapes.",
+  //   overview:
+  //     "This 6N/7D journey explores the quieter side of Maharashtra through the Konkan coast. Experience destinations such as Alibaug, Ratnagiri, Ganpatipule, and Tarkarli while discovering beaches, forts, temples, and local coastal culture.",
+  //   highlights: [
+  //     "Relax on Konkan's scenic beaches",
+  //     "Explore historic coastal forts",
+  //     "Visit Ganpatipule Temple",
+  //     "Discover Ratnagiri's coastal heritage",
+  //     "Experience traditional Konkan cuisine",
+  //     "Explore coastal villages and markets",
+  //     "Enjoy sunsets along the Arabian Sea",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Alibaug",
+  //       detail:
+  //         "Arrive in Alibaug and explore its beaches, coastal surroundings, and historic landmarks before enjoying a peaceful sunset.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Alibaug Coastal Exploration",
+  //       detail:
+  //         "Explore Alibaug's beaches and sea fort surroundings while experiencing local food and the relaxed coastal atmosphere.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Alibaug to Ratnagiri",
+  //       detail:
+  //         "Travel south along the Konkan coast towards Ratnagiri, enjoying scenic roads, villages, beaches, and coastal viewpoints along the way.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Ratnagiri & Ganpatipule",
+  //       detail:
+  //         "Explore Ratnagiri's coastal attractions before visiting Ganpatipule Temple and relaxing on the surrounding beaches.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Ganpatipule to Tarkarli",
+  //       detail:
+  //         "Continue towards Tarkarli through scenic Konkan landscapes and coastal villages before settling into your beachside accommodation.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Tarkarli Beach Experience",
+  //       detail:
+  //         "Spend the day enjoying Tarkarli's beaches, optional water activities, local seafood, and nearby coastal attractions.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast and begin your return journey towards the nearest airport or railway station for your onward travel.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // ANDAMAN
+  // // ============================================================
+
+  // {
+  //   slug: "andaman-port-blair-havelock",
+  //   title: "Andaman: Blue Horizons — Port Blair & Havelock Island",
+  //   region: "domestic",
+  //   subRegion: "andaman",
+  //   groupTag: "Andaman",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 32999,
+  //   heroImage: andaman1,
+  //   gallery: [andaman1, andaman2, andaman3, andaman4],
+  //   tripType: "island",
+  //   summary:
+  //     "Experience the perfect Andaman introduction with Port Blair's history and Havelock's pristine beaches, turquoise waters, and spectacular sunsets.",
+  //   overview:
+  //     "This 5N/6D package combines the historical attractions of Port Blair with the tropical beauty of Havelock Island, including Cellular Jail, Radhanagar Beach, and optional snorkeling and water activities.",
+  //   highlights: [
+  //     "Visit Cellular Jail",
+  //     "Relax at Radhanagar Beach",
+  //     "Explore Havelock Island",
+  //     "Enjoy snorkeling and water activities",
+  //     "Experience tropical island sunsets",
+  //     "Explore Port Blair's waterfront",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Port Blair",
+  //       detail:
+  //         "Arrive in Port Blair, transfer to your hotel, and visit Cellular Jail before experiencing the evening light and sound program.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Port Blair to Havelock",
+  //       detail:
+  //         "Travel by ferry to Havelock Island, check into your resort, and spend the afternoon relaxing at Radhanagar Beach.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Havelock Island Adventure",
+  //       detail:
+  //         "Enjoy snorkeling, optional diving, beach activities, and island exploration before spending the evening by the sea.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Havelock Leisure",
+  //       detail:
+  //         "Spend another relaxed day exploring beaches, enjoying water activities, or simply relaxing at the resort before watching sunset.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Havelock to Port Blair",
+  //       detail:
+  //         "Return to Port Blair by ferry and spend the afternoon exploring local markets, waterfront areas, and shopping for souvenirs.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Port Blair Airport for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "andaman-havelock-neil-island",
+  //   title: "Andaman: Island Hopping Escape — Havelock, Neil & Hidden Beaches",
+  //   region: "domestic",
+  //   subRegion: "andaman",
+  //   groupTag: "Andaman",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 34999,
+  //   heroImage: andaman1,
+  //   gallery: [andaman1, andaman2, andaman3, andaman4],
+  //   tripType: "island",
+  //   summary:
+  //     "Explore two of Andaman's most beautiful islands through pristine beaches, coral reefs, natural rock formations, and peaceful tropical landscapes.",
+  //   overview:
+  //     "This 5N/6D island-hopping package focuses on Havelock and Neil Island, offering a slower and more beach-oriented experience away from the main city. Enjoy snorkeling, sunsets, scenic beaches, and island exploration.",
+  //   highlights: [
+  //     "Explore Havelock Island",
+  //     "Visit Radhanagar Beach",
+  //     "Discover Neil Island's beaches",
+  //     "Experience coral reefs and snorkeling",
+  //     "Visit natural rock formations",
+  //     "Enjoy spectacular island sunsets",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Port Blair to Havelock",
+  //       detail:
+  //         "Arrive in Port Blair and continue by ferry to Havelock Island. Check into your resort and enjoy a relaxed evening by the beach.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Radhanagar Beach",
+  //       detail:
+  //         "Spend the day at Radhanagar Beach, enjoying swimming, photography, relaxation, and the spectacular sunset before returning to your resort.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Havelock Water Adventures",
+  //       detail:
+  //         "Enjoy snorkeling, optional diving, kayaking, and other water activities before spending the evening exploring Havelock's local cafés and beaches.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Havelock to Neil Island",
+  //       detail:
+  //         "Travel by ferry to Neil Island and explore its beautiful beaches, natural rock formations, and peaceful coastal landscapes.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Neil Island Exploration",
+  //       detail:
+  //         "Enjoy a relaxed island day with beach walks, snorkeling, photography, and sunset views before preparing for departure.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Neil Island to Port Blair & Departure",
+  //       detail:
+  //         "Return to Port Blair by ferry and continue to the airport for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "andaman-complete-island-explorer",
+  //   title: "Andaman: Complete Island Explorer — History, Reefs & Tropical Shores",
+  //   region: "domestic",
+  //   subRegion: "andaman",
+  //   groupTag: "Andaman",
+  //   country: "India",
+  //   days: 8,
+  //   nights: 7,
+  //   priceFrom: 44999,
+  //   heroImage: andaman1,
+  //   gallery: [andaman1, andaman2, andaman3, andaman4],
+  //   tripType: "island",
+  //   summary:
+  //     "Experience the best of the Andaman Islands through Port Blair, Havelock, Neil Island, pristine beaches, coral reefs, historic landmarks, and tropical adventures.",
+  //   overview:
+  //     "This 7N/8D comprehensive Andaman package gives travelers time to explore the islands without rushing. It combines history in Port Blair with the beaches and marine experiences of Havelock and Neil Island.",
+  //   highlights: [
+  //     "Explore Cellular Jail",
+  //     "Visit Radhanagar Beach",
+  //     "Experience Havelock Island",
+  //     "Explore Neil Island",
+  //     "Enjoy snorkeling and optional diving",
+  //     "Discover coral reefs and marine life",
+  //     "Experience multiple tropical sunsets",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Port Blair",
+  //       detail:
+  //         "Arrive in Port Blair, check into your hotel, and visit Cellular Jail before experiencing the evening light and sound program.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Port Blair to Havelock",
+  //       detail:
+  //         "Travel by ferry to Havelock Island and spend the afternoon relaxing at Radhanagar Beach before enjoying a tropical sunset.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Havelock Beach Day",
+  //       detail:
+  //         "Explore Havelock's famous beaches and enjoy swimming, photography, snorkeling, or optional diving before a relaxed evening.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Havelock Adventure",
+  //       detail:
+  //         "Spend another day enjoying water activities, coral reef experiences, kayaking, or leisure time at the resort.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Havelock to Neil Island",
+  //       detail:
+  //         "Travel to Neil Island and explore its beaches, natural rock formations, and peaceful coastal surroundings.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Neil Island Exploration",
+  //       detail:
+  //         "Enjoy snorkeling, beach walks, photography, and island exploration before experiencing a beautiful sunset.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Neil Island to Port Blair",
+  //       detail:
+  //         "Return to Port Blair by ferry and spend the evening shopping, exploring the waterfront, and enjoying your final island dinner.",
+  //     },
+  //     {
+  //       day: 8,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Port Blair Airport for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // KERALA
+  // // ============================================================
+
+  // {
+  //   slug: "kerala-munnar-alleppey-escape",
+  //   title: "Kerala: Hills to Backwaters — Munnar & Alleppey's Timeless Beauty",
+  //   region: "domestic",
+  //   subRegion: "kerala",
+  //   groupTag: "Kerala",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 22999,
+  //   heroImage: kerala1,
+  //   gallery: [kerala1, kerala2, kerala3, kerala4],
+  //   tripType: "nature",
+  //   summary:
+  //     "Experience two of Kerala's most iconic landscapes through misty tea plantations in Munnar and tranquil backwaters in Alleppey.",
+  //   overview:
+  //     "This 5N/6D package focuses on Kerala's classic hill-and-backwater combination. Explore Munnar's tea estates and viewpoints before relaxing aboard a traditional houseboat in Alleppey's peaceful waterways.",
+  //   highlights: [
+  //     "Explore Munnar's tea plantations",
+  //     "Visit scenic mountain viewpoints",
+  //     "Discover waterfalls and spice landscapes",
+  //     "Experience Alleppey's backwaters",
+  //     "Enjoy a traditional houseboat cruise",
+  //     "Taste authentic Kerala cuisine",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Kochi to Munnar",
+  //       detail:
+  //         "Arrive in Kochi and travel to Munnar through scenic mountain roads, waterfalls, and plantation landscapes before checking into your hotel.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Munnar Exploration",
+  //       detail:
+  //         "Explore tea plantations, viewpoints, waterfalls, and local attractions while enjoying the cool climate and lush Western Ghats scenery.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Munnar to Alleppey",
+  //       detail:
+  //         "Travel towards Alleppey through Kerala's changing landscapes before boarding a traditional houseboat and beginning a peaceful backwater cruise.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Alleppey Backwaters",
+  //       detail:
+  //         "Enjoy a full day surrounded by coconut-lined waterways, villages, paddy fields, and traditional Kerala life before spending another peaceful evening near the water.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Alleppey to Kochi",
+  //       detail:
+  //         "Travel to Kochi and explore Fort Kochi, Chinese fishing nets, colonial streets, cafés, and local markets.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Kochi Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "kerala-munnar-thekkady-alleppey",
+  //   title: "Kerala: Green Trails & Gentle Waters — Munnar, Thekkady & Alleppey",
+  //   region: "domestic",
+  //   subRegion: "kerala",
+  //   groupTag: "Kerala",
+  //   country: "India",
+  //   days: 7,
+  //   nights: 6,
+  //   priceFrom: 25999,
+  //   heroImage: kerala1,
+  //   gallery: [kerala1, kerala2, kerala3, kerala4],
+  //   tripType: "nature",
+  //   summary:
+  //     "Travel through Kerala's lush highlands and tranquil backwaters with tea plantations, spice forests, wildlife experiences, and a traditional houseboat stay.",
+  //   overview:
+  //     "This 6N/7D Kerala circuit combines Munnar's tea-covered hills, Thekkady's wildlife and spice plantations, and Alleppey's famous backwaters for a balanced nature-focused holiday.",
+  //   highlights: [
+  //     "Explore Munnar tea estates",
+  //     "Visit scenic Western Ghats viewpoints",
+  //     "Discover Thekkady's spice plantations",
+  //     "Experience Periyar wildlife surroundings",
+  //     "Enjoy a traditional houseboat cruise",
+  //     "Experience authentic Kerala cuisine",
+  //     "Explore local markets and villages",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Kochi to Munnar",
+  //       detail:
+  //         "Arrive in Kochi and drive to Munnar through waterfalls, forests, and plantation landscapes before checking into your hotel.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Munnar Sightseeing",
+  //       detail:
+  //         "Explore tea gardens, viewpoints, waterfalls, and scenic valleys around Munnar while enjoying the cool mountain climate.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Munnar to Thekkady",
+  //       detail:
+  //         "Travel through the Western Ghats towards Thekkady, stopping at spice plantations and scenic viewpoints before settling into your hotel.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Thekkady Wildlife & Spice Experience",
+  //       detail:
+  //         "Explore the Periyar region through optional boating or nature activities, followed by a visit to a spice plantation and local cultural experience.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Thekkady to Alleppey",
+  //       detail:
+  //         "Travel towards Alleppey through scenic Kerala countryside and board a traditional houseboat for a peaceful backwater cruise.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Alleppey to Kochi",
+  //       detail:
+  //         "Enjoy the backwaters in the morning before travelling to Kochi and exploring Fort Kochi, heritage streets, and local markets.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Kochi Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "kerala-coastal-escape",
+  //   title: "Kerala: Coastal Dreams — Kochi, Varkala & Kovalam",
+  //   region: "domestic",
+  //   subRegion: "kerala",
+  //   groupTag: "Kerala",
+  //   country: "India",
+  //   days: 7,
+  //   nights: 6,
+  //   priceFrom: 24999,
+  //   heroImage: kerala1,
+  //   gallery: [kerala1, kerala2, kerala3, kerala4],
+  //   tripType: "beach",
+  //   summary:
+  //     "Discover Kerala's tropical coastline through historic Kochi, the dramatic cliffs of Varkala, and the golden beaches of Kovalam.",
+  //   overview:
+  //     "This 6N/7D coastal Kerala journey is designed for travelers who prefer beaches, culture, cafés, wellness, and relaxed coastal experiences rather than hill stations.",
+  //   highlights: [
+  //     "Explore historic Fort Kochi",
+  //     "Relax at Varkala Beach",
+  //     "Experience Varkala Cliff",
+  //     "Visit Kovalam's famous beaches",
+  //     "Enjoy Kerala's coastal cuisine",
+  //     "Experience Ayurveda and wellness options",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Kochi",
+  //       detail:
+  //         "Arrive in Kochi and explore Fort Kochi, colonial streets, Chinese fishing nets, and the waterfront before a relaxed evening.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Kochi to Varkala",
+  //       detail:
+  //         "Travel towards Varkala and check into your coastal accommodation before spending the evening along the famous cliff and beach.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Varkala Beach Day",
+  //       detail:
+  //         "Enjoy a relaxed day exploring Varkala Beach, cliffside cafés, local shops, and optional wellness or Ayurvedic experiences.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Varkala to Kovalam",
+  //       detail:
+  //         "Travel south towards Kovalam and spend the afternoon relaxing at the beach while enjoying the tropical coastal atmosphere.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Kovalam & Lighthouse",
+  //       detail:
+  //         "Explore Kovalam's beaches and lighthouse area while enjoying optional water activities, coastal walks, and local cuisine.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Kovalam Leisure",
+  //       detail:
+  //         "Enjoy a flexible day for beach relaxation, wellness treatments, shopping, or exploring nearby coastal attractions.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to the nearest airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // TAMIL NADU
+  // // ============================================================
+
+  // {
+  //   slug: "tamil-nadu-chennai-mahabalipuram-pondicherry",
+  //   title: "Tamil Nadu: Temple Shores & Coastal Charms — Chennai to Mahabalipuram",
+  //   region: "domestic",
+  //   subRegion: "tamil-nadu",
+  //   groupTag: "Tamil Nadu",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 19999,
+  //   heroImage: tamilNadu1,
+  //   gallery: [
+  //     tamilNadu1,
+  //     tamilNadu2,
+  //     tamilNadu3,
+  //     tamilNadu4,
+  //   ],
+  //   tripType: "heritage",
+  //   summary:
+  //     "Explore Tamil Nadu's eastern coast through Chennai's vibrant culture, Mahabalipuram's ancient monuments, and the relaxed charm of the Coromandel Coast.",
+  //   overview:
+  //     "This 5N/6D coastal heritage journey combines Chennai, Mahabalipuram, and the surrounding coastal region. Discover ancient temples, colonial heritage, beaches, traditional cuisine, and South Indian culture.",
+  //   highlights: [
+  //     "Explore Chennai's cultural landmarks",
+  //     "Visit Kapaleeshwarar Temple",
+  //     "Discover Mahabalipuram's Shore Temple",
+  //     "Explore ancient rock-cut monuments",
+  //     "Relax along the Coromandel Coast",
+  //     "Experience traditional Tamil cuisine",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Chennai",
+  //       detail:
+  //         "Arrive in Chennai and check into your hotel before exploring Marina Beach, local markets, and the city's vibrant cultural atmosphere.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Chennai Heritage",
+  //       detail:
+  //         "Explore Chennai's temples, museums, colonial landmarks, and historic neighborhoods while experiencing the city's traditional food and culture.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Chennai to Mahabalipuram",
+  //       detail:
+  //         "Travel along the scenic East Coast Road towards Mahabalipuram and explore its ancient temples, rock-cut monuments, and coastal surroundings.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Mahabalipuram Exploration",
+  //       detail:
+  //         "Spend the day exploring the Shore Temple, Pancha Rathas, ancient sculptures, caves, and beaches before enjoying a relaxed evening.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Coastal Tamil Nadu",
+  //       detail:
+  //         "Explore nearby coastal villages, heritage sites, local crafts, and beaches before returning to Mahabalipuram for a final evening by the sea.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring towards Chennai Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "tamil-nadu-temple-trail-thanjavur-madurai",
+  //   title: "Tamil Nadu: Sacred South — Thanjavur, Trichy & Madurai Temple Trail",
+  //   region: "domestic",
+  //   subRegion: "tamil-nadu",
+  //   groupTag: "Tamil Nadu",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 20999,
+  //   heroImage: tamilNadu1,
+  //   gallery: [
+  //     tamilNadu1,
+  //     tamilNadu2,
+  //     tamilNadu3,
+  //     tamilNadu4,
+  //   ],
+  //   tripType: "pilgrimage",
+  //   summary:
+  //     "Journey through Tamil Nadu's sacred heartland, exploring magnificent temples, ancient architecture, traditional towns, and the spiritual heritage of South India.",
+  //   overview:
+  //     "This 5N/6D temple-focused itinerary covers Trichy, Thanjavur, and Madurai. It is designed for travelers interested in Dravidian architecture, pilgrimage, history, culture, and traditional South Indian life.",
+  //   highlights: [
+  //     "Visit Brihadeeswarar Temple",
+  //     "Explore Srirangam Temple",
+  //     "Discover Thanjavur heritage",
+  //     "Visit Meenakshi Amman Temple",
+  //     "Experience traditional Tamil culture",
+  //     "Explore historic temple towns",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Trichy",
+  //       detail:
+  //         "Arrive in Trichy and check into your hotel before exploring the city's historic temples and local markets.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Trichy Temple Tour",
+  //       detail:
+  //         "Explore Rockfort Temple and the magnificent Srirangam temple complex before experiencing the traditional atmosphere of Trichy.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Trichy to Thanjavur",
+  //       detail:
+  //         "Travel to Thanjavur and visit the magnificent Brihadeeswarar Temple while exploring the city's royal and artistic heritage.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Thanjavur to Madurai",
+  //       detail:
+  //         "Continue towards Madurai through traditional Tamil Nadu landscapes and explore the city in the evening.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Madurai Heritage",
+  //       detail:
+  //         "Visit Meenakshi Amman Temple and explore Madurai's historic streets, markets, palaces, and famous local cuisine.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Madurai Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "tamil-nadu-grand-heritage-circuit",
+  //   title: "Tamil Nadu: Grand Heritage Trail — Temples, Coast & Cultural Wonders",
+  //   region: "domestic",
+  //   subRegion: "tamil-nadu",
+  //   groupTag: "Tamil Nadu",
+  //   country: "India",
+  //   days: 9,
+  //   nights: 8,
+  //   priceFrom: 29999,
+  //   heroImage: tamilNadu1,
+  //   gallery: [
+  //     tamilNadu1,
+  //     tamilNadu2,
+  //     tamilNadu3,
+  //     tamilNadu4,
+  //   ],
+  //   tripType: "heritage",
+  //   summary:
+  //     "Experience Tamil Nadu's grand cultural heritage through Chennai, Mahabalipuram, Thanjavur, Trichy, Chettinad, and Madurai.",
+  //   overview:
+  //     "This 8N/9D comprehensive Tamil Nadu circuit connects the state's most important cultural and architectural destinations. Explore coastal monuments, magnificent temples, heritage towns, traditional cuisine, and centuries of South Indian history.",
+  //   highlights: [
+  //     "Explore Chennai's heritage",
+  //     "Visit Mahabalipuram monuments",
+  //     "Discover Thanjavur's Brihadeeswarar Temple",
+  //     "Explore Trichy's temple heritage",
+  //     "Experience Chettinad architecture",
+  //     "Visit Madurai's Meenakshi Temple",
+  //     "Experience authentic Tamil cuisine",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Chennai",
+  //       detail:
+  //         "Arrive in Chennai and explore Marina Beach, local markets, and selected cultural attractions before a relaxed evening.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Chennai Heritage",
+  //       detail:
+  //         "Discover Chennai's temples, museums, colonial architecture, and traditional neighborhoods while experiencing the city's food and culture.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Chennai to Mahabalipuram",
+  //       detail:
+  //         "Travel along the East Coast Road and explore Mahabalipuram's Shore Temple, rock-cut monuments, and coastal landscapes.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Mahabalipuram to Thanjavur",
+  //       detail:
+  //         "Travel south through Tamil Nadu and continue towards Thanjavur, exploring local landscapes and cultural attractions along the way.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Thanjavur Heritage",
+  //       detail:
+  //         "Explore Brihadeeswarar Temple, the royal heritage of Thanjavur, museums, traditional crafts, and the cultural legacy of the Chola period.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Thanjavur to Chettinad",
+  //       detail:
+  //         "Travel to Chettinad and explore grand heritage mansions, traditional architecture, local markets, and the region's distinctive cuisine.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Chettinad to Madurai",
+  //       detail:
+  //         "Continue towards Madurai and explore the city before enjoying an evening around its famous temple and market streets.",
+  //     },
+  //     {
+  //       day: 8,
+  //       title: "Madurai Exploration",
+  //       detail:
+  //         "Visit Meenakshi Amman Temple, Thirumalai Nayak Palace, local markets, and other historic landmarks while experiencing Madurai's vibrant culture.",
+  //     },
+  //     {
+  //       day: 9,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Madurai Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // PONDICHERRY
+  // // ============================================================
+
+  // {
+  //   slug: "pondicherry-french-quarter-beach-escape",
+  //   title: "Pondicherry: French Streets & Coastal Breeze — A Relaxed Escape",
+  //   region: "domestic",
+  //   subRegion: "pondicherry",
+  //   groupTag: "Pondicherry",
+  //   country: "India",
+  //   days: 4,
+  //   nights: 3,
+  //   priceFrom: 12999,
+  //   heroImage: pondicherry1,
+  //   gallery: [
+  //     pondicherry1,
+  //     pondicherry2,
+  //     pondicherry3,
+  //     pondicherry4,
+  //   ],
+  //   tripType: "leisure",
+  //   summary:
+  //     "Experience Pondicherry's unique blend of French colonial charm, colorful streets, peaceful beaches, cafés, and coastal culture.",
+  //   overview:
+  //     "This 3N/4D Pondicherry getaway is designed for travelers seeking a relaxed coastal break. Explore the French Quarter, promenade, heritage buildings, cafés, beaches, and local markets at an easy pace.",
+  //   highlights: [
+  //     "Explore the French Quarter",
+  //     "Walk along the Promenade",
+  //     "Visit Sri Aurobindo Ashram",
+  //     "Discover Pondicherry's colorful cafés",
+  //     "Relax at nearby beaches",
+  //     "Experience French-Tamil heritage",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Pondicherry",
+  //       detail:
+  //         "Arrive in Pondicherry and check into your hotel before taking an evening walk through the French Quarter and along the seaside promenade.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "French Quarter & Heritage",
+  //       detail:
+  //         "Explore the French Quarter, heritage buildings, Sri Aurobindo Ashram, local cafés, boutiques, and the city's famous promenade.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Beaches & Leisure",
+  //       detail:
+  //         "Spend the day relaxing at the beach, exploring local neighborhoods, enjoying cafés, and experiencing Pondicherry's laid-back coastal atmosphere.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast and some free time before checking out and beginning your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "pondicherry-auroville-retreat",
+  //   title: "Pondicherry: Serenity by the Sea — Auroville, Ashram & Slow Living",
+  //   region: "domestic",
+  //   subRegion: "pondicherry",
+  //   groupTag: "Pondicherry",
+  //   country: "India",
+  //   days: 5,
+  //   nights: 4,
+  //   priceFrom: 15999,
+  //   heroImage: pondicherry1,
+  //   gallery: [
+  //     pondicherry1,
+  //     pondicherry2,
+  //     pondicherry3,
+  //     pondicherry4,
+  //   ],
+  //   tripType: "wellness",
+  //   summary:
+  //     "Slow down in Pondicherry with peaceful heritage streets, spiritual experiences, Auroville, meditation spaces, beaches, and wellness-focused activities.",
+  //   overview:
+  //     "This 4N/5D retreat combines Pondicherry's heritage and coastal charm with a deeper exploration of Auroville and wellness experiences. It is ideal for travelers seeking a calm and restorative holiday.",
+  //   highlights: [
+  //     "Explore Auroville",
+  //     "Visit Matrimandir surroundings",
+  //     "Experience Sri Aurobindo Ashram",
+  //     "Explore the French Quarter",
+  //     "Enjoy meditation and wellness experiences",
+  //     "Relax by the coast",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival & Pondicherry",
+  //       detail:
+  //         "Arrive in Pondicherry, check into your hotel, and enjoy a peaceful evening exploring the French Quarter and seaside promenade.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Heritage & Ashram",
+  //       detail:
+  //         "Explore the French Quarter, Sri Aurobindo Ashram, heritage streets, boutiques, cafés, and coastal promenade at a relaxed pace.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Auroville Experience",
+  //       detail:
+  //         "Spend the day exploring Auroville, its community spaces, gardens, meditation surroundings, and sustainable lifestyle initiatives.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Wellness & Beach Leisure",
+  //       detail:
+  //         "Enjoy optional yoga, meditation, wellness treatments, beach relaxation, café hopping, or local shopping.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before checking out and continuing your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "pondicherry-coastal-tamil-nadu",
+  //   title: "Pondicherry: Coastal Tamil Nadu — Pondy, Chidambaram & Temple Shores",
+  //   region: "domestic",
+  //   subRegion: "pondicherry",
+  //   groupTag: "Pondicherry",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 18999,
+  //   heroImage: pondicherry1,
+  //   gallery: [
+  //     pondicherry1,
+  //     pondicherry2,
+  //     pondicherry3,
+  //     pondicherry4,
+  //   ],
+  //   tripType: "cultural",
+  //   summary:
+  //     "Explore Pondicherry and the Coromandel Coast through French heritage, ancient temples, coastal villages, beaches, and traditional South Indian culture.",
+  //   overview:
+  //     "This 5N/6D package expands beyond Pondicherry into the heritage-rich coastal region of Tamil Nadu, combining Pondicherry, Chidambaram, and nearby cultural attractions.",
+  //   highlights: [
+  //     "Explore Pondicherry's French Quarter",
+  //     "Visit Sri Aurobindo Ashram",
+  //     "Discover Chidambaram Temple",
+  //     "Explore coastal villages",
+  //     "Relax on Coromandel beaches",
+  //     "Experience Tamil-French cultural heritage",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Pondicherry",
+  //       detail:
+  //         "Arrive in Pondicherry and explore the French Quarter, promenade, and nearby cafés during a relaxed evening.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Pondicherry Heritage",
+  //       detail:
+  //         "Explore the French Quarter, Sri Aurobindo Ashram, heritage buildings, museums, boutiques, and local markets.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Pondicherry to Chidambaram",
+  //       detail:
+  //         "Travel along the Coromandel Coast towards Chidambaram and visit its magnificent temple before exploring the surrounding cultural landscape.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Coastal Tamil Nadu",
+  //       detail:
+  //         "Explore coastal villages, beaches, traditional temples, local markets, and regional cuisine before returning towards Pondicherry.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Pondicherry Leisure",
+  //       detail:
+  //         "Enjoy a flexible day for beach relaxation, cafés, shopping, photography, or optional wellness experiences.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before checking out and beginning your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // LAKSHADWEEP
+  // // ============================================================
+
+  // {
+  //   slug: "lakshadweep-kavaratti-island-escape",
+  //   title: "Lakshadweep: Kavaratti Island Escape — Turquoise Waters & Coral Shores",
+  //   region: "domestic",
+  //   subRegion: "lakshadweep",
+  //   groupTag: "Lakshadweep",
+  //   country: "India",
+  //   days: 5,
+  //   nights: 4,
+  //   priceFrom: 32999,
+  //   heroImage: lakshadweep1,
+  //   gallery: [
+  //     lakshadweep1,
+  //     lakshadweep2,
+  //     lakshadweep3,
+  //     lakshadweep4,
+  //   ],
+  //   tripType: "island",
+  //   summary:
+  //     "Escape to Kavaratti for pristine beaches, turquoise lagoons, coral reefs, water activities, and the peaceful island lifestyle of Lakshadweep.",
+  //   overview:
+  //     "This 4N/5D Kavaratti package is designed as a relaxed tropical island escape, combining beach leisure, lagoon experiences, snorkeling, optional water sports, and local island culture.",
+  //   highlights: [
+  //     "Relax on Kavaratti's beaches",
+  //     "Explore turquoise lagoons",
+  //     "Enjoy snorkeling and water activities",
+  //     "Discover coral reefs",
+  //     "Experience island culture",
+  //     "Enjoy spectacular tropical sunsets",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Kavaratti",
+  //       detail:
+  //         "Arrive in Kavaratti and transfer to your accommodation before spending the afternoon relaxing by the beach and enjoying your first island sunset.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Kavaratti Lagoon Experience",
+  //       detail:
+  //         "Explore the island's turquoise lagoon through swimming, snorkeling, optional water sports, and relaxed beach time.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Island Exploration",
+  //       detail:
+  //         "Discover Kavaratti's local culture, coastal surroundings, marine life, and beaches while enjoying a leisurely island day.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Beach & Water Activities",
+  //       detail:
+  //         "Spend the day enjoying optional diving, snorkeling, kayaking, boating, or simply relaxing on the island's beautiful beaches.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring for your onward journey from the island.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "lakshadweep-agatti-island-retreat",
+  //   title: "Lakshadweep: Agatti Island Retreat — Lagoon Blues & Endless Horizons",
+  //   region: "domestic",
+  //   subRegion: "lakshadweep",
+  //   groupTag: "Lakshadweep",
+  //   country: "India",
+  //   days: 5,
+  //   nights: 4,
+  //   priceFrom: 35999,
+  //   heroImage: lakshadweep1,
+  //   gallery: [
+  //     lakshadweep1,
+  //     lakshadweep2,
+  //     lakshadweep3,
+  //     lakshadweep4,
+  //   ],
+  //   tripType: "beach",
+  //   summary:
+  //     "Relax on the picture-perfect shores of Agatti Island with crystal-clear lagoons, coral reefs, white-sand beaches, and unforgettable sunsets.",
+  //   overview:
+  //     "This 4N/5D Agatti Island retreat focuses on pure tropical relaxation and marine experiences. Enjoy pristine beaches, lagoon activities, snorkeling, optional diving, and quiet island evenings.",
+  //   highlights: [
+  //     "Explore Agatti Island",
+  //     "Relax on white-sand beaches",
+  //     "Enjoy snorkeling and diving",
+  //     "Discover vibrant coral reefs",
+  //     "Explore turquoise lagoons",
+  //     "Experience spectacular island sunsets",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Agatti",
+  //       detail:
+  //         "Arrive at Agatti and transfer to your accommodation before relaxing on the beach and enjoying the island's beautiful sunset.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Lagoon & Reef Experience",
+  //       detail:
+  //         "Spend the day snorkeling, swimming, kayaking, or enjoying optional diving while discovering Agatti's clear lagoon and coral reef environment.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Agatti Island Leisure",
+  //       detail:
+  //         "Enjoy a relaxed island day with beach walks, photography, local experiences, water activities, and sunset views.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Tropical Escape",
+  //       detail:
+  //         "Spend the day at your own pace with optional boating, snorkeling, diving, beach relaxation, and a final island sunset.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring for your onward journey from Agatti Island.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "lakshadweep-agatti-bangaram-island-escape",
+  //   title: "Lakshadweep: Twin Island Paradise — Agatti & Bangaram",
+  //   region: "domestic",
+  //   subRegion: "lakshadweep",
+  //   groupTag: "Lakshadweep",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 42999,
+  //   heroImage: lakshadweep1,
+  //   gallery: [
+  //     lakshadweep1,
+  //     lakshadweep2,
+  //     lakshadweep3,
+  //     lakshadweep4,
+  //   ],
+  //   tripType: "island",
+  //   summary:
+  //     "Discover two spectacular Lakshadweep islands through turquoise lagoons, pristine beaches, coral reefs, marine adventures, and secluded tropical landscapes.",
+  //   overview:
+  //     "This 5N/6D island-hopping package combines Agatti and Bangaram for a more immersive Lakshadweep experience. Enjoy water adventures, beach relaxation, coral reefs, and secluded island landscapes.",
+  //   highlights: [
+  //     "Explore Agatti Island",
+  //     "Discover Bangaram Island",
+  //     "Enjoy snorkeling and diving",
+  //     "Explore pristine lagoons",
+  //     "Relax on secluded beaches",
+  //     "Experience coral reefs and marine life",
+  //     "Enjoy spectacular tropical sunsets",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Agatti",
+  //       detail:
+  //         "Arrive in Agatti and settle into your accommodation before enjoying the beach, lagoon, and first island sunset.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Agatti Marine Experience",
+  //       detail:
+  //         "Explore Agatti's coral reefs and lagoon through snorkeling, kayaking, optional diving, and beach activities.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Agatti to Bangaram",
+  //       detail:
+  //         "Transfer towards Bangaram and settle into your island accommodation before spending the afternoon exploring the pristine beach and lagoon.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Bangaram Island Adventure",
+  //       detail:
+  //         "Enjoy a full day of snorkeling, swimming, boating, beach walks, photography, and relaxing amid Bangaram's secluded tropical surroundings.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Bangaram to Agatti",
+  //       detail:
+  //         "Return towards Agatti and enjoy a relaxed final afternoon with beach time, optional water activities, and sunset views.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring for your onward journey from Agatti.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // MEGHALAYA
+  // // ============================================================
+
+  // {
+  //   slug: "meghalaya-shillong-cherrapunji",
+  //   title: "Meghalaya: Clouds & Waterfalls — Shillong to Cherrapunji",
+  //   region: "domestic",
+  //   subRegion: "meghalaya",
+  //   groupTag: "Meghalaya",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 20999,
+  //   heroImage: meghalaya1,
+  //   gallery: [
+  //     meghalaya1,
+  //     meghalaya2,
+  //     meghalaya3,
+  //     meghalaya4,
+  //   ],
+  //   tripType: "nature",
+  //   summary:
+  //     "Explore Shillong and Cherrapunji through misty hills, dramatic waterfalls, lush valleys, caves, and unforgettable Northeast landscapes.",
+  //   overview:
+  //     "This 5N/6D package is ideal for first-time visitors to Meghalaya, focusing on Shillong and Cherrapunji while covering the region's most scenic natural attractions.",
+  //   highlights: [
+  //     "Explore Shillong",
+  //     "Visit Cherrapunji waterfalls",
+  //     "Discover Meghalaya's caves",
+  //     "Experience misty mountain landscapes",
+  //     "Visit scenic viewpoints",
+  //     "Taste traditional Khasi cuisine",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Guwahati to Shillong",
+  //       detail:
+  //         "Arrive in Guwahati and drive towards Shillong through scenic hills before checking into your hotel and exploring the city in the evening.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Shillong Exploration",
+  //       detail:
+  //         "Explore Shillong's major attractions, viewpoints, waterfalls, lakes, churches, and local markets before enjoying a relaxed evening.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Shillong to Cherrapunji",
+  //       detail:
+  //         "Travel towards Cherrapunji through spectacular mountain scenery while visiting viewpoints and waterfalls along the route.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Cherrapunji Waterfalls & Caves",
+  //       detail:
+  //         "Spend the day exploring Cherrapunji's famous waterfalls, caves, valleys, and scenic viewpoints before returning to your accommodation.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Cherrapunji to Shillong",
+  //       detail:
+  //         "Enjoy a relaxed morning before returning towards Shillong, stopping at scenic attractions and local villages along the way.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Travel from Shillong to Guwahati Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "meghalaya-cherrapunji-dawki",
+  //   title: "Meghalaya: Waterfalls to Crystal Waters — Cherrapunji & Dawki",
+  //   region: "domestic",
+  //   subRegion: "meghalaya",
+  //   groupTag: "Meghalaya",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 21999,
+  //   heroImage: meghalaya1,
+  //   gallery: [
+  //     meghalaya1,
+  //     meghalaya2,
+  //     meghalaya3,
+  //     meghalaya4,
+  //   ],
+  //   tripType: "nature",
+  //   summary:
+  //     "Discover Meghalaya's wildest landscapes through Cherrapunji's waterfalls and caves, the living root bridge region, and the crystal-clear waters of Dawki.",
+  //   overview:
+  //     "This 5N/6D nature-focused Meghalaya itinerary connects Cherrapunji and Dawki with Shillong, offering travelers a combination of waterfalls, forests, caves, villages, and crystal-clear rivers.",
+  //   highlights: [
+  //     "Explore Cherrapunji waterfalls",
+  //     "Discover Meghalaya's caves",
+  //     "Experience the living root bridge region",
+  //     "Visit Dawki and the Umngot River",
+  //     "Explore Mawlynnong",
+  //     "Experience Meghalaya's rural landscapes",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival & Shillong",
+  //       detail:
+  //         "Arrive in Guwahati and travel to Shillong before exploring the city's main attractions and enjoying an evening around the local market.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Shillong to Cherrapunji",
+  //       detail:
+  //         "Travel to Cherrapunji through scenic mountain roads while stopping at viewpoints and waterfalls before checking into your accommodation.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Cherrapunji Adventure",
+  //       detail:
+  //         "Explore waterfalls, caves, valleys, and scenic viewpoints around Cherrapunji before enjoying a peaceful evening surrounded by misty hills.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Cherrapunji to Dawki",
+  //       detail:
+  //         "Travel towards Dawki through lush forests and villages, visiting Mawlynnong and experiencing the crystal-clear waters of the Umngot River.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Dawki to Shillong",
+  //       detail:
+  //         "Enjoy a relaxed morning around Dawki before returning to Shillong through scenic landscapes and local villages.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Travel from Shillong to Guwahati Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "meghalaya-grand-explorer",
+  //   title: "Meghalaya: Beyond the Clouds — Shillong, Cherrapunji, Dawki & Mawlynnong",
+  //   region: "domestic",
+  //   subRegion: "meghalaya",
+  //   groupTag: "Meghalaya",
+  //   country: "India",
+  //   days: 8,
+  //   nights: 7,
+  //   priceFrom: 27999,
+  //   heroImage: meghalaya1,
+  //   gallery: [
+  //     meghalaya1,
+  //     meghalaya2,
+  //     meghalaya3,
+  //     meghalaya4,
+  //   ],
+  //   tripType: "nature",
+  //   summary:
+  //     "Experience Meghalaya's most beautiful landscapes through Shillong, Cherrapunji, Mawlynnong, Dawki, waterfalls, caves, forests, and living root bridges.",
+  //   overview:
+  //     "This 7N/8D comprehensive Meghalaya journey allows travelers to experience the region at a relaxed pace while combining its most famous natural and cultural attractions.",
+  //   highlights: [
+  //     "Explore Shillong",
+  //     "Discover Cherrapunji",
+  //     "Visit Dawki and Umngot River",
+  //     "Explore Mawlynnong",
+  //     "Discover living root bridges",
+  //     "Visit waterfalls and caves",
+  //     "Experience Khasi culture",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Guwahati to Shillong",
+  //       detail:
+  //         "Arrive in Guwahati and travel to Shillong through scenic hills before checking into your hotel and exploring the city in the evening.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Shillong Sightseeing",
+  //       detail:
+  //         "Explore Shillong's waterfalls, viewpoints, lakes, churches, markets, and cultural attractions before a relaxed evening.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Shillong to Cherrapunji",
+  //       detail:
+  //         "Travel to Cherrapunji through spectacular mountain scenery, stopping at viewpoints and waterfalls along the route.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Cherrapunji Exploration",
+  //       detail:
+  //         "Explore Cherrapunji's caves, waterfalls, valleys, and viewpoints while enjoying the misty landscapes of the Khasi Hills.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Living Root Bridge Experience",
+  //       detail:
+  //         "Explore the living root bridge region and surrounding villages through scenic walks and local cultural experiences.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Mawlynnong & Dawki",
+  //       detail:
+  //         "Visit Mawlynnong before travelling to Dawki to experience the crystal-clear Umngot River and surrounding hills.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Dawki to Shillong",
+  //       detail:
+  //         "Enjoy a relaxed morning before returning to Shillong through scenic villages and mountain landscapes.",
+  //     },
+  //     {
+  //       day: 8,
+  //       title: "Departure",
+  //       detail:
+  //         "Travel from Shillong to Guwahati Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // SIKKIM
+  // // ============================================================
+
+  // {
+  //   slug: "sikkim-gangtok-tsomgo-escape",
+  //   title: "Sikkim: Himalayan Gateway — Gangtok, Monasteries & Tsomgo Lake",
+  //   region: "domestic",
+  //   subRegion: "sikkim",
+  //   groupTag: "Sikkim",
+  //   country: "India",
+  //   days: 5,
+  //   nights: 4,
+  //   priceFrom: 18999,
+  //   heroImage: sikkim1,
+  //   gallery: [sikkim1, sikkim2, sikkim3, sikkim4],
+  //   tripType: "mountain",
+  //   summary:
+  //     "Experience Gangtok's vibrant Himalayan culture, peaceful monasteries, spectacular viewpoints, and the high-altitude beauty of Tsomgo Lake.",
+  //   overview:
+  //     "This 4N/5D package is designed as a relaxed introduction to Sikkim, focusing on Gangtok and the spectacular Tsomgo Lake region.",
+  //   highlights: [
+  //     "Explore Gangtok",
+  //     "Visit Rumtek Monastery",
+  //     "Experience Tsomgo Lake",
+  //     "Visit Baba Mandir",
+  //     "Explore MG Marg",
+  //     "Enjoy Himalayan mountain views",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Gangtok",
+  //       detail:
+  //         "Arrive in Gangtok and transfer to your hotel before spending the evening exploring MG Marg and the city's vibrant atmosphere.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Gangtok Sightseeing",
+  //       detail:
+  //         "Explore monasteries, viewpoints, cultural attractions, and local markets around Gangtok before enjoying a relaxed evening.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Tsomgo Lake & Baba Mandir",
+  //       detail:
+  //         "Travel to Tsomgo Lake and Baba Mandir through spectacular Himalayan landscapes before returning to Gangtok.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Gangtok Leisure",
+  //       detail:
+  //         "Enjoy a relaxed day for shopping, cafés, photography, local experiences, or optional excursions before a final evening in Gangtok.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring towards the nearest airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "sikkim-gangtok-north-sikkim",
+  //   title: "Sikkim: Into the High Himalayas — Gangtok & North Sikkim",
+  //   region: "domestic",
+  //   subRegion: "sikkim",
+  //   groupTag: "Sikkim",
+  //   country: "India",
+  //   days: 7,
+  //   nights: 6,
+  //   priceFrom: 27999,
+  //   heroImage: sikkim1,
+  //   gallery: [sikkim1, sikkim2, sikkim3, sikkim4],
+  //   tripType: "mountain",
+  //   summary:
+  //     "Venture beyond Gangtok into the dramatic landscapes of North Sikkim, discovering alpine lakes, mountain valleys, monasteries, and remote Himalayan settlements.",
+  //   overview:
+  //     "This 6N/7D Sikkim package combines Gangtok's cultural attractions with a deeper exploration of North Sikkim, including the scenic regions around Lachung and high-altitude Himalayan landscapes.",
+  //   highlights: [
+  //     "Explore Gangtok",
+  //     "Visit Tsomgo Lake",
+  //     "Discover Lachung",
+  //     "Explore North Sikkim's mountain valleys",
+  //     "Visit Himalayan monasteries",
+  //     "Experience high-altitude landscapes",
+  //     "Enjoy scenic mountain drives",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Gangtok",
+  //       detail:
+  //         "Arrive in Gangtok, transfer to your hotel, and spend the evening exploring MG Marg and the surrounding streets.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Gangtok Sightseeing",
+  //       detail:
+  //         "Explore Gangtok's monasteries, viewpoints, cultural landmarks, and markets before preparing for the North Sikkim journey.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Gangtok to Lachung",
+  //       detail:
+  //         "Travel towards Lachung through spectacular mountain roads, waterfalls, forests, and Himalayan villages before checking into your accommodation.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "North Sikkim Exploration",
+  //       detail:
+  //         "Explore the high-altitude landscapes around Lachung, enjoying mountain views, valleys, waterfalls, and local Himalayan culture.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Lachung to Gangtok",
+  //       detail:
+  //         "Return towards Gangtok through scenic mountain roads, stopping at viewpoints and waterfalls along the route.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Tsomgo Lake Excursion",
+  //       detail:
+  //         "Visit Tsomgo Lake and Baba Mandir before returning to Gangtok for a relaxed final evening.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before travelling towards the nearest airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "sikkim-grand-gangtok-pelling-darjeeling",
+  //   title: "Sikkim: Grand Himalayan Circuit — Gangtok, Pelling & Mountain Views",
+  //   region: "domestic",
+  //   subRegion: "sikkim",
+  //   groupTag: "Sikkim",
+  //   country: "India",
+  //   days: 8,
+  //   nights: 7,
+  //   priceFrom: 29999,
+  //   heroImage: sikkim1,
+  //   gallery: [sikkim1, sikkim2, sikkim3, sikkim4],
+  //   tripType: "mountain",
+  //   summary:
+  //     "Explore Sikkim's diverse Himalayan landscapes through Gangtok's cultural heart, Pelling's mountain vistas, monasteries, lakes, and peaceful hill towns.",
+  //   overview:
+  //     "This 7N/8D circuit connects Gangtok and Pelling with excursions through Sikkim's scenic mountain landscapes. It offers a balanced combination of culture, monasteries, viewpoints, nature, and leisure.",
+  //   highlights: [
+  //     "Explore Gangtok",
+  //     "Visit Tsomgo Lake",
+  //     "Discover Pelling",
+  //     "Enjoy Kanchenjunga mountain views",
+  //     "Visit Pemayangtse Monastery",
+  //     "Explore Himalayan waterfalls",
+  //     "Experience Sikkimese culture",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Gangtok",
+  //       detail:
+  //         "Arrive in Gangtok and transfer to your hotel before exploring MG Marg and enjoying a relaxed evening.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Gangtok Sightseeing",
+  //       detail:
+  //         "Explore Gangtok's monasteries, viewpoints, cultural attractions, markets, and local neighborhoods.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Tsomgo Lake Excursion",
+  //       detail:
+  //         "Travel to Tsomgo Lake and Baba Mandir through spectacular Himalayan terrain before returning to Gangtok.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Gangtok to Pelling",
+  //       detail:
+  //         "Travel towards Pelling through scenic mountain roads, waterfalls, villages, and forests before checking into your hotel.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Pelling Exploration",
+  //       detail:
+  //         "Explore Pelling's monasteries, viewpoints, waterfalls, heritage sites, and spectacular views of the surrounding Himalayan peaks.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Pelling Nature Experience",
+  //       detail:
+  //         "Enjoy a relaxed day exploring nearby monasteries, forests, viewpoints, and local villages while experiencing Sikkimese culture.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Pelling to Siliguri",
+  //       detail:
+  //         "Begin the descent towards Siliguri through scenic Himalayan foothills and enjoy a relaxed final evening.",
+  //     },
+  //     {
+  //       day: 8,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Bagdogra Airport or the railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // DARJEELING
+  // // ============================================================
+
+  // {
+  //   slug: "darjeeling-classic-himalayan-escape",
+  //   title: "Darjeeling: Queen of the Hills — Tea Gardens, Sunrise & Mountain Views",
+  //   region: "domestic",
+  //   subRegion: "darjeeling",
+  //   groupTag: "Darjeeling",
+  //   country: "India",
+  //   days: 5,
+  //   nights: 4,
+  //   priceFrom: 17999,
+  //   heroImage: darjeeling1,
+  //   gallery: [
+  //     darjeeling1,
+  //     darjeeling2,
+  //     darjeeling3,
+  //     darjeeling4,
+  //   ],
+  //   tripType: "mountain",
+  //   summary:
+  //     "Experience the timeless charm of Darjeeling through Himalayan sunrises, tea gardens, colonial heritage, monasteries, and scenic mountain roads.",
+  //   overview:
+  //     "This 4N/5D classic Darjeeling itinerary covers the destination's most iconic experiences, making it ideal for first-time visitors looking for a relaxed Himalayan getaway.",
+  //   highlights: [
+  //     "Watch sunrise at Tiger Hill",
+  //     "Explore Darjeeling tea gardens",
+  //     "Visit Batasia Loop",
+  //     "Discover Ghoom Monastery",
+  //     "Explore Mall Road",
+  //     "Enjoy Kanchenjunga views",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Darjeeling",
+  //       detail:
+  //         "Arrive in Darjeeling and check into your hotel before exploring Mall Road and enjoying the cool Himalayan atmosphere.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Darjeeling Sunrise & Sightseeing",
+  //       detail:
+  //         "Start with sunrise at Tiger Hill before visiting Ghoom Monastery, Batasia Loop, Himalayan viewpoints, and other local attractions.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Tea Garden Experience",
+  //       detail:
+  //         "Explore a Darjeeling tea estate and learn about the region's famous tea culture before enjoying local markets and cafés.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Darjeeling Leisure",
+  //       detail:
+  //         "Enjoy a relaxed day for shopping, Toy Train experiences, photography, café hopping, or exploring additional viewpoints.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring towards Bagdogra Airport or the nearest railway station.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "darjeeling-kalimpong-himalayan-escape",
+  //   title: "Darjeeling & Kalimpong: Twin Himalayan Retreat — Tea, Monasteries & Valleys",
+  //   region: "domestic",
+  //   subRegion: "darjeeling",
+  //   groupTag: "Darjeeling",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 20999,
+  //   heroImage: darjeeling1,
+  //   gallery: [
+  //     darjeeling1,
+  //     darjeeling2,
+  //     darjeeling3,
+  //     darjeeling4,
+  //   ],
+  //   tripType: "mountain",
+  //   summary:
+  //     "Explore two charming Himalayan hill towns through Darjeeling's tea gardens and iconic viewpoints and Kalimpong's monasteries, valleys, and colonial heritage.",
+  //   overview:
+  //     "This 5N/6D package combines Darjeeling and Kalimpong for travelers looking for a broader Himalayan experience. Discover tea plantations, monasteries, viewpoints, markets, and scenic mountain roads.",
+  //   highlights: [
+  //     "Watch sunrise from Tiger Hill",
+  //     "Explore Darjeeling tea estates",
+  //     "Experience the Toy Train heritage",
+  //     "Discover Kalimpong monasteries",
+  //     "Explore Himalayan viewpoints",
+  //     "Enjoy local Himalayan cuisine",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Darjeeling",
+  //       detail:
+  //         "Arrive in Darjeeling and check into your hotel before exploring Mall Road and enjoying the evening mountain atmosphere.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Darjeeling Sunrise & Heritage",
+  //       detail:
+  //         "Visit Tiger Hill for sunrise before exploring Ghoom Monastery, Batasia Loop, and other heritage attractions around Darjeeling.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Tea Gardens & Toy Train",
+  //       detail:
+  //         "Explore a Darjeeling tea estate and experience the region's famous tea culture before enjoying a Toy Train experience and local markets.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Darjeeling to Kalimpong",
+  //       detail:
+  //         "Travel to Kalimpong through scenic mountain roads and explore its monasteries, markets, viewpoints, and peaceful hill landscapes.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Kalimpong Exploration",
+  //       detail:
+  //         "Spend the day exploring Kalimpong's cultural landmarks, nurseries, monasteries, viewpoints, and surrounding valleys before a relaxed evening.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before travelling towards the nearest airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "darjeeling-dooars-wild-himalayan-escape",
+  //   title: "Darjeeling & Dooars: Tea Trails to the Wild — Hills, Forests & Wildlife",
+  //   region: "domestic",
+  //   subRegion: "darjeeling",
+  //   groupTag: "Darjeeling",
+  //   country: "India",
+  //   days: 7,
+  //   nights: 6,
+  //   priceFrom: 24999,
+  //   heroImage: darjeeling1,
+  //   gallery: [
+  //     darjeeling1,
+  //     darjeeling2,
+  //     darjeeling3,
+  //     darjeeling4,
+  //   ],
+  //   tripType: "nature",
+  //   summary:
+  //     "Combine Darjeeling's Himalayan charm with the forests and wildlife of the Dooars for a journey from tea-covered mountains to lush wilderness.",
+  //   overview:
+  //     "This 6N/7D itinerary combines Darjeeling's famous mountain experiences with the forest landscapes of Dooars. Enjoy Himalayan views, tea gardens, heritage sites, forest drives, and optional wildlife experiences.",
+  //   highlights: [
+  //     "Explore Darjeeling",
+  //     "Watch sunrise at Tiger Hill",
+  //     "Visit tea gardens",
+  //     "Experience Himalayan mountain landscapes",
+  //     "Explore Dooars forests",
+  //     "Enjoy optional wildlife safari",
+  //     "Discover local villages and tea estates",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Darjeeling",
+  //       detail:
+  //         "Arrive in Darjeeling and check into your hotel before exploring Mall Road and enjoying the cool Himalayan evening.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Darjeeling Sunrise & Sightseeing",
+  //       detail:
+  //         "Start with sunrise at Tiger Hill before visiting Ghoom Monastery, Batasia Loop, tea gardens, and other local attractions.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Darjeeling Tea Experience",
+  //       detail:
+  //         "Explore a tea estate and discover Darjeeling's tea traditions before enjoying local markets, cafés, and mountain viewpoints.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Darjeeling to Dooars",
+  //       detail:
+  //         "Travel downhill through tea gardens and forest landscapes towards Dooars, checking into your forest accommodation.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Dooars Wildlife Experience",
+  //       detail:
+  //         "Enjoy an optional wildlife safari or forest excursion while exploring the lush landscapes, rivers, and villages of the Dooars region.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Dooars Nature Exploration",
+  //       detail:
+  //         "Spend the day discovering forest viewpoints, tea gardens, rivers, and local communities before enjoying a peaceful final evening.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring towards the nearest airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // // ============================================================
+  // // ARUNACHAL PRADESH
+  // // ============================================================
+
+  // {
+  //   slug: "arunachal-tawang-himalayan-expedition",
+  //   title: "Arunachal Pradesh: Tawang — Into the High Himalayan Frontier",
+  //   region: "domestic",
+  //   subRegion: "arunachal-pradesh",
+  //   groupTag: "Arunachal Pradesh",
+  //   country: "India",
+  //   days: 8,
+  //   nights: 7,
+  //   priceFrom: 34999,
+  //   heroImage: arunachal1,
+  //   gallery: [
+  //     arunachal1,
+  //     arunachal2,
+  //     arunachal3,
+  //     arunachal4,
+  //   ],
+  //   tripType: "mountain",
+  //   summary:
+  //     "Venture deep into the eastern Himalayas to discover Tawang's magnificent monastery, high-altitude lakes, dramatic passes, waterfalls, and remote mountain landscapes.",
+  //   overview:
+  //     "This 7N/8D Tawang-focused expedition follows the spectacular route from Guwahati through Bomdila and Dirang to Tawang. The journey emphasizes high-altitude landscapes, Buddhist culture, Himalayan villages, and scenic mountain roads.",
+  //   highlights: [
+  //     "Visit Tawang Monastery",
+  //     "Cross Sela Pass",
+  //     "Explore high-altitude lakes",
+  //     "Discover Dirang Valley",
+  //     "Visit Bomdila",
+  //     "Explore Tawang's Himalayan landscapes",
+  //     "Experience Arunachal's Buddhist culture",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Guwahati to Bomdila",
+  //       detail:
+  //         "Arrive in Guwahati and begin the journey towards Bomdila through scenic foothills, forests, and mountain roads before checking into your hotel.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Bomdila to Dirang",
+  //       detail:
+  //         "Explore Bomdila's monastery and viewpoints before travelling to Dirang through beautiful Himalayan landscapes and mountain villages.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Dirang to Tawang",
+  //       detail:
+  //         "Cross the spectacular Sela Pass and continue through high-altitude landscapes, lakes, and waterfalls before arriving in Tawang.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Tawang Monastery",
+  //       detail:
+  //         "Explore Tawang Monastery and surrounding cultural landmarks before spending the evening discovering the town and its mountain surroundings.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Tawang High-Altitude Excursion",
+  //       detail:
+  //         "Explore the high-altitude lakes, mountain viewpoints, and remote landscapes surrounding Tawang before returning to town.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Tawang to Dirang",
+  //       detail:
+  //         "Begin the return journey through dramatic Himalayan landscapes, stopping at scenic viewpoints and waterfalls before reaching Dirang.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Dirang to Guwahati",
+  //       detail:
+  //         "Travel through the Himalayan foothills towards Guwahati, enjoying changing landscapes and local villages along the way.",
+  //     },
+  //     {
+  //       day: 8,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before transferring to Guwahati Airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "arunachal-ziro-valley-cultural-escape",
+  //   title: "Arunachal Pradesh: Ziro Valley — Tribal Culture, Rice Fields & Quiet Hills",
+  //   region: "domestic",
+  //   subRegion: "arunachal-pradesh",
+  //   groupTag: "Arunachal Pradesh",
+  //   country: "India",
+  //   days: 6,
+  //   nights: 5,
+  //   priceFrom: 26999,
+  //   heroImage: arunachal1,
+  //   gallery: [
+  //     arunachal1,
+  //     arunachal2,
+  //     arunachal3,
+  //     arunachal4,
+  //   ],
+  //   tripType: "cultural",
+  //   summary:
+  //     "Discover the peaceful beauty of Ziro Valley through Apatani villages, green rice fields, pine forests, tribal traditions, and untouched Himalayan landscapes.",
+  //   overview:
+  //     "This 5N/6D Ziro Valley package is designed around culture and slow travel. Explore traditional Apatani villages, rice terraces, forests, local markets, and the scenic landscapes that make Ziro one of Arunachal Pradesh's most distinctive destinations.",
+  //   highlights: [
+  //     "Explore Ziro Valley",
+  //     "Discover Apatani villages",
+  //     "Experience traditional tribal culture",
+  //     "Walk through scenic rice fields",
+  //     "Explore pine forests",
+  //     "Experience local cuisine and crafts",
+  //     "Enjoy peaceful Himalayan landscapes",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival & Journey to Ziro",
+  //       detail:
+  //         "Arrive in the region and travel towards Ziro through scenic mountain roads before checking into your accommodation and relaxing among the valley landscapes.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Ziro Valley Exploration",
+  //       detail:
+  //         "Explore Ziro's villages, rice fields, pine forests, viewpoints, and local communities while experiencing the peaceful rhythm of valley life.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Apatani Cultural Experience",
+  //       detail:
+  //         "Visit traditional Apatani settlements and experience local architecture, crafts, food, and cultural traditions before returning to Ziro.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Nature & Valley Trails",
+  //       detail:
+  //         "Spend the day exploring scenic trails, forests, viewpoints, and surrounding villages while enjoying photography and local experiences.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Ziro Leisure Day",
+  //       detail:
+  //         "Enjoy a relaxed day for local exploration, handicraft shopping, village walks, photography, and experiencing the valley at your own pace.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Departure",
+  //       detail:
+  //         "Enjoy breakfast before beginning your return journey towards the nearest airport or railway station for your onward travel.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+
+  // {
+  //   slug: "arunachal-tawang-bomdila-explorer",
+  //   title: "Arunachal Pradesh: Monasteries & Mountains — Bomdila to Tawang",
+  //   region: "domestic",
+  //   subRegion: "arunachal-pradesh",
+  //   groupTag: "Arunachal Pradesh",
+  //   country: "India",
+  //   days: 9,
+  //   nights: 8,
+  //   priceFrom: 38999,
+  //   heroImage: arunachal1,
+  //   gallery: [
+  //     arunachal1,
+  //     arunachal2,
+  //     arunachal3,
+  //     arunachal4,
+  //   ],
+  //   tripType: "mountain",
+  //   summary:
+  //     "Experience the complete Bomdila–Dirang–Tawang mountain route through Buddhist monasteries, high-altitude passes, waterfalls, valleys, and spectacular Himalayan landscapes.",
+  //   overview:
+  //     "This 8N/9D Arunachal Pradesh itinerary allows more time to experience the eastern Himalayas at a comfortable pace. Explore Bomdila and Dirang, cross Sela Pass, discover Tawang's monastery and high-altitude lakes, and experience remote mountain communities.",
+  //   highlights: [
+  //     "Explore Bomdila Monastery",
+  //     "Discover Dirang Valley",
+  //     "Cross Sela Pass",
+  //     "Visit Tawang Monastery",
+  //     "Explore high-altitude lakes",
+  //     "Visit Himalayan waterfalls",
+  //     "Experience remote Arunachal villages",
+  //   ],
+  //   itinerary: [
+  //     {
+  //       day: 1,
+  //       title: "Arrival in Guwahati",
+  //       detail:
+  //         "Arrive in Guwahati and spend the day relaxing or exploring the city before beginning the mountain journey the following morning.",
+  //     },
+  //     {
+  //       day: 2,
+  //       title: "Guwahati to Bomdila",
+  //       detail:
+  //         "Travel into Arunachal Pradesh through scenic foothills and forests before reaching Bomdila and exploring its monastery and mountain viewpoints.",
+  //     },
+  //     {
+  //       day: 3,
+  //       title: "Bomdila to Dirang",
+  //       detail:
+  //         "Travel towards Dirang through beautiful mountain landscapes, stopping at waterfalls, viewpoints, and villages along the route.",
+  //     },
+  //     {
+  //       day: 4,
+  //       title: "Dirang Exploration",
+  //       detail:
+  //         "Explore Dirang's valleys, monasteries, hot springs, villages, and scenic surroundings before preparing for the high-altitude journey to Tawang.",
+  //     },
+  //     {
+  //       day: 5,
+  //       title: "Dirang to Tawang",
+  //       detail:
+  //         "Cross Sela Pass and travel through spectacular high-altitude landscapes, lakes, and waterfalls before arriving in Tawang.",
+  //     },
+  //     {
+  //       day: 6,
+  //       title: "Tawang Monastery & Town",
+  //       detail:
+  //         "Explore Tawang Monastery and surrounding cultural landmarks before spending the evening discovering local markets and mountain viewpoints.",
+  //     },
+  //     {
+  //       day: 7,
+  //       title: "Tawang High-Altitude Excursion",
+  //       detail:
+  //         "Take a scenic excursion towards the high-altitude lakes and mountain landscapes surrounding Tawang before returning to town.",
+  //     },
+  //     {
+  //       day: 8,
+  //       title: "Tawang to Dirang",
+  //       detail:
+  //         "Begin the return journey through the dramatic Himalayan terrain, stopping at scenic viewpoints and waterfalls before reaching Dirang.",
+  //     },
+  //     {
+  //       day: 9,
+  //       title: "Departure",
+  //       detail:
+  //         "Continue towards Guwahati and transfer to the airport or railway station for your onward journey.",
+  //     },
+  //   ],
+  //   inclusions: incDomestic,
+  //   exclusions: exc,
+  // },
+  {
+    slug: "bhutan-himalayan-kingdom-journey",
+    title: "Bhutan: Himalayan Kingdom — Monasteries, Valleys & Mountain Serenity",
+    region: "saarc",
+    subRegion: "bhutan",
+    groupTag: "Bhutan",
+    country: "Bhutan",
+    days: 7,
+    nights: 6,
+    priceFrom: 42999,
+    heroImage: bhutan1,
+    gallery: [bhutan1, bhutan2, bhutan3, bhutan4],
+    tripType: "mountain",
+    summary:
+      "Journey through the peaceful Himalayan kingdom of Bhutan on a 7-day experience covering Paro, Thimphu, Punakha, and the scenic mountain valleys. Discover ancient monasteries, dramatic landscapes, traditional Bhutanese architecture, vibrant markets, and the iconic Tiger's Nest Monastery.",
+    overview:
+      "This 6N/7D Bhutan journey combines the country's most celebrated cultural and natural attractions at a relaxed pace. Begin in Paro with its traditional architecture and historic landmarks, continue to Thimphu for Bhutanese culture and city life, and travel through the spectacular Dochula Pass to the fertile Punakha Valley. The journey concludes with the unforgettable hike to Taktsang Monastery, offering a balanced mix of Himalayan scenery, spirituality, culture, and adventure.",
+    highlights: [
+      "Explore the charming Paro Valley and traditional Bhutanese architecture",
+      "Hike to the iconic Tiger's Nest Monastery",
+      "Discover Bhutanese culture and landmarks in Thimphu",
+      "Scenic drive through the spectacular Dochula Pass",
+      "Explore Punakha Dzong and the beautiful Punakha Valley",
+      "Visit ancient monasteries and traditional villages",
+      "Experience Bhutan's peaceful Himalayan landscapes and local cuisine",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Paro & Transfer to Thimphu",
+        detail:
+          "Arrive at Paro International Airport and enjoy a scenic drive through the Himalayan valleys to Thimphu. Check into your hotel and spend the evening exploring the town's relaxed streets, local cafés, and traditional Bhutanese atmosphere.",
+      },
+      {
+        day: 2,
+        title: "Thimphu Cultural Discovery",
+        detail:
+          "Explore Thimphu's major attractions including Buddha Dordenma, Memorial Chorten, Tashichho Dzong, the National Folk Heritage Museum, and local handicraft markets before enjoying an evening at leisure in the capital.",
+      },
+      {
+        day: 3,
+        title: "Thimphu to Punakha via Dochula",
+        detail:
+          "Travel towards Punakha through the scenic Dochula Pass, stopping to admire the Himalayan panorama and the famous 108 Druk Wangyal Chortens. Continue through mountain roads and valleys before arriving in Punakha for an evening of relaxation.",
+      },
+      {
+        day: 4,
+        title: "Punakha Valley Exploration",
+        detail:
+          "Visit the magnificent Punakha Dzong at the meeting point of the Mo Chhu and Pho Chhu rivers, followed by a visit to Chimi Lhakhang and nearby traditional villages. Spend the evening enjoying the peaceful scenery of the Punakha Valley.",
+      },
+      {
+        day: 5,
+        title: "Punakha to Paro",
+        detail:
+          "Drive back towards Paro through Bhutan's scenic mountain landscapes, with stops at viewpoints and local settlements along the way. Arrive in Paro and explore the traditional town center, local shops, and surrounding valley.",
+      },
+      {
+        day: 6,
+        title: "Tiger's Nest Monastery Adventure",
+        detail:
+          "Take the memorable hike through pine forests to Taktsang Monastery, popularly known as Tiger's Nest, perched dramatically on a cliff above the Paro Valley. Return to Paro and spend the evening relaxing after the hike.",
+      },
+      {
+        day: 7,
+        title: "Departure from Bhutan",
+        detail:
+          "Enjoy breakfast and some final leisure time in Paro before transferring to Paro International Airport for your onward journey, bringing your Himalayan kingdom experience to an end.",
+      },
+    ],
+    inclusions: inc,
+    exclusions: exc,
+  },
+
+  {
+    slug: "nepal-himalayan-grand-tour",
+    title: "Nepal: Himalayan Grand Tour — Temples, Lakes, Jungles & Mountain Views",
+    region: "saarc",
+    subRegion: "nepal",
+    groupTag: "Nepal",
+    country: "Nepal",
+    days: 9,
+    nights: 8,
+    priceFrom: 39999,
+    heroImage: nepal1,
+    gallery: [nepal1, nepal2, nepal3, nepal4],
+    tripType: "mountain",
+    summary:
+      "Discover the diverse landscapes and cultural heritage of Nepal on a 9-day journey through Kathmandu, Pokhara, Chitwan, and Nagarkot. Experience ancient temples, Himalayan viewpoints, serene lakes, traditional towns, wildlife, and breathtaking mountain scenery.",
+    overview:
+      "This 8N/9D Nepal itinerary brings together the country's most rewarding experiences without trying to cover too much ground. Explore the UNESCO-listed heritage sites and vibrant streets of Kathmandu, journey to Pokhara for spectacular Annapurna and Machhapuchhre views, experience the forests and wildlife of Chitwan National Park, and finish among the Himalayan foothills of Nagarkot. The package combines culture, nature, adventure, relaxation, and scenic mountain experiences.",
+    highlights: [
+      "Explore Kathmandu's historic temples and UNESCO heritage sites",
+      "Visit Pashupatinath Temple, Boudhanath and Swayambhunath",
+      "Enjoy spectacular Himalayan views from Pokhara and Sarangkot",
+      "Experience boating on the serene Phewa Lake",
+      "Discover the caves, waterfalls, and viewpoints of Pokhara",
+      "Experience wildlife and jungle activities in Chitwan National Park",
+      "Watch a Himalayan sunrise and sunset from Nagarkot",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Kathmandu",
+        detail:
+          "Arrive in Kathmandu and transfer to your hotel. Relax after your journey before taking an evening walk through the lively Thamel area and experiencing your first taste of Nepalese food and culture.",
+      },
+      {
+        day: 2,
+        title: "Kathmandu Heritage Trail",
+        detail:
+          "Explore Kathmandu's cultural landmarks including Pashupatinath Temple, Boudhanath Stupa, and Swayambhunath, followed by a visit to Kathmandu Durbar Square and the historic streets surrounding the old city.",
+      },
+      {
+        day: 3,
+        title: "Kathmandu to Pokhara",
+        detail:
+          "Travel through Nepal's scenic countryside towards Pokhara, enjoying views of rivers, hills, and traditional settlements along the journey. Arrive in Pokhara and spend the evening beside Phewa Lake and around Lakeside.",
+      },
+      {
+        day: 4,
+        title: "Pokhara & Sarangkot Sunrise",
+        detail:
+          "Start early with a sunrise excursion to Sarangkot for panoramic views of the Annapurna range and Machhapuchhre. Later explore Davis Falls, Gupteshwor Cave, the World Peace Pagoda, and enjoy a relaxing boat ride on Phewa Lake.",
+      },
+      {
+        day: 5,
+        title: "Pokhara to Chitwan",
+        detail:
+          "Travel from the Himalayan foothills towards the subtropical Terai plains and Chitwan National Park. Check into your jungle resort and enjoy an evening village walk or cultural Tharu experience.",
+      },
+      {
+        day: 6,
+        title: "Chitwan Jungle Experience",
+        detail:
+          "Spend the day exploring Chitwan National Park through jungle activities such as a safari, nature walk, birdwatching, and canoe experience, with opportunities to spot rhinos, deer, crocodiles, and other wildlife.",
+      },
+      {
+        day: 7,
+        title: "Chitwan to Nagarkot",
+        detail:
+          "Depart Chitwan and travel back towards the Kathmandu Valley before continuing to the hill station of Nagarkot. Relax at the resort and enjoy panoramic Himalayan scenery as the sun sets over the surrounding hills.",
+      },
+      {
+        day: 8,
+        title: "Nagarkot Sunrise & Bhaktapur",
+        detail:
+          "Wake early for a spectacular Himalayan sunrise before visiting the historic city of Bhaktapur, exploring its ancient squares, temples, courtyards, and traditional architecture. Return to Kathmandu for your final evening.",
+      },
+      {
+        day: 9,
+        title: "Departure from Nepal",
+        detail:
+          "Enjoy breakfast and some final leisure time before transferring to Tribhuvan International Airport for your onward journey, concluding your Nepal Himalayan adventure.",
+      },
+    ],
+    inclusions: inc,
     exclusions: exc,
   },
 ];

@@ -10,6 +10,7 @@ import domestic from "@/assets/region-domestic.jpg";
 export type RegionSlug =
   | "central-asia"
   | "southeast-asia"
+  | "saarc"
   | "europe"
   | "middle-east"
   | "africa"
@@ -45,6 +46,13 @@ export const REGIONS: Region[] = [
     name: "South East Asia",
     kind: "international",
     tagline: "Turquoise waters, warm welcomes",
+    image: southeastAsia,
+  },
+  {
+    slug: "saarc",
+    name: "SAARC Nations",
+    kind: "international",
+    tagline: "South Asian Association for Regional Cooperation",
     image: southeastAsia,
   },
   {
@@ -105,7 +113,7 @@ export const REGIONS: Region[] = [
       { slug: "sikkim", name: "Sikkim" },
       { slug: "darjeeling", name: "Darjeeling" },
       { slug: "arunachal", name: "Arunachal Pradesh" },
-      { slug: "char-dham", name: "Char Dhaam" },
+      { slug: "char-dhaam", name: "Char Dhaam" },
     ],
   },
 ];
