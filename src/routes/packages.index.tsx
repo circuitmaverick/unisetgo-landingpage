@@ -5,6 +5,7 @@ import { TRIP_TYPES, formatINR, type TripType } from "@/data/packages";
 import { regionBySlug } from "@/data/regions";
 import { getPackages, getRegions } from "@/lib/packages-db";
 import { CachedImage } from "@/components/cached-image";
+import { AllPackagesSkeleton } from "@/components/packages-skeletons";
 
 export const Route = createFileRoute("/packages/")({
   loader: async () => {
@@ -14,6 +15,7 @@ export const Route = createFileRoute("/packages/")({
     ]);
     return { packages, regions };
   },
+  pendingComponent: AllPackagesSkeleton,
   head: () => ({
     meta: [
       { title: "All Travel Packages — Search & Filter | UniSetGo" },
