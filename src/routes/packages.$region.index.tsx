@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { getPackages, getRegionBySlug } from "@/lib/packages-db";
 import { PackageCard } from "./packages.index";
+import { RegionIndexSkeleton } from "@/components/packages-skeletons";
 
 export const Route = createFileRoute("/packages/$region/")({
   loader: async ({ params }) => {
@@ -11,6 +12,7 @@ export const Route = createFileRoute("/packages/$region/")({
     const packages = allPackages.filter((p) => p.region === region.slug);
     return { region, packages };
   },
+  pendingComponent: RegionIndexSkeleton,
   component: RegionIndex,
 });
 

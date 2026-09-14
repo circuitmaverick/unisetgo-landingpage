@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CachedImage } from "@/components/cached-image";
+import { PackageDetailSkeleton } from "@/components/packages-skeletons";
 import { waLink, mailLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/packages/$region/$slug")({
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/packages/$region/$slug")({
     if (!region) throw notFound();
     return { pkg, region };
   },
+  pendingComponent: PackageDetailSkeleton,
   head: ({ params, loaderData }) => {
     const pkg = loaderData?.pkg;
     if (!pkg) {

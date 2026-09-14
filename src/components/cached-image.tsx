@@ -1,5 +1,6 @@
 import { useEffect, useState, type ImgHTMLAttributes } from "react";
 import { getCachedImageUrl, fetchAndCacheImage } from "@/lib/image-cache";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type CachedImageProps = ImgHTMLAttributes<HTMLImageElement> & { src: string };
 
@@ -36,9 +37,9 @@ function resolveSrc(src: string): Promise<string> {
  *
  * Setting a real remote `src` on first render would make the browser's own
  * image loader fetch it immediately — before any async cache check could
- * run — defeating the point of caching. So instead this renders an
- * invisible placeholder matching layout until the IndexedDB check resolves,
- * then renders the real `<img>` with either a cached blob URL or,
+ * run — defeating the point of caching. So instead this renders a skeleton
+ * placeholder matching layout until the IndexedDB check resolves, then
+ * renders the real `<img>` with either a cached blob URL or,
  * on a miss, the plain remote URL (which is fetched-and-cached for next
  * time). The gap is normally a handful of milliseconds — a local IndexedDB
  * read — and applies uniformly on SSR hard-loads and client navigation
@@ -72,7 +73,7 @@ export function CachedImage({ src, ...rest }: CachedImageProps) {
     // All current call sites size the image via CSS (h-full w-full, etc.),
     // not the width/height attributes (those are just intrinsic-size hints
     // for the browser) — so matching className alone reproduces the layout.
-    return <div aria-hidden className={rest.className} />;
+    return <Skeleton aria-hidden className={rest.className} />;
   }
 
   return <img src={resolvedSrc} {...rest} />;

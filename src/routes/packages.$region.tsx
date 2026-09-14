@@ -5,6 +5,7 @@ import {
   Link,
 } from "@tanstack/react-router";
 import { getRegions, type RegionWithSubRegions } from "@/lib/packages-db";
+import { RegionIndexSkeleton } from "@/components/packages-skeletons";
 
 export const Route = createFileRoute("/packages/$region")({
   loader: async ({ params }) => {
@@ -13,6 +14,7 @@ export const Route = createFileRoute("/packages/$region")({
     if (!region) throw notFound({ data: { regions } });
     return { region };
   },
+  pendingComponent: RegionIndexSkeleton,
   head: ({ params, loaderData }) => {
     const region = loaderData?.region;
     if (!region) {

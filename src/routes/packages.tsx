@@ -5,12 +5,14 @@ import {
   useMatchRoute,
 } from "@tanstack/react-router";
 import { getRegions } from "@/lib/packages-db";
+import { RegionTabsSkeleton } from "@/components/packages-skeletons";
 
 export const Route = createFileRoute("/packages")({
   loader: async () => {
     const regions = await getRegions();
     return { regions };
   },
+  pendingComponent: PackagesLayoutPending,
   head: () => ({
     meta: [
       { title: "Travel Packages — UniSetGo" },
@@ -29,6 +31,34 @@ export const Route = createFileRoute("/packages")({
   component: PackagesLayout,
 });
 
+function PackagesHero() {
+  return (
+    <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-8">
+      <span className="bar-mark text-xs font-bold uppercase tracking-[0.22em] text-white/90">
+        Curated packages
+      </span>
+      <h1 className="mt-4 text-4xl font-black leading-tight sm:text-6xl">
+        Journeys, by <em className="not-italic text-accent">region and reason</em>.
+      </h1>
+      <p className="mt-4 max-w-xl text-white/80">
+        Sample plans you can book as-is or customise. Every trip is designed
+        by a real trip designer, not a template.
+      </p>
+    </div>
+  );
+}
+
+function PackagesLayoutPending() {
+  return (
+    <div>
+      <section className="bg-primary text-primary-foreground">
+        <PackagesHero />
+        <RegionTabsSkeleton />
+      </section>
+    </div>
+  );
+}
+
 function PackagesLayout() {
   const { regions } = Route.useLoaderData();
   const matchRoute = useMatchRoute();
@@ -36,18 +66,7 @@ function PackagesLayout() {
     <div>
       {/* section hero */}
       <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-8">
-          <span className="bar-mark text-xs font-bold uppercase tracking-[0.22em] text-white/90">
-            Curated packages
-          </span>
-          <h1 className="mt-4 text-4xl font-black leading-tight sm:text-6xl">
-            Journeys, by <em className="not-italic text-accent">region and reason</em>.
-          </h1>
-          <p className="mt-4 max-w-xl text-white/80">
-            Sample plans you can book as-is or customise. Every trip is designed
-            by a real trip designer, not a template.
-          </p>
-        </div>
+        <PackagesHero />
 
         {/* region tabs */}
         <div className="border-t border-white/10 bg-primary">
