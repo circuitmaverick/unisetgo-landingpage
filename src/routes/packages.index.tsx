@@ -1,16 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Search, SlidersHorizontal, X } from "lucide-react";
-import {
-  PACKAGES,
-  TRIP_TYPES,
-  formatINR,
-  type Package,
-  type TripType,
-} from "@/data/packages";
-import { REGIONS, regionBySlug, type RegionSlug } from "@/data/regions";
+import { TRIP_TYPES, formatINR, type TripType } from "@/data/packages";
+import { regionBySlug } from "@/data/regions";
+import { getPackages, getRegions } from "@/lib/packages-db";
+import { CachedImage } from "@/components/cached-image";
 
 export const Route = createFileRoute("/packages/")({
+  loader: async () => {
+    const [packages, regions] = await Promise.all([
+      getPackages(),
+      getRegions(),
+    ]);
+    return { packages, regions };
+  },
   head: () => ({
     meta: [
       { title: "All Travel Packages — Search & Filter | UniSetGo" },
@@ -34,8 +37,9 @@ export const Route = createFileRoute("/packages/")({
 });
 
 function AllPackages() {
+  const { packages, regions } = Route.useLoaderData();
   const [q, setQ] = useState("");
-  const [region, setRegion] = useState<RegionSlug | "all">("all");
+  const [region, setRegion] = useState<string | "all">("all");
   const [tripType, setTripType] = useState<TripType | "all">("all");
   const [duration, setDuration] = useState<"all" | "short" | "medium" | "long">(
     "all",
@@ -43,7 +47,7 @@ function AllPackages() {
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
-    return PACKAGES.filter((p) => {
+    return packages.filter((p) => {
       if (region !== "all" && p.region !== region) return false;
       if (tripType !== "all" && p.tripType !== tripType) return false;
       if (duration === "short" && p.days > 5) return false;
@@ -51,13 +55,12 @@ function AllPackages() {
         return false;
       if (duration === "long" && p.days < 8) return false;
       if (needle) {
-        const hay =
-          `${p.title} ${p.country} ${p.summary} ${p.overview} ${p.highlights.join(" ")}`.toLowerCase();
+        const hay = `${p.title} ${p.country} ${p.summary} ${p.overview}`.toLowerCase();
         if (!hay.includes(needle)) return false;
       }
       return true;
     });
-  }, [q, region, tripType, duration]);
+  }, [packages, q, region, tripType, duration]);
 
   const anyFilterActive =
     q || region !== "all" || tripType !== "all" || duration !== "all";
@@ -74,7 +77,7 @@ function AllPackages() {
         <h2 className="text-2xl font-black text-foreground sm:text-3xl">
           All packages{" "}
           <span className="text-lg font-medium text-muted-foreground">
-            ({filtered.length}/{PACKAGES.length})
+            ({filtered.length}/{packages.length})
           </span>
         </h2>
         <p className="text-muted-foreground">
@@ -100,10 +103,10 @@ function AllPackages() {
           <SelectField
             label="Region"
             value={region}
-            onChange={(v) => setRegion(v as RegionSlug | "all")}
+            onChange={(v) => setRegion(v)}
             options={[
               { value: "all", label: "All regions" },
-              ...REGIONS.map((r) => ({ value: r.slug, label: r.name })),
+              ...regions.map((r) => ({ value: r.slug, label: r.name })),
             ]}
           />
 
@@ -138,7 +141,9 @@ function AllPackages() {
             {q && <FilterChip label={`"${q}"`} onClear={() => setQ("")} />}
             {region !== "all" && (
               <FilterChip
-                label={regionBySlug(region)?.name ?? region}
+                label={
+                  regions.find((r) => r.slug === region)?.name ?? region
+                }
                 onClear={() => setRegion("all")}
               />
             )}
@@ -245,8 +250,21 @@ function FilterChip({
   );
 }
 
-export function PackageCard({ pkg }: { pkg: Package }) {
-  const region = regionBySlug(pkg.region);
+type PackageCardData = {
+  slug: string;
+  title: string;
+  region: string;
+  regionName?: string;
+  country: string;
+  days: number;
+  nights: number;
+  priceFrom: number;
+  heroImage: string;
+  summary: string;
+};
+
+export function PackageCard({ pkg }: { pkg: PackageCardData }) {
+  const regionLabel = pkg.regionName ?? regionBySlug(pkg.region)?.name ?? pkg.region;
   return (
     <Link
       to="/packages/$region/$slug"
@@ -254,7 +272,7 @@ export function PackageCard({ pkg }: { pkg: Package }) {
       className="group flex flex-col overflow-hidden rounded-3xl bg-card shadow-[var(--shadow-card)] transition hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)]"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
-        <img
+        <CachedImage
           src={pkg.heroImage}
           alt={pkg.title}
           loading="lazy"
@@ -264,7 +282,7 @@ export function PackageCard({ pkg }: { pkg: Package }) {
         />
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent" />
         <span className="absolute left-4 top-4 rounded-full bg-primary/90 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-primary-foreground backdrop-blur">
-          {region?.name}
+          {regionLabel}
         </span>
         <span className="absolute right-4 top-4 rounded-full bg-accent px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-accent-foreground">
           {pkg.days}D / {pkg.nights}N

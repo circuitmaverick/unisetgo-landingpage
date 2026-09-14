@@ -4,12 +4,13 @@ import {
   Outlet,
   Link,
 } from "@tanstack/react-router";
-import { REGIONS, regionBySlug } from "@/data/regions";
+import { getRegions, type RegionWithSubRegions } from "@/lib/packages-db";
 
 export const Route = createFileRoute("/packages/$region")({
-  loader: ({ params }) => {
-    const region = regionBySlug(params.region);
-    if (!region) throw notFound();
+  loader: async ({ params }) => {
+    const regions = await getRegions();
+    const region = regions.find((r) => r.slug === params.region);
+    if (!region) throw notFound({ data: { regions } });
     return { region };
   },
   head: ({ params, loaderData }) => {
@@ -49,13 +50,15 @@ export const Route = createFileRoute("/packages/$region")({
   component: () => <Outlet />,
 });
 
-function RegionNotFound() {
+function RegionNotFound({ data }: { data?: unknown }) {
+  const regions =
+    (data as { regions?: RegionWithSubRegions[] } | undefined)?.regions ?? [];
   return (
     <div className="mx-auto max-w-xl px-5 py-24 text-center sm:px-8">
       <h2 className="text-2xl font-black text-foreground">Region not found</h2>
       <p className="mt-2 text-muted-foreground">Pick from the regions below.</p>
       <div className="mt-6 flex flex-wrap justify-center gap-2">
-        {REGIONS.map((r) => (
+        {regions.map((r) => (
           <Link
             key={r.slug}
             to="/packages/$region"
