@@ -1,6 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CONTACT, mailLink, waLink } from "@/lib/contact";
-import { MessageCircle, Mail, Phone, MapPin, Send } from "lucide-react";
+import { supabase } from "@/lib/supabase";
+import { PACKAGES } from "@/data/packages";
+import { cn } from "@/lib/utils";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  MessageCircle,
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Check,
+  ChevronsUpDown,
+} from "lucide-react";
 import { useState, type FormEvent } from "react";
 
 export const Route = createFileRoute("/contact")({
@@ -164,12 +188,20 @@ export async function submitContactEnquiry(data: {
   phone: string;
   email: string;
   message: string;
+  packageSlug?: string;
 }) {
-  // Dummy function — replace this with a real database upload later.
-  console.log("Contact enquiry submitted:", {
-    ...data,
-    submittedAt: new Date().toISOString(),
+  const { error } = await supabase.from("messages").insert({
+    name: data.name,
+    email: data.email,
+    phone_number: data.phone,
+    message: data.message,
+    interested_package: data.packageSlug ?? null,
   });
+
+  if (error) {
+    throw error;
+  }
+
   return { ok: true };
 }
 
@@ -178,8 +210,14 @@ function ContactForm() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [packageSlug, setPackageSlug] = useState("");
+  const [packageOpen, setPackageOpen] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const selectedPackage = PACKAGES.find((pkg) => pkg.slug === packageSlug);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -202,6 +240,7 @@ function ContactForm() {
     }
 
     setErrors(nextErrors);
+    setSubmitError("");
 
     if (Object.keys(nextErrors).length === 0) {
       const payload = {
@@ -209,14 +248,25 @@ function ContactForm() {
         phone: phone.trim(),
         email: email.trim(),
         message: message.trim(),
+        ...(packageSlug ? { packageSlug } : {}),
       };
-      await submitContactEnquiry(payload);
-      setName("");
-      setPhone("");
-      setEmail("");
-      setMessage("");
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000);
+      setSubmitting(true);
+      try {
+        await submitContactEnquiry(payload);
+        setName("");
+        setPhone("");
+        setEmail("");
+        setMessage("");
+        setPackageSlug("");
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
+      } catch {
+        setSubmitError(
+          "Something went wrong sending your enquiry. Please try again or reach us on WhatsApp.",
+        );
+      } finally {
+        setSubmitting(false);
+      }
     }
   }
 
@@ -291,6 +341,80 @@ function ContactForm() {
 
       <div>
         <label
+          htmlFor="contact-package"
+          className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-muted-foreground"
+        >
+          Interested Package{" "}
+          <span className="font-normal text-muted-foreground/70">
+            (optional)
+          </span>
+        </label>
+        <Popover open={packageOpen} onOpenChange={setPackageOpen}>
+          <PopoverTrigger asChild>
+            <button
+              id="contact-package"
+              type="button"
+              role="combobox"
+              aria-expanded={packageOpen}
+              className="flex w-full items-center justify-between rounded-xl border border-border bg-secondary px-4 py-3 text-left text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            >
+              <span
+                className={cn(
+                  "truncate",
+                  !selectedPackage && "text-muted-foreground",
+                )}
+              >
+                {selectedPackage
+                  ? selectedPackage.title
+                  : "Search for a package..."}
+              </span>
+              <ChevronsUpDown className="h-4 w-4 shrink-0 opacity-50" />
+            </button>
+          </PopoverTrigger>
+          <PopoverContent
+            align="start"
+            className="w-(--radix-popover-trigger-width) p-0"
+          >
+            <Command
+              filter={(value, search) =>
+                value.toLowerCase().includes(search.toLowerCase()) ? 1 : 0
+              }
+            >
+              <CommandInput placeholder="Type a package name..." />
+              <CommandList>
+                <CommandEmpty>No package found.</CommandEmpty>
+                <CommandGroup>
+                  {PACKAGES.map((pkg) => (
+                    <CommandItem
+                      key={pkg.slug}
+                      value={pkg.title}
+                      onSelect={() => {
+                        setPackageSlug(
+                          pkg.slug === packageSlug ? "" : pkg.slug,
+                        );
+                        setPackageOpen(false);
+                      }}
+                    >
+                      <Check
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          packageSlug === pkg.slug
+                            ? "opacity-100"
+                            : "opacity-0",
+                        )}
+                      />
+                      <span className="truncate">{pkg.title}</span>
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        </Popover>
+      </div>
+
+      <div>
+        <label
           htmlFor="contact-message"
           className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-muted-foreground"
         >
@@ -313,16 +437,20 @@ function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-95"
+        disabled={submitting}
+        className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <Send className="h-4 w-4" />
-        Send Enquiry
+        {submitting ? "Sending..." : "Send Enquiry"}
       </button>
 
       {submitted && (
         <p className="text-sm font-medium text-green-600">
           Thanks — your enquiry has been logged. We'll be in touch shortly.
         </p>
+      )}
+      {submitError && (
+        <p className="text-sm font-medium text-destructive">{submitError}</p>
       )}
     </form>
   );
