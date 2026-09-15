@@ -18,13 +18,13 @@ import { Route as CorporateConclavesRouteImport } from './routes/corporate-concl
 import { Route as CruisesRouteImport } from './routes/cruises'
 import { Route as FlightsRouteImport } from './routes/flights'
 import { Route as ForeignTravelCardRouteImport } from './routes/foreign-travel-card'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as GolfTourismRouteImport } from './routes/golf-tourism'
 import { Route as HoneymoonRouteImport } from './routes/honeymoon'
 import { Route as HotelsRouteImport } from './routes/hotels'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
-import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as SeniorCitizensRouteImport } from './routes/senior-citizens'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
@@ -79,6 +79,11 @@ const ForeignTravelCardRoute = ForeignTravelCardRouteImport.update({
   path: '/foreign-travel-card',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GolfTourismRoute = GolfTourismRouteImport.update({
   id: '/golf-tourism',
   path: '/golf-tourism',
@@ -107,11 +112,6 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
 const RefundPolicyRoute = RefundPolicyRouteImport.update({
   id: '/refund-policy',
   path: '/refund-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReviewsRoute = ReviewsRouteImport.update({
-  id: '/reviews',
-  path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SeniorCitizensRoute = SeniorCitizensRouteImport.update({
@@ -165,13 +165,13 @@ export interface FileRoutesByFullPath {
   '/cruises': typeof CruisesRoute
   '/flights': typeof FlightsRoute
   '/foreign-travel-card': typeof ForeignTravelCardRoute
+  '/gallery': typeof GalleryRoute
   '/golf-tourism': typeof GolfTourismRoute
   '/honeymoon': typeof HoneymoonRoute
   '/hotels': typeof HotelsRoute
   '/packages': typeof PackagesRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-policy': typeof RefundPolicyRoute
-  '/reviews': typeof ReviewsRoute
   '/senior-citizens': typeof SeniorCitizensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -191,12 +191,12 @@ export interface FileRoutesByTo {
   '/cruises': typeof CruisesRoute
   '/flights': typeof FlightsRoute
   '/foreign-travel-card': typeof ForeignTravelCardRoute
+  '/gallery': typeof GalleryRoute
   '/golf-tourism': typeof GolfTourismRoute
   '/honeymoon': typeof HoneymoonRoute
   '/hotels': typeof HotelsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-policy': typeof RefundPolicyRoute
-  '/reviews': typeof ReviewsRoute
   '/senior-citizens': typeof SeniorCitizensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -216,13 +216,13 @@ export interface FileRoutesById {
   '/cruises': typeof CruisesRoute
   '/flights': typeof FlightsRoute
   '/foreign-travel-card': typeof ForeignTravelCardRoute
+  '/gallery': typeof GalleryRoute
   '/golf-tourism': typeof GolfTourismRoute
   '/honeymoon': typeof HoneymoonRoute
   '/hotels': typeof HotelsRoute
   '/packages': typeof PackagesRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-policy': typeof RefundPolicyRoute
-  '/reviews': typeof ReviewsRoute
   '/senior-citizens': typeof SeniorCitizensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -244,13 +244,13 @@ export interface FileRouteTypes {
     | '/cruises'
     | '/flights'
     | '/foreign-travel-card'
+    | '/gallery'
     | '/golf-tourism'
     | '/honeymoon'
     | '/hotels'
     | '/packages'
     | '/privacy-policy'
     | '/refund-policy'
-    | '/reviews'
     | '/senior-citizens'
     | '/sitemap.xml'
     | '/terms-and-conditions'
@@ -270,12 +270,12 @@ export interface FileRouteTypes {
     | '/cruises'
     | '/flights'
     | '/foreign-travel-card'
+    | '/gallery'
     | '/golf-tourism'
     | '/honeymoon'
     | '/hotels'
     | '/privacy-policy'
     | '/refund-policy'
-    | '/reviews'
     | '/senior-citizens'
     | '/sitemap.xml'
     | '/terms-and-conditions'
@@ -294,13 +294,13 @@ export interface FileRouteTypes {
     | '/cruises'
     | '/flights'
     | '/foreign-travel-card'
+    | '/gallery'
     | '/golf-tourism'
     | '/honeymoon'
     | '/hotels'
     | '/packages'
     | '/privacy-policy'
     | '/refund-policy'
-    | '/reviews'
     | '/senior-citizens'
     | '/sitemap.xml'
     | '/terms-and-conditions'
@@ -321,13 +321,13 @@ export interface RootRouteChildren {
   CruisesRoute: typeof CruisesRoute
   FlightsRoute: typeof FlightsRoute
   ForeignTravelCardRoute: typeof ForeignTravelCardRoute
+  GalleryRoute: typeof GalleryRoute
   GolfTourismRoute: typeof GolfTourismRoute
   HoneymoonRoute: typeof HoneymoonRoute
   HotelsRoute: typeof HotelsRoute
   PackagesRoute: typeof PackagesRouteWithChildren
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
-  ReviewsRoute: typeof ReviewsRoute
   SeniorCitizensRoute: typeof SeniorCitizensRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
@@ -399,6 +399,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ForeignTravelCardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/golf-tourism': {
       id: '/golf-tourism'
       path: '/golf-tourism'
@@ -439,13 +446,6 @@ declare module '@tanstack/react-router' {
       path: '/refund-policy'
       fullPath: '/refund-policy'
       preLoaderRoute: typeof RefundPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reviews': {
-      id: '/reviews'
-      path: '/reviews'
-      fullPath: '/reviews'
-      preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/senior-citizens': {
@@ -545,13 +545,13 @@ const rootRouteChildren: RootRouteChildren = {
   CruisesRoute: CruisesRoute,
   FlightsRoute: FlightsRoute,
   ForeignTravelCardRoute: ForeignTravelCardRoute,
+  GalleryRoute: GalleryRoute,
   GolfTourismRoute: GolfTourismRoute,
   HoneymoonRoute: HoneymoonRoute,
   HotelsRoute: HotelsRoute,
   PackagesRoute: PackagesRouteWithChildren,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RefundPolicyRoute: RefundPolicyRoute,
-  ReviewsRoute: ReviewsRoute,
   SeniorCitizensRoute: SeniorCitizensRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
