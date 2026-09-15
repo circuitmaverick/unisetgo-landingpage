@@ -130,13 +130,13 @@ export function SiteHeader() {
           </Link>
 
           {/* Gallery */}
-          <Link
+          {/* <Link
             to="/gallery"
             className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition hover:text-primary hover:bg-secondary"
             activeProps={{ className: "text-primary bg-secondary" }}
           >
             Gallery
-          </Link>
+          </Link> */}
 
           {/* Ancillary Services Dropdown */}
           <DropdownMenu>
