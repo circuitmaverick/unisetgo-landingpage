@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { TESTIMONIALS as REVIEWS } from "@/data/testimonials";
 
@@ -128,12 +129,12 @@ export default function TestimonialsCarousel() {
               </div>
 
               <div className="mt-4">
-                <button
-                  type="button"
+                <Link
+                  to="/gallery"
                   className="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent px-3.5 py-1.5 text-xs font-semibold bg-accent text-white transition hover:border-primary hover:bg-primary hover:text-primary-foreground sm:text-sm"
                 >
                   Read Full Review <ArrowUpRight className="h-3.5 w-3.5" />
-                </button>
+                </Link>
 
                 <div className="mt-4 border-t border-border pt-3">
                   <p className="font-bold text-white">{review.author}</p>

@@ -19,6 +19,7 @@ const NAV = [
   { to: "/corporate-conclaves", label: "Corporate Conclaves" },
   { to: "/packages", label: "Packages" },
   { to: "/cruises", label: "Cruises" },
+  { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -127,6 +128,15 @@ export function SiteHeader() {
           >
             Cruises
           </Link>
+
+          {/* Gallery */}
+          {/* <Link
+            to="/gallery"
+            className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition hover:text-primary hover:bg-secondary"
+            activeProps={{ className: "text-primary bg-secondary" }}
+          >
+            Gallery
+          </Link> */}
 
           {/* Ancillary Services Dropdown */}
           <DropdownMenu>
