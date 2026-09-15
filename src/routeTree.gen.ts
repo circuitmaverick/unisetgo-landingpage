@@ -31,6 +31,7 @@ import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-condi
 import { Route as VisaRouteImport } from './routes/visa'
 import { Route as PackagesIndexRouteImport } from './routes/packages.index'
 import { Route as PackagesRegionRouteImport } from './routes/packages.$region'
+import { Route as ReviewFormIdRouteImport } from './routes/review-form.$id'
 import { Route as PackagesRegionIndexRouteImport } from './routes/packages.$region.index'
 import { Route as PackagesRegionSlugRouteImport } from './routes/packages.$region.$slug'
 
@@ -144,6 +145,11 @@ const PackagesRegionRoute = PackagesRegionRouteImport.update({
   path: '/$region',
   getParentRoute: () => PackagesRoute,
 } as any)
+const ReviewFormIdRoute = ReviewFormIdRouteImport.update({
+  id: '/review-form/$id',
+  path: '/review-form/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PackagesRegionIndexRoute = PackagesRegionIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -177,6 +183,7 @@ export interface FileRoutesByFullPath {
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/visa': typeof VisaRoute
   '/packages/$region': typeof PackagesRegionRouteWithChildren
+  '/review-form/$id': typeof ReviewFormIdRoute
   '/packages/': typeof PackagesIndexRoute
   '/packages/$region/$slug': typeof PackagesRegionSlugRoute
   '/packages/$region/': typeof PackagesRegionIndexRoute
@@ -201,6 +208,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/visa': typeof VisaRoute
+  '/review-form/$id': typeof ReviewFormIdRoute
   '/packages': typeof PackagesIndexRoute
   '/packages/$region/$slug': typeof PackagesRegionSlugRoute
   '/packages/$region': typeof PackagesRegionIndexRoute
@@ -228,6 +236,7 @@ export interface FileRoutesById {
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/visa': typeof VisaRoute
   '/packages/$region': typeof PackagesRegionRouteWithChildren
+  '/review-form/$id': typeof ReviewFormIdRoute
   '/packages/': typeof PackagesIndexRoute
   '/packages/$region/$slug': typeof PackagesRegionSlugRoute
   '/packages/$region/': typeof PackagesRegionIndexRoute
@@ -256,6 +265,7 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/visa'
     | '/packages/$region'
+    | '/review-form/$id'
     | '/packages/'
     | '/packages/$region/$slug'
     | '/packages/$region/'
@@ -280,6 +290,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms-and-conditions'
     | '/visa'
+    | '/review-form/$id'
     | '/packages'
     | '/packages/$region/$slug'
     | '/packages/$region'
@@ -306,6 +317,7 @@ export interface FileRouteTypes {
     | '/terms-and-conditions'
     | '/visa'
     | '/packages/$region'
+    | '/review-form/$id'
     | '/packages/'
     | '/packages/$region/$slug'
     | '/packages/$region/'
@@ -332,6 +344,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   VisaRoute: typeof VisaRoute
+  ReviewFormIdRoute: typeof ReviewFormIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -490,6 +503,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PackagesRegionRouteImport
       parentRoute: typeof PackagesRoute
     }
+    '/review-form/$id': {
+      id: '/review-form/$id'
+      path: '/review-form/$id'
+      fullPath: '/review-form/$id'
+      preLoaderRoute: typeof ReviewFormIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/packages/$region/': {
       id: '/packages/$region/'
       path: '/'
@@ -556,6 +576,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
   VisaRoute: VisaRoute,
+  ReviewFormIdRoute: ReviewFormIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
