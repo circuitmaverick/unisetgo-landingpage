@@ -34,7 +34,7 @@ export type ReviewSubmission = {
   futureChoice: boolean;
   recommendation: number | null;
   whatWeMissed: string | null;
-  gallery: string[];
+  gallery: { url: string; public: boolean }[];
   rating: number;
   anonymous: boolean;
 };
