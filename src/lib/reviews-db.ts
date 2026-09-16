@@ -9,20 +9,25 @@ export type GalleryReview = {
   images: string[]; // always at least 1 entry
 };
 
+type GalleryPhoto = { url: string; public: boolean };
+
 type RawReviewRow = {
   id: string;
   name: string | null;
   rating: number | null;
   review: string | null;
-  gallery: string[] | null;
+  gallery: GalleryPhoto[] | null;
   anonymous: boolean;
 };
 
 /**
- * Reviews that have at least one gallery photo, visible on the public
- * gallery page. A review must be both `visibility` and `approved` to be
- * returned — enforced by the "Public can view visible approved reviews"
- * RLS policy, not just this filter.
+ * Reviews that have at least one *publicly-visible* gallery photo. A review
+ * must be both `visibility` and `approved` to be returned at all — enforced
+ * by the "Public can view visible approved reviews" RLS policy — and on top
+ * of that, each photo in `gallery` carries its own client-chosen `public`
+ * flag (set on the review-form page), so a review with photos where every
+ * single one is marked private is excluded here too, same as having no
+ * photos at all.
  */
 export async function getGalleryReviews(): Promise<GalleryReview[]> {
   return withCache("gallery-reviews", SEVEN_DAYS_MS, async () => {
@@ -36,13 +41,15 @@ export async function getGalleryReviews(): Promise<GalleryReview[]> {
     if (error) throw error;
 
     return (data ?? [])
-      .filter((row): row is RawReviewRow => Boolean(row.gallery?.length))
-      .map((row) => ({
+      .map((row: RawReviewRow) => ({
         id: row.id,
         name: row.anonymous ? "Anonymous" : row.name || "Anonymous",
         rating: row.rating ?? 0,
         review: row.review ?? "",
-        images: row.gallery as string[],
-      }));
+        images: (row.gallery ?? [])
+          .filter((photo) => photo.public)
+          .map((photo) => photo.url),
+      }))
+      .filter((review) => review.images.length > 0);
   });
 }

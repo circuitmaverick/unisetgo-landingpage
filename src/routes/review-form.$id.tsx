@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useId, useState, type FormEvent } from "react";
-import { Star, X, Upload, Loader2, Lock } from "lucide-react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { Star, X, Upload, Loader2, Lock, Eye, EyeOff } from "lucide-react";
 import {
   getReviewDraft,
   submitReviewForm,
@@ -62,6 +62,13 @@ function ReviewFormPage() {
 
 type ScaleValue = 1 | 2 | 3;
 
+type PhotoEntry = {
+  id: string;
+  file: File;
+  public: boolean;
+  previewUrl: string;
+};
+
 function ReviewForm({ draft }: { draft: ReviewDraft }) {
   const favouriteThingsId = useId();
   const improvementsId = useId();
@@ -86,7 +93,7 @@ function ReviewForm({ draft }: { draft: ReviewDraft }) {
   const [futureChoice, setFutureChoice] = useState<boolean | null>(null);
   const [recommendation, setRecommendation] = useState<number | null>(null);
   const [whatWeMissed, setWhatWeMissed] = useState("");
-  const [photos, setPhotos] = useState<File[]>([]);
+  const [photos, setPhotos] = useState<PhotoEntry[]>([]);
   const [rating, setRating] = useState(0);
   const [anonymous, setAnonymous] = useState(false);
 
@@ -95,6 +102,18 @@ function ReviewForm({ draft }: { draft: ReviewDraft }) {
   const [submitError, setSubmitError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [photoError, setPhotoError] = useState("");
+
+  // Revoke every remaining preview URL when the form unmounts (e.g. after
+  // a successful submit swaps in the thank-you view). Kept in a ref so the
+  // cleanup — which only runs once, on unmount — always sees the latest
+  // photos rather than the empty array from the initial render.
+  const photosRef = useRef(photos);
+  photosRef.current = photos;
+  useEffect(() => {
+    return () => {
+      photosRef.current.forEach((p) => URL.revokeObjectURL(p.previewUrl));
+    };
+  }, []);
 
   function addPhotos(files: FileList | null) {
     if (!files) return;
@@ -105,14 +124,35 @@ function ReviewForm({ draft }: { draft: ReviewDraft }) {
       setPhotoError(`"${tooBig.name}" is over ${MAX_PHOTO_MB}MB.`);
       return;
     }
+    const newEntries: PhotoEntry[] = incoming.map((file) => ({
+      id: crypto.randomUUID(),
+      file,
+      public: true, // defaults to public — uploading here is already opt-in to sharing
+      previewUrl: URL.createObjectURL(file),
+    }));
     setPhotos((prev) => {
-      const combined = [...prev, ...incoming];
+      const combined = [...prev, ...newEntries];
       if (combined.length > MAX_PHOTOS) {
+        combined.slice(MAX_PHOTOS).forEach((p) => URL.revokeObjectURL(p.previewUrl));
         setPhotoError(`You can upload up to ${MAX_PHOTOS} photos.`);
         return combined.slice(0, MAX_PHOTOS);
       }
       return combined;
     });
+  }
+
+  function removePhoto(id: string) {
+    setPhotos((prev) => {
+      const target = prev.find((p) => p.id === id);
+      if (target) URL.revokeObjectURL(target.previewUrl);
+      return prev.filter((p) => p.id !== id);
+    });
+  }
+
+  function togglePhotoPublic(id: string) {
+    setPhotos((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, public: !p.public } : p)),
+    );
   }
 
   async function handleSubmit(e: FormEvent) {
@@ -147,9 +187,10 @@ function ReviewForm({ draft }: { draft: ReviewDraft }) {
 
     setSubmitting(true);
     try {
-      const gallery: string[] = [];
-      for (const file of photos) {
-        gallery.push(await uploadReviewPhoto(file));
+      const gallery: { url: string; public: boolean }[] = [];
+      for (const photo of photos) {
+        const url = await uploadReviewPhoto(photo.file);
+        gallery.push({ url, public: photo.public });
       }
 
       const result = await submitReviewForm(draft.id, {
@@ -414,9 +455,15 @@ function ReviewForm({ draft }: { draft: ReviewDraft }) {
           <Card>
             <FieldLabel>Share us some memories to cherish — your best shots</FieldLabel>
             <p className="mb-3 text-xs text-muted-foreground">
-              Upload up to {MAX_PHOTOS} photos. Max {MAX_PHOTO_MB}MB per file.
+              Upload up to {MAX_PHOTOS} photos, max {MAX_PHOTO_MB}MB per file.
+              Tap a photo to choose whether it's shown on our public gallery.
             </p>
-            <PhotoPicker photos={photos} onAdd={addPhotos} onRemove={(i) => setPhotos((p) => p.filter((_, j) => j !== i))} />
+            <PhotoPicker
+              photos={photos}
+              onAdd={addPhotos}
+              onRemove={removePhoto}
+              onTogglePublic={togglePhotoPublic}
+            />
             {photoError && <FieldError>{photoError}</FieldError>}
           </Card>
 
@@ -702,10 +749,12 @@ function PhotoPicker({
   photos,
   onAdd,
   onRemove,
+  onTogglePublic,
 }: {
-  photos: File[];
+  photos: PhotoEntry[];
   onAdd: (files: FileList | null) => void;
-  onRemove: (index: number) => void;
+  onRemove: (id: string) => void;
+  onTogglePublic: (id: string) => void;
 }) {
   return (
     <div>
@@ -724,21 +773,42 @@ function PhotoPicker({
         />
       </label>
       {photos.length > 0 && (
-        <div className="mt-3 grid grid-cols-4 gap-2">
-          {photos.map((file, i) => (
-            <div key={i} className="relative aspect-square overflow-hidden rounded-xl bg-secondary">
+        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {photos.map((p) => (
+            <div key={p.id} className="relative aspect-square overflow-hidden rounded-xl bg-secondary">
               <img
-                src={URL.createObjectURL(file)}
-                alt={file.name}
+                src={p.previewUrl}
+                alt={p.file.name}
                 className="h-full w-full object-cover"
               />
               <button
                 type="button"
-                onClick={() => onRemove(i)}
-                aria-label={`Remove ${file.name}`}
+                onClick={() => onRemove(p.id)}
+                aria-label={`Remove ${p.file.name}`}
                 className="absolute right-1 top-1 grid h-6 w-6 place-items-center rounded-full bg-black/60 text-white"
               >
                 <X className="h-3.5 w-3.5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => onTogglePublic(p.id)}
+                aria-label={
+                  p.public
+                    ? `Hide ${p.file.name} from the public gallery`
+                    : `Show ${p.file.name} on the public gallery`
+                }
+                className={`absolute inset-x-1 bottom-1 flex items-center justify-center gap-1 rounded-full py-1 text-[0.65rem] font-semibold ${
+                  p.public
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-black/60 text-white"
+                }`}
+              >
+                {p.public ? (
+                  <Eye className="h-3 w-3" />
+                ) : (
+                  <EyeOff className="h-3 w-3" />
+                )}
+                {p.public ? "Public" : "Private"}
               </button>
             </div>
           ))}
