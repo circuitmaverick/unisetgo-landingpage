@@ -20,8 +20,10 @@ import { Button } from "@/components/ui/button";
 import vatican1 from '@/assets/pkg-vatican-1.jpg';
 import TestimonialsCarousel from "@/components/testimonials-carousel";
 import Pillar from "@/components/pillar";
+import { getTestimonials } from "@/lib/testimonials-db";
 
 export const Route = createFileRoute("/")({
+  loader: async () => ({ testimonials: await getTestimonials() }),
   head: () => ({
     meta: [
       { title: "UniSetGo — Explore Beyond Boundaries" },
@@ -43,6 +45,7 @@ export const Route = createFileRoute("/")({
 
 function LandingPage() {
   const featured = featuredPackages();
+  const { testimonials } = Route.useLoaderData();
 
   return (
     <div className="overflow-x-hidden">
@@ -358,7 +361,7 @@ function LandingPage() {
       </section>
 
       {/* TESTIMONIAL */}
-      <TestimonialsCarousel />
+      <TestimonialsCarousel testimonials={testimonials} />
       {/* <section className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
         <div className="grid gap-8 md:grid-cols-3">
           {TESTIMONIALS.map((t) => (

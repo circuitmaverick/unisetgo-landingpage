@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { TESTIMONIALS as REVIEWS } from "@/data/testimonials";
+import type { Testimonial } from "@/lib/testimonials-db";
 
 const AUTOPLAY_MS = 5000;
 
@@ -50,8 +50,12 @@ function cardPosition(offset: number) {
   };
 }
 
-export default function TestimonialsCarousel() {
-  const length = REVIEWS.length;
+export default function TestimonialsCarousel({
+  testimonials,
+}: {
+  testimonials: Testimonial[];
+}) {
+  const length = testimonials.length;
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -61,7 +65,7 @@ export default function TestimonialsCarousel() {
   const prev = () => goTo(active - 1);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || length === 0) return;
     timerRef.current = setInterval(() => {
       setActive((i) => (i + 1) % length);
     }, AUTOPLAY_MS);
@@ -79,13 +83,15 @@ export default function TestimonialsCarousel() {
 
   const positioned = useMemo(
     () =>
-      REVIEWS.map((review, index) => ({
+      testimonials.map((review, index) => ({
         review,
         index,
         ...cardPosition(circularOffset(index, active, length)),
       })),
-    [active, length],
+    [testimonials, active, length],
   );
+
+  if (length === 0) return null;
 
   return (
     <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
@@ -131,6 +137,7 @@ export default function TestimonialsCarousel() {
               <div className="mt-4">
                 <Link
                   to="/gallery"
+                  search={{ review: review.id }}
                   className="inline-flex w-fit items-center gap-1.5 rounded-full border border-accent px-3.5 py-1.5 text-xs font-semibold bg-accent text-white transition hover:border-primary hover:bg-primary hover:text-primary-foreground sm:text-sm"
                 >
                   Read Full Review <ArrowUpRight className="h-3.5 w-3.5" />
@@ -164,7 +171,7 @@ export default function TestimonialsCarousel() {
 
       {/* dots */}
       <div className="mt-8 flex justify-center gap-2">
-        {REVIEWS.map((review, i) => (
+        {testimonials.map((review, i) => (
           <button
             key={i}
             type="button"

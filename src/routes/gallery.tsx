@@ -20,6 +20,9 @@ import {
 const PAGE_SIZE = 12;
 
 export const Route = createFileRoute("/gallery")({
+  validateSearch: (search: Record<string, unknown>): { review?: string } => ({
+    review: typeof search.review === "string" ? search.review : undefined,
+  }),
   loader: async () => {
     const reviews = await getGalleryReviews();
     return { reviews };
@@ -44,6 +47,7 @@ export const Route = createFileRoute("/gallery")({
 
 function GalleryPage() {
   const { reviews } = Route.useLoaderData();
+  const { review: reviewIdParam } = Route.useSearch();
   const total = reviews.length;
   const average =
     reviews.reduce((sum, r) => sum + r.rating, 0) / total || 0;
@@ -58,6 +62,18 @@ function GalleryPage() {
     () => reviews.slice(pageStart, pageStart + PAGE_SIZE),
     [reviews, pageStart],
   );
+
+  // Deep link from the homepage testimonials — open the matching review's
+  // dialog directly (and jump the grid to its page) instead of making the
+  // visitor find it themselves. Silently no-ops if the id isn't found (e.g.
+  // its photos are all private, or it's not approved/visible).
+  useEffect(() => {
+    if (!reviewIdParam) return;
+    const idx = reviews.findIndex((r) => r.id === reviewIdParam);
+    if (idx < 0) return;
+    setActiveIndex(idx);
+    setPage(Math.floor(idx / PAGE_SIZE) + 1);
+  }, [reviewIdParam, reviews]);
 
   function goToPage(next: number) {
     const clamped = Math.min(Math.max(next, 1), totalPages);
