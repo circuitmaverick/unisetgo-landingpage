@@ -18,10 +18,13 @@ import {
   Sparkles,
   MessageCircle,
   Wand2,
+  Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CachedImage } from "@/components/cached-image";
 import { PackageDetailSkeleton } from "@/components/packages-skeletons";
+import { PackageEnquiryForm } from "@/components/package-enquiry-form";
+import { PackageReviewsSection } from "@/components/package-reviews";
 import { waLink, mailLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/packages/$region/$slug")({
@@ -140,6 +143,15 @@ function PackageDetail() {
               <span className="rounded-full bg-accent/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-accent">
                 {pkg.days}D / {pkg.nights}N
               </span>
+              {pkg.reviewCount > 0 && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-[0.65rem] font-bold text-foreground">
+                  <Star className="h-3 w-3 fill-current text-accent" />
+                  {pkg.rating.toFixed(1)}{" "}
+                  <span className="font-normal text-muted-foreground">
+                    ({pkg.reviewCount})
+                  </span>
+                </span>
+              )}
             </div>
             <h1 className="mt-3 text-3xl font-black text-foreground sm:text-5xl">
               {pkg.title}
@@ -305,6 +317,21 @@ function PackageDetail() {
             </ul>
           </div>
           <div className="rounded-3xl border border-border bg-card p-6">
+            <h3 className="text-lg font-bold text-primary">
+              Enquire about this trip
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Have a question about {pkg.title}? Send us a message and we'll
+              get back to you.
+            </p>
+            <div className="mt-4">
+              <PackageEnquiryForm
+                packageSlug={pkg.slug}
+                idPrefix={`package-enquiry-${pkg.slug}`}
+              />
+            </div>
+          </div>
+          <div className="rounded-3xl border border-border bg-card p-6">
             <p className="text-xs uppercase tracking-widest text-muted-foreground">
               Prefer email?
             </p>
@@ -320,6 +347,13 @@ function PackageDetail() {
               <a href={mailLink(`Enquiry: ${pkg.title}`, bookMsg)}>Email us</a>
             </Button>
           </div>
+
+          <PackageReviewsSection
+            title={pkg.title}
+            rating={pkg.rating}
+            reviewCount={pkg.reviewCount}
+            reviews={pkg.reviews}
+          />
         </aside>
       </section>
     </article>

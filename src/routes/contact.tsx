@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CONTACT, mailLink, waLink } from "@/lib/contact";
-import { supabase } from "@/lib/supabase";
+import {
+  CONTACT,
+  mailLink,
+  waLink,
+  NAME_REGEX,
+  EMAIL_REGEX,
+  PHONE_REGEX,
+  validatePhoneDigits,
+  submitContactEnquiry,
+} from "@/lib/contact";
 import { PACKAGES } from "@/data/packages";
 import { cn } from "@/lib/utils";
 import {
@@ -172,37 +180,6 @@ function Info({
   ) : (
     content
   );
-}
-
-const NAME_REGEX = /^[a-zA-Z\s'-]{2,50}$/;
-const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const PHONE_REGEX = /^[\+]?[0-9\s\-\(\)]{10,20}$/;
-
-function validatePhoneDigits(value: string) {
-  const digits = value.replace(/\D/g, "");
-  return digits.length >= 10 && digits.length <= 15;
-}
-
-export async function submitContactEnquiry(data: {
-  name: string;
-  phone: string;
-  email: string;
-  message: string;
-  packageSlug?: string;
-}) {
-  const { error } = await supabase.from("messages").insert({
-    name: data.name,
-    email: data.email,
-    phone_number: data.phone,
-    message: data.message,
-    interested_package: data.packageSlug ?? null,
-  });
-
-  if (error) {
-    throw error;
-  }
-
-  return { ok: true };
 }
 
 function ContactForm() {

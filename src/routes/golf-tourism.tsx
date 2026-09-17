@@ -1,9 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Award, Calendar, Flag, MapPin, Trophy, Users } from "lucide-react";
 import { PageHero, WhatsAppCTA } from "@/components/page-hero";
+import { PackageCard } from "@/routes/packages.index";
+import { getGolfPackages } from "@/lib/packages-db";
 import { waLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/golf-tourism")({
+  loader: async () => ({ packages: await getGolfPackages() }),
   head: () => ({
     meta: [
       { title: "Golf Tourism — Play the World's Best Courses | UniSetGo" },
@@ -24,6 +27,7 @@ export const Route = createFileRoute("/golf-tourism")({
 const ENQUIRY = waLink("Hi UniSetGo, I'd like to plan a golf tour.");
 
 function GolfPage() {
+  const { packages: items } = Route.useLoaderData();
   return (
     <div>
       <PageHero
@@ -80,6 +84,35 @@ function GolfPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
+        <h2 className="text-2xl font-black text-foreground sm:text-3xl">
+          Curated golf packages{" "}
+          <span className="text-lg font-medium text-muted-foreground">
+            ({items.length})
+          </span>
+        </h2>
+        <p className="mt-2 text-muted-foreground">
+          Every trip below can be extended, upgraded or customised — just tell us your dream round.
+        </p>
+
+        {items.length === 0 ? (
+          <div className="mt-8 rounded-3xl border border-dashed border-border p-12 text-center">
+            <p className="text-lg font-semibold text-foreground">
+              No packages available.
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Check back soon — new golf packages are added regularly.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((p) => (
+              <PackageCard key={p.slug} pkg={p} />
+            ))}
+          </div>
+        )}
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8">

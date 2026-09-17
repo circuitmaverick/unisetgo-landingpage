@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { Search, SlidersHorizontal, Star, X } from "lucide-react";
 import { TRIP_TYPES, formatINR, type TripType } from "@/data/packages";
 import { regionBySlug } from "@/data/regions";
 import { getPackages, getRegions } from "@/lib/packages-db";
@@ -263,6 +263,8 @@ type PackageCardData = {
   priceFrom: number;
   heroImage: string;
   summary: string;
+  rating: number;
+  reviewCount: number;
 };
 
 export function PackageCard({ pkg }: { pkg: PackageCardData }) {
@@ -297,6 +299,17 @@ export function PackageCard({ pkg }: { pkg: PackageCardData }) {
         <h3 className="mt-1 text-lg font-bold text-foreground group-hover:text-primary">
           {pkg.title}
         </h3>
+        {pkg.reviewCount > 0 && (
+          <div className="mt-1 flex items-center gap-1">
+            <Star className="h-3.5 w-3.5 fill-current text-accent" />
+            <span className="text-sm font-semibold text-foreground">
+              {pkg.rating.toFixed(1)}
+            </span>
+            <span className="text-xs text-muted-foreground">
+              ({pkg.reviewCount})
+            </span>
+          </div>
+        )}
         <p className="mt-2 line-clamp-2 flex-1 text-sm text-muted-foreground">
           {pkg.summary}
         </p>

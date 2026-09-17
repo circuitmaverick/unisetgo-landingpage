@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, WhatsAppCTA } from "@/components/page-hero";
 import { PackageCard } from "@/routes/packages.index";
-import { honeymoonPackages } from "@/data/curated";
+import { getHoneymoonPackages } from "@/lib/packages-db";
 import { waLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/honeymoon")({
+  loader: async () => ({ packages: await getHoneymoonPackages() }),
   head: () => ({
     meta: [
       { title: "Honeymoon Packages — Romantic Getaways | UniSetGo" },
@@ -23,7 +24,7 @@ export const Route = createFileRoute("/honeymoon")({
 });
 
 function HoneymoonPage() {
-  const items = honeymoonPackages();
+  const { packages: items } = Route.useLoaderData();
   return (
     <div>
       <PageHero
@@ -54,11 +55,22 @@ function HoneymoonPage() {
           Every trip below can be extended, upgraded or customised — just tell us your dream.
         </p>
 
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((p) => (
-            <PackageCard key={p.slug} pkg={p} />
-          ))}
-        </div>
+        {items.length === 0 ? (
+          <div className="mt-8 rounded-3xl border border-dashed border-border p-12 text-center">
+            <p className="text-lg font-semibold text-foreground">
+              No packages available.
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Check back soon — new honeymoon packages are added regularly.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((p) => (
+              <PackageCard key={p.slug} pkg={p} />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );

@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, WhatsAppCTA } from "@/components/page-hero";
 import { PackageCard } from "@/routes/packages.index";
-import { seniorPackages } from "@/data/curated";
+import { getSeniorCitizenPackages } from "@/lib/packages-db";
 import { waLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/senior-citizens")({
+  loader: async () => ({ packages: await getSeniorCitizenPackages() }),
   head: () => ({
     meta: [
       { title: "Senior Citizen Travel Packages — UniSetGo" },
@@ -26,7 +27,7 @@ export const Route = createFileRoute("/senior-citizens")({
 });
 
 function SeniorCitizensPage() {
-  const items = seniorPackages();
+  const { packages: items } = Route.useLoaderData();
   return (
     <div>
       <PageHero
@@ -70,11 +71,23 @@ function SeniorCitizensPage() {
           accommodation comfort.
         </p>
 
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((p) => (
-            <PackageCard key={p.slug} pkg={p} />
-          ))}
-        </div>
+        {items.length === 0 ? (
+          <div className="mt-8 rounded-3xl border border-dashed border-border p-12 text-center">
+            <p className="text-lg font-semibold text-foreground">
+              No packages available.
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Check back soon — new senior-friendly packages are added
+              regularly.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((p) => (
+              <PackageCard key={p.slug} pkg={p} />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );
